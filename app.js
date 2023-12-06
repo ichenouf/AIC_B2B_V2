@@ -462,6 +462,21 @@ app.post(`/edit_user_disabled`, async (req, res,) => {
         res.send({"ok":false, "error":error});
     }
 });
+app.post(`/update_notification_token`, async (req, res,) => {
+    let {token, user_id} = req.body;
+	let result = {}
+    try {
+		console.log(req.body, id)
+
+        await db.update('users',{token : token }, {id : user_id} );
+         result['users'] = await db.select('*', 'users', {id : user_id }, "indexed");
+
+		res.send({"reponses":result, "id":id,"ok":true})
+
+    } catch (error) {
+        res.send({"ok":false, "error":error});
+    }
+});
 app.post(`/edit_picture_user`, async (req, res,) => {
     let {id, picture} = req.body;
 	let result = {}

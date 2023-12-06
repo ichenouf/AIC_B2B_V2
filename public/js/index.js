@@ -575,8 +575,7 @@ function displayDetailProfil(){
 
         <div class="list_header show-detail ">
             
-            <div class="d-flex">                   
-                <span style="padding-right: 10px ;"><i class="fa-regular fa-user"></i></span> Mes Informations  
+        <div class="d-flex" style="font-size: 18px; font-weight: 500; color: #252525;">Mes Informations  
                 <div id="length_done" style="padding-left: 10px; color: rgb(89, 71, 61);"> </div> 
             </div>
             <div class="icon_add ">                    
@@ -595,8 +594,7 @@ function displayDetailProfil(){
         </div>
         <div class="list_header show-detail ">
             
-            <div class="d-flex">                   
-                <span style="padding-right: 10px ;"><i class="fa-regular fa-building"></i></span> Les Informations de mon enreprise
+            <div class="d-flex" style="font-size: 18px; font-weight: 500; color: #252525;"> Les Informations de mon enreprise
                 <div id="length_done" style="padding-left: 10px; color: rgb(89, 71, 61);"> </div> 
             </div>
             <div class="icon_add ">                    
