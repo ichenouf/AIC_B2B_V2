@@ -1146,3 +1146,19 @@ width: 25px;
   }
   
 }
+
+
+/* notification!!!!!!!!!!! */
+.popup_notification{
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    height: 30VH;
+    width: 100vw;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    z-index: 1000;
+}
