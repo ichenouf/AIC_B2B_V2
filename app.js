@@ -462,6 +462,21 @@ app.post(`/edit_user_disabled`, async (req, res,) => {
         res.send({"ok":false, "error":error});
     }
 });
+app.post(`/edit_picture_user`, async (req, res,) => {
+    let {id, picture} = req.body;
+	let result = {}
+    try {
+		console.log(req.body, id)
+
+        await db.update('users',{picture : picture }, {id : id} );
+         result['users'] = await db.select('*', 'users', {id : id }, "indexed");
+
+		res.send({"reponses":result, "id":id,"ok":true})
+
+    } catch (error) {
+        res.send({"ok":false, "error":error});
+    }
+});
 
 
 app.post(`/delete_from_database`, async (req, res,) => {
@@ -691,7 +706,7 @@ app.post('/auth', async (req, res) => {
             res.send('/');
         }
 	  }else if(type == "users"){
-		var user = await db.select("*","users",  {email: email,});
+		var user = await db.select("*","users",  {email: email, is_deleted: 0});
         console.log(user);
         if(user.length != 0){
           const validPass = await bcrypt.compare(password, user[0].password);
@@ -728,9 +743,9 @@ app.post('/register', async (req, res) => {
 	  var {user_data,company_data, type}=req.body;
 	  console.log(user_data,company_data, type)
 	  if(type.type == 'company'){
-		var company=await db.select("*","companies",  {nif: company_data.nif},"row");
+		var company=await db.select("*","companies",  {nif: company_data.nif , is_deleted: 0},"row");
 	  }else if(type.type == 'organisme'){
-		var company=await db.select("*","companies",  {name: company_data.name},"row");
+		var company=await db.select("*","companies",  {name: company_data.name, is_deleted: 0},"row");
 
 	  }
 	  if(company){

@@ -270,8 +270,6 @@ overflow-y: scroll;
 }
 
 
-
-
 .header_side_menu{ display: grid; grid-template-columns: 10% 1fr; place-items: center;padding: 15px 20px }
 .header_side_menu .title { font-size: 18px;font-weight:600; text-align: center;}
 .title .exit { font-size: 20px;font-weight:300;}

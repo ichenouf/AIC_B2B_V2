@@ -23,29 +23,40 @@ function searchBar(selector){
     });
   }
 
-function upload_image(file, callback){
+
+  function upload_image(file, selector, callback){
     if(callback==undefined){callback=function(){};}
   
-    let ajax = new XMLHttpRequest(); 
-
-  ajax.addEventListener("load", function (e) {
+    let ajax = new XMLHttpRequest();
+  
+    ajax.upload.onprogress = function(e) {
+      var percentComplete = Math.ceil((e.loaded / e.total) * 100);
+      $(`${selector} .progress`).css("display","");
+      $(`${selector} .progressText`).text(percentComplete+"%");
+      $(`${selector} .progressBar`).css("width",percentComplete+"%");
+  
+    };
+  
+    ajax.addEventListener("load", function (e) {
+      console.log(e.target.response)
         let data = JSON.parse(e.target.response);
       callback(data, 'load');	
-  }, false);
-  ajax.addEventListener("error", function (e) {
+    }, false);
+    ajax.addEventListener("error", function (e) {
     callback(e, 'error');
-  }, false);
-
-  ajax.addEventListener("abort", function (e) {
+    }, false);
+  
+    ajax.addEventListener("abort", function (e) {
     callback(e, 'abort');
-  }, false);
-
-  ajax.open("POST",'/uploads');
-
-  var formData = new FormData();
-  formData.append('file', file);
-  ajax.send(formData);
-};
+    }, false);
+  
+    ajax.open("POST",'/uploads');
+  
+    var formData = new FormData();
+    formData.append('file', file);
+    ajax.send(formData);
+  };
+  
 
 
 // function carousel(selector,passed_options){
@@ -518,15 +529,20 @@ async function load_items (name,where,  reload = false){
          
     
         } else if(window.location.pathname=="/app"){
-  
-          if(table_name=="appointment" && obj.status==2){
-            display_app_notification("1","Rendez-vous décliné avec succés")
+          
+          if(table_name=="appointment" ){
+            if(obj.status==2){
+              display_app_notification("1","Rendez-vous décliné avec succés")
             }else{
             display_app_notification("1","Rendez-vous accepté avec success...")
-  
+            }
+           }else{
+            display_app_notification("1","Modifié(e) avec succès !")
+            $('#side_menu').css('display','none');
            }
   
         }else{
+          alert()
           displayPopup(' Modifié(e) avec succès !','','success')
           $('#side_menu').css('display','none');
     

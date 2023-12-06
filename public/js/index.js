@@ -23,8 +23,8 @@ $(document).ready(  async function () {
     await load_items ('appointment',{from_id:GV.session_id},  reload = true)
 
 
-    await load_items ('companies',{},  reload = false)
-    await load_items ('users',{},  reload = false)
+    await load_items ('companies',{is_deleted: 0},  reload = false)
+    await load_items ('users',{is_deleted: 0},  reload = false)
 
     display_welcome_top_bar()
 
@@ -325,8 +325,8 @@ GV.initialize_page.home_page= async function(){
     await load_items ('appointment',{from_id:GV.session_id},  reload = true)
 
 
-    await load_items ('companies',{},  reload = false)
-    await load_items ('users',{},  reload = false)
+    await load_items ('companies',{is_deleted: 0},  reload = false)
+    await load_items ('users',{is_deleted: 0},  reload = false)
 
     let date=$('#home_page').find(".selected_date_filter_btn").data("id")
     // display_count_appointment()
@@ -475,6 +475,165 @@ onClick(".company_element", function(){
     app_navigate_to("company_page");
 
 })
+
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!  PROFIL PAGE  //////////////////////////
+//! ///////////////////////////////////////////////////////////
+
+GV.initialize_page.profil_page=function(){
+
+    displayDetailProfil()
+}
+
+onClick('#edit-profil-data', function(e){
+    e.stopPropagation()
+    $('#overlay , #side_menu').css('display','grid')
+    displaySideProfil()
+})
+onClick('#edit-company-data', function(e){
+    e.stopPropagation()
+    $('#overlay , #side_menu').css('display','grid')
+    displaySideCompany()
+})
+
+
+onClick('#update_profil', async function(e){
+    $('#overlay , #side_menu').css('display','none')
+    await update($(this).data('id'), "users", "#form_user" ,GV.users)
+    displayDetailProfil()
+})
+onClick('#update_company', async function(e){
+    $('#overlay , #side_menu').css('display','none')
+    await update($(this).data('id'), "companies", "#form_company" ,GV.companies)
+    displayDetailProfil()
+})
+
+onClick('.close, .exit', async function(e){
+    $('#overlay , #side_menu').css('display','none')
+})
+$(document).on("change", "#fileInput", async function () {
+    let file = this.files[0];
+    upload_image(file, ".fileInput",async (e, res) => {
+      if (res == "load") {
+        console.log("%s uploaded successfuly: ", e.file_name);
+        GV.image_name = e.file_name;
+        var data = await ajax("/edit_picture_user", { id: GV.session_id, picture: GV.image_name });
+        if(data.ok){
+            index_items(data.reponses)
+            displayDetailProfil()
+        }
+      }
+      if (res == "error") {
+        console.log("An error happened: ", e);
+      }
+    });
+  });
+
+function displaySideProfil (){
+        var side = {id : "form_user", title_add: "Ajouter" , title_update: "Modifier votre profil",  btn_update: "update_profil" }
+        var arr = [
+          {data_id : 'first_name', selector : 'input', type : 'text', label : "Prénom : ", id : ''},
+          {data_id : 'last_name', selector : 'input', type : 'text', label : "Nom : ", id : ''},
+          {data_id : 'phone', selector : 'input', type : 'number', label : "N° téléphone : ", id : ''},
+          {data_id : 'email', selector : 'input', type : 'text', label : "Email : ", id : ''},
+          {data_id : 'poste', selector : 'input', type : 'text', label : "Fonction : ", id : ''},
+       
+        ]
+        displaySide(arr, side,GV.session_id,GV.users[GV.session_id])
+      
+       
+}
+function displaySideCompany (){
+        var side = {id : "form_company", title_add: "Ajouter" , title_update: "Modifier votre Entrepriss",  btn_update: "update_company" }
+        var arr = [
+          {data_id : 'name', selector : 'input', type : 'text', label : "Entreprise : ", id : ''},
+          {data_id : 'country', selector : 'input', type : 'text', label : "Pays : ", id : ''},
+          {data_id : 'phone', selector : 'input', type : 'number', label : "N° téléphone : ", id : ''},
+          {data_id : 'email', selector : 'input', type : 'text', label : "Email : ", id : ''},
+          {data_id : 'secteur', selector : 'input', type : 'text', label : "Secteur : ", id : ''},
+          {data_id : 'description', selector : 'textarea', type : 'text', label : "Présentation de l'entreprise: ", id : ''},
+       
+        ]
+        displaySide(arr, side,GV.users[GV.session_id].id_company,GV.companies[GV.users[GV.session_id].id_company])
+      
+       
+}
+
+function displayDetailProfil(){
+    
+    var html= `
+        <div class="padding20 " style="font-size: 25px; text-align: center;">
+            <div class="header-admin-image" > <img src="/img/uploads/${GV.users[GV.session_id].picture ? GV.users[GV.session_id].picture : 'default-user.jpg'}"></div>
+            <div style=" padding-top: 20px; ">${GV.users[GV.session_id].first_name} ${GV.users[GV.session_id].last_name}</div>
+
+            <label class="uploads-pic" style="color: gray; font-size: 14px; padding: 5px 15px" for="fileInput" >
+                Modifier ma photo
+                <input type="file" id="fileInput" style="display:none;">
+            </label>
+        </div>
+
+        <div class="list_header show-detail ">
+            
+            <div class="d-flex">                   
+                <span style="padding-right: 10px ;"><i class="fa-regular fa-user"></i></span> Mes Informations  
+                <div id="length_done" style="padding-left: 10px; color: rgb(89, 71, 61);"> </div> 
+            </div>
+            <div class="icon_add ">                    
+                <i class="fa-solid fa-chevron-up"></i>                    
+            </div>
+            <div id=""class="list_control_detail list" >
+
+                <div class="input-detail-profil" style="">${GV.users[GV.session_id].first_name} </div>       
+                <div class="input-detail-profil" style="">${GV.users[GV.session_id].last_name}</div>       
+                <div class="input-detail-profil" style="">${GV.users[GV.session_id].email ? GV.users[GV.session_id].email : 'Votre adresse email'}</div>       
+                <div class="input-detail-profil" style="">${GV.users[GV.session_id].phone ? GV.users[GV.session_id].phone : 'Votre N° téléphone'}</div>       
+                <div class="input-detail-profil" style="">${GV.users[GV.session_id].poste}</div>           
+
+                <div id="edit-profil-data" style="color: white;padding: 10px;text-align: center; background: #b24c1d; cursor: pointer;">Modifier</div>
+            </div>
+        </div>
+        <div class="list_header show-detail ">
+            
+            <div class="d-flex">                   
+                <span style="padding-right: 10px ;"><i class="fa-regular fa-building"></i></span> Les Informations de mon enreprise
+                <div id="length_done" style="padding-left: 10px; color: rgb(89, 71, 61);"> </div> 
+            </div>
+            <div class="icon_add ">                    
+                <i class="fa-solid fa-chevron-up"></i>                    
+            </div>
+            <div id=""class="list_control_detail list" >                               
+                <div class="input-detail-profil" style="">${GV.companies[GV.users[GV.session_id].id_company].name}</div>  
+                <div class="input-detail-profil" style="">${GV.companies[GV.users[GV.session_id].id_company].secteur ? GV.companies[GV.users[GV.session_id].id_company].secteur : 'Secteur'}</div>  
+                <div class="input-detail-profil" style="">${GV.companies[GV.users[GV.session_id].id_company].country ? GV.companies[GV.users[GV.session_id].id_company].country : 'Pays'}</div>  
+                <div class="input-detail-profil" style="">${GV.companies[GV.users[GV.session_id].id_company].email ? GV.companies[GV.users[GV.session_id].id_company].email: 'E-mail'}</div>  
+                <div class="input-detail-profil" style="">${GV.companies[GV.users[GV.session_id].id_company].phone ? GV.companies[GV.users[GV.session_id].id_company].phone :'N° téléphone'}</div>  
+                <div class="input-detail-profil" style="">${GV.companies[GV.users[GV.session_id].id_company].nif} </div> 
+                <div class="input-detail-profil" style="text-align: justify;">${GV.companies[GV.users[GV.session_id].id_company].description ? GV.companies[GV.users[GV.session_id].id_company].description : "Présenation de l'entrepris"}</div>  
+                <div id="edit-company-data" style="color: white;padding: 10px;text-align: center; background: #b24c1d; cursor: pointer;">Modifier</div>
+
+            </div>
+        </div>
+   `
+
+   $('#detail_profil').html(html)
+}
+
+onClick(".show-detail",function () {
+    let selector = $(this).children(".list");
+  
+    if ($(selector).hasClass("show")){
+    $(selector).removeClass("show");
+    $(this).find(".icon_add i").removeClass("fa-chevron-down").addClass("fa-chevron-up");
+    } else {
+    $(selector).addClass("show");  
+    $(this).find(".icon_add i").removeClass("fa-chevron-up").addClass("fa-chevron-down");
+    }
+  });
+
+
+
+
 
 
 //! /////////////////////////////////////////////////////////// 
@@ -716,8 +875,8 @@ GV.initialize_page.appointments_page= async function(){
     await load_items ('appointment',{from_id:GV.session_id},  reload = true)
 
 
-    await load_items ('companies',{},  reload = false)
-    await load_items ('users',{},  reload = false)
+    await load_items ('companies',{is_deleted: 0},  reload = false)
+    await load_items ('users',{is_deleted: 0},  reload = false)
 
 
     let date=$('#appointments_page').find(".selected_date_filter_pending_btn").data("id")
@@ -753,7 +912,6 @@ onClick(".switch_btn",function(){
 
 async function update_appointments_status(appointment,obj){
     try{
-        alert("je suis update")
         let user_id=appointment.from_id == GV.session_id  ?  appointment.to_id : appointment.from_id 
         let data = await ajax('/update_appointments_status',{user_id,current_user:GV.session_id,appointment,obj}); 
         console.log(data,"je suis data")

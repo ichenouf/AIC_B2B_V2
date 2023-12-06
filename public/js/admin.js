@@ -279,8 +279,8 @@ function displayUsersListe (id) {
         ${element.is_deleted == 0 ? `<i class="fa-regular fa-trash-can delete_user" style=" ; position: absolute; right: 10px" data-id="${element.id}"></i>` : ""}          
         
         <div class="bold" style="font-size: 18px"><span style="padding-right: 10px"> <div class="header-admin-image" > <img src="/img/uploads/${element.picture ? element.picture : 'default-user.jpg'}"></div></span>${element.first_name} ${element.last_name}</div>
-        <span style="padding-right: 10px; color: #d87448"><i class="fa-solid fa-phone"></i></span>${element.phone}<br>
-        <span style="padding-right: 10px; color: #d87448"><i class="fa-regular fa-envelope"></i></span>${element.email}<br>
+        <span style="padding-right: 10px; color: #d87448"><i class="fa-solid fa-phone"></i></span>${element.phone ? element.phone :''}<br>
+        <span style="padding-right: 10px; color: #d87448"><i class="fa-regular fa-envelope"></i></span>${element.email? element.email : ''}<br>
         <span style="padding-right: 10px; color: #d87448"><i class="fa-regular fa-address-card"></i></span>${element.poste}
       </div>
     `
@@ -318,9 +318,9 @@ function displayCompanies(){
           ${element.is_deleted==1?"<div style='color: #E91E63; font-size: 10px'> Désactivée </div>":""}
         </div>
         <div style="padding: 0px 10px;">
-            <div style="font-size: 14px;color: #b1b1b1;">${element.secteur}</div>
-            <div style="font-size: 14px" >${element.email}</div>
-            <div style="font-size: 14px" >${element.phone}</div>
+            <div style="font-size: 14px;color: #b1b1b1;">${element.secteur? element.secteur:''}</div>
+            <div style="font-size: 14px" >${element.email ? element.email:''}</div>
+            <div style="font-size: 14px" >${element.phone ? element.phone : ''}</div>
             <div style="font-size: 14px;color: #b1b1b1;padding-top:10px">${formated_date}</div>
         </div>
         <div style="display: flex; justify-content: space-between;">
