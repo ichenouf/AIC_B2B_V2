@@ -350,7 +350,7 @@ Afin de vous y connecter veuillez vous rendre sur www.algeriainvestconference-bt
 app.post(`/add_to_database`, async (req, res,) => {
 
     let {obj, table_name } = req.body;	
-	console.log(obj)
+	console.log(obj,table_name,"je suis add to data")
     try {
 
 		if(table_name=="companies"){
@@ -380,7 +380,7 @@ app.post(`/add_to_database`, async (req, res,) => {
 		if(table_name=="appointment"){
 			try {
 				
-				await mailAppointment("nouveau",obj.to_id)
+				// await mailAppointment("nouveau",obj.to_id)
 
 			} catch (error) {
 				console.log(error)
@@ -446,7 +446,7 @@ app.post(`/update_to_database`, async (req, res,) => {
 		if(table_name=="companies" && obj.user_limit){
 			let email=obj.email
 			try {
-				await mailCompteCorporate(email)
+				// await mailCompteCorporate(email)
 			  } catch (error) {
 				console.log(error);
 			  }
@@ -478,7 +478,7 @@ app.post(`/update_notification_token`, async (req, res,) => {
     let {token, user_id} = req.body;
 	let result = {}
     try {
-		console.log(req.body, id)
+		console.log(req.body, " je suis update notification")
 
         await db.update('users',{token : token }, {id : user_id} );
          result['users'] = await db.select('*', 'users', {id : user_id }, "indexed");

@@ -18,6 +18,7 @@
 
 #profil_page{
   margin-bottom: 100px;
+  display: none;
 }
 .header-admin-image {
   display: inline-block;

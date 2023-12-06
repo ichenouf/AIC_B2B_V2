@@ -398,16 +398,16 @@ async function load_items (name,where,  reload = false){
     return generate_password
   }
   
-  async function add(table_name, form_selector,storage,obj){
+  async function add(table_name, form_selector,storage,obj_params){
     // let obj={to_id: 27, from_id: "28", start: "2022-11-10 10:00:00", to_company_id: "6", from_company_id: "100"}
+    var obj = {}
     if(window.location.pathname=="/app"){
       display_app_notification("0")
     }
     console.log(obj,"console from add function")
-    
+    obj_params ? obj=obj_params:obj={}
     if(form_selector!=""){
     
-      var obj = {}
       $(form_selector).find('input, textarea, select').each(function () { 
         if (!$(this).data('id')) {
           return;
@@ -426,6 +426,9 @@ async function load_items (name,where,  reload = false){
     }
     console.log(obj,"console from add function")
     var data = await ajax('/add_to_database', {obj,table_name });
+
+
+
     
     if (data.ok) {
 

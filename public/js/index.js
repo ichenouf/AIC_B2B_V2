@@ -1,8 +1,5 @@
 
-// importScripts('https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js');
-// importScripts('https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js');
 
-// import { messaging } from "./firebase.js";  
 GV={ swipers:{},initialize_page:{}}
 
 GV.dates={
@@ -36,7 +33,7 @@ const vapidKey = {
 
 $(document).ready(  async function () {
     // navigate_to("home_page")
-
+   
     moment.locale('fr');
     await get_session_id_cookies ()
 
@@ -71,14 +68,17 @@ $(document).ready(  async function () {
         // showAddToHomeScreenPopup();
     });
 
-
+//    await get_user_token()
 
 
 
 });
 
-const app = firebase.initializeApp(firebaseConfig);
-const messaging = app.messaging()
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const messaging = app.messaging()
+
+
 
 
 
@@ -86,16 +86,20 @@ const messaging = app.messaging()
 
 
 onClick("#notifications_btn", async function(){
+   
     notifyMe()
+
 })
 
 async function get_user_token(){
+  
     messaging.getToken({ vapidKey: vapidKey.publicKey })
     .then( async (currentToken)  => {
       if (currentToken) {
         let data = await ajax('/update_notification_token',{user_id:GV.session_id,token:currentToken}); 
         console.log('Token:', currentToken);
         if(data.ok){
+            alert(`token updated ${currentToken}`)
             console.log(`token updated ${currentToken}`)
         }
         // Envoyez ce token au backend pour l'enregistrement
@@ -108,20 +112,23 @@ async function get_user_token(){
     });
 }
 
-function notifyMe() {
+async function notifyMe() {
     if (!("Notification" in window)) {
       // Check if the browser supports notifications
-      alert("This browser does not support desktop notification");
+      alert("This browser does not support mobile notification");
     } else if (Notification.permission === "granted") {
+        alert(Notification.permission)
+        await get_user_token()
       // Check whether notification permissions have already been granted;
       // if so, create a notification
     //   const notification = new Notification("Hi there!");
       // …
     } else if (Notification.permission !== "denied") {
       // We need to ask the user for permission
-      Notification.requestPermission().then((permission) => {
+      Notification.requestPermission().then(async (permission) => {
         // If the user accepts, let's create a notification
         if (permission === "granted") {
+           await get_user_token()
         //   const notification = new Notification("Hi there!");
           // …
         }
@@ -131,6 +138,8 @@ function notifyMe() {
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them anymore.
   }
+
+
 
 //! /////////////////////////////////////////////////////////// 
 //! //////////////////!  GENERAL  //////////////////////////
@@ -913,8 +922,8 @@ onClick('.time_slot', function(){
 
 
 onClick('#request_appointment_btn', async function(){
-    sendDataToFlutter('vibrate')
    console.log(GV.session_id)
+
     let myObj={
         to_id:$(this).data('id'),
         from_id:GV.session_id,
@@ -924,6 +933,8 @@ onClick('#request_appointment_btn', async function(){
     }
 
     console.log(myObj)
+
+    alert(myObj.to_id)
 
       
     await add("appointment","",GV.appointment,myObj)
