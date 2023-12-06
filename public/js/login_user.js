@@ -26,9 +26,82 @@ onClick('#login',function() {
 });
 
 onClick('#register', async function() {
-  updateButtonStatus($("#register"), "loading")
-  register()
+
+  if (!check_form('.form_subscription_container')) {
+    $('.massage').html('<div style="color: #F44336">Veuillez remplir tous les champs</div>')
+    return
+  }
+  if ($('#password_register').val() === $('#confirm_password_register').val()) {
+    
+    updateButtonStatus($("#register"), "loading")
+    register()
+
+  } else {
+    $('.massage').html('<div style="color: #F44336">Les mots de passe ne concordent pas.</div>')
+    $('#password_register,#confirm_password_register').css('border', 'solid 1px red')
+  }
+
 });
+
+$( ".type_company" ).on( "change", function() {
+    console.log($(this).val())
+    if($(this).val() == 'company'){
+      console.log(1)
+      $('#company_information').html(`
+      
+      <div class="input_container">
+          <div class="label">Entreprise : <span  style="color: rgb(224, 36, 36);">*</span></div>
+          <input class="input required" placeholder="Entrez votre Entreprise" id="company_name" type="text" name="" required>
+      </div>
+
+      <div class="input_container">
+          <div class="label">N° NIF : <span  style="color: rgb(224, 36, 36);">*</span></div>
+          <input class="input required" placeholder="Entrez le NIF de votre entreprise " id="nif" type="text" name="" required>
+
+      </div>
+
+      <div class="input_container">
+          <div class="label">Poste occupé(e) : <span  style="color: rgb(224, 36, 36);">*</span></div>
+          <input class="input required" placeholder="Ex: DRH" id="poste" type="text" name="" required>
+
+      </div>
+      `)
+    }else if($(this).val() == 'organisme'){
+      console.log(2)
+      $('#company_information').html(`
+      <div class="input_container">
+          <div class="label">Entreprise : <span  style="color: rgb(224, 36, 36);">*</span></div>
+          <select class="required" id="company_name" >
+              <option disabled selected value="">Veuillez selectionner votre institution</option>
+              <option value="AAPI">AAPI</option>
+              <option value="CEREFE">CEREFE</option>
+              <option value="CREA">CREA</option>
+              <option value="TABC">TABC</option>
+              <option value="CIPA">CIPA</option>
+              <option value="CCIAF">CCIAF</option>
+              <option value="ONDE">ONDE</option>
+              <option value="ALGEX">ALGEX</option>
+              <option value="GAAN">GAAN</option>
+              <option value="FILAHA INNOV">FILAHA INNOV</option>
+              <option value="CNCDPME">CNCDPME</option>
+              <option value="CACI">CACI</option>
+              <option value="INAPI">INAPI</option>
+              <option value="IANOR">IANOR</option>
+              <option value="ALGERAC">ALGERAC</option>
+              <option value="BASTP">BASTP</option>
+              <option value="WTC Algiers">WTC Algiers</option>
+          </select>
+      </div>
+      <div class="input_container">
+          <div class="label">Poste occupé(e) : <span  style="color: rgb(224, 36, 36);">*</span></div>
+          <input class="input required" placeholder="Ex: DRH" id="poste" type="text" name="" required>
+      </div>
+
+      `)
+    }else{
+
+    }
+} );
 
 
 
@@ -75,7 +148,6 @@ async function login(){
 
 
 async function register(){
-  if(!check_form('.form_subscription_container'))return  
   
     let user_data={
       first_name:$("#first_name").val(),
@@ -87,13 +159,15 @@ async function register(){
     
     }
 
+    let type = {type:$('.type_company').val()}
+
     let company_data={
       name:$("#company_name").val(),
       nif:$("#nif").val(),
     }
   
 
-  let res = await ajax('/register',{user_data,company_data}); 
+  let res = await ajax('/register',{user_data,company_data, type}); 
   if(res.success){
     updateButtonStatus($("#register"), "succeess")
     //TODO: Display popup

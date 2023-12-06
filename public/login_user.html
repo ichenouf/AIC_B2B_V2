@@ -22,7 +22,7 @@
 
         <div id="background_login" class="p_color"><img src="../img/logo_B2B_white.png"></div>
         <div class="w100 h100 body_login" style="padding:30px 45px">
-            <div class="form_login_container "  style="display:none">
+            <div class="form_login_container "  >
                 <h2 class="hero padding10 title_vbg text_color1">Connexion</h2>
                 <div class="input_container">
                     <div class="label">Email : <span  style="color: rgb(224, 36, 36);">*</span></div>
@@ -41,12 +41,12 @@
                 <div id="go_to_register" class="w100 text_center cursor" style="padding:20px">S'inscrire</div>
 
             </div>
-            <div class="form_subscription_container w100"  >
+            <div class="form_subscription_container w100" style="display:none" >
                 <div class="w100">
                     <h2 class="hero padding10 title_vbg text_color1"  >Inscription</h2>
 
                 </div>
-                <div class="w100" style="height:380px;overflow-y: scroll;">
+                <div class="w100" style="height:55vh;overflow-y: scroll;">
                     <div class="input_container">
                         <div class="label">Nom : <span  style="color: rgb(224, 36, 36);">*</span></div>
                         <input class="input required" placeholder="Entrez votre nom " id="last_name" type="text" name="" data-id="last_name" required>
@@ -73,30 +73,33 @@
                         <input class="input required" placeholder="Entrez votre mot de passe" id="password_register" type="password" name="password" data-id="password"  required>
     
                     </div>
-    
-    
-                    <div class="input_container">
-                        <div class="label">Entreprise : <span  style="color: rgb(224, 36, 36);">*</span></div>
-                        <input class="input required" placeholder="Entrez votre numéro de téléphone" id="company_name" type="text" name="" required>
-    
-                    </div>
 
                     <div class="input_container">
-                        <div class="label">N° NIF : <span  style="color: rgb(224, 36, 36);">*</span></div>
-                        <input class="input required" placeholder="Entrez le NIF de votre entreprise " id="nif" type="text" name="" required>
+                        <div class="label">Confirmation du Mot de passe: <span  style="color: rgb(224, 36, 36);">*</span></div>
+                        <input class="input required" placeholder="Entrez votre Confirmation mot de passe" id="confirm_password_register" type="password" name="password" data-id="password"  required>
     
                     </div>
-
+    
                     <div class="input_container">
-                        <div class="label">Poste occupé(e) : <span  style="color: rgb(224, 36, 36);">*</span></div>
-                        <input class="input required" placeholder="Ex: DRH" id="poste" type="text" name="" required>
-    
+                        <div class="label">Type <span  style="color: rgb(224, 36, 36);">*</span></div>
+
+                        <select class="required type_company">
+                            <option disabled selected value="">Veuillez selectionner votre type d'entreprise</option>
+                            <option value="company">Entreprise</option>
+                            <option value="organisme">Organisme institutionnel</option>
+                        </select>
                     </div>
+                    <div id="company_information">
+
+                    </div>
+                    <!-- <div calss="company_information">
+
+                    </div> -->
     
     
                 </div>
 
-                <div class="w100 h100">
+                <div class="w100">
                     <div class="massage"></div>
                     <div class="button_container grid center">
                         <button id="register" class="btn-connexion shadow p_color">Inscription</button>

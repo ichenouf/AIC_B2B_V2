@@ -725,9 +725,14 @@ app.post('/auth', async (req, res) => {
 app.post('/register', async (req, res) => {
 	
 	try{
-	  var {user_data,company_data}=req.body;
-	  console.log(user_data,company_data)
-	  let company=await db.select("*","companies",  {nif: company_data.nif},"row");
+	  var {user_data,company_data, type}=req.body;
+	  console.log(user_data,company_data, type)
+	  if(type.type == 'company'){
+		var company=await db.select("*","companies",  {nif: company_data.nif},"row");
+	  }else if(type.type == 'organisme'){
+		var company=await db.select("*","companies",  {name: company_data.name},"row");
+
+	  }
 	  if(company){
 		let company_id=company.id
 		user_data.id_company=company_id

@@ -114,12 +114,12 @@ function check_form(selector) {
     let res = true;
     $(`${selector} .required`).each(function () {
       console.log($(this).val())
-      if ($(this).val() == "") {
+      if ($(this).val() == "" || ($(this).val() == null) ){
         res = false;
         $(this).css('border', '1px solid #ff0000a8');
         return true;
       }
-      $(this).css('border', '1px solid #50b948cc');
+      // $(this).css('border', '1px solid #50b948cc');
     })
     return res;
   }
@@ -585,19 +585,19 @@ async function load_items (name,where,  reload = false){
     
   }
 
-  function check_form(selector) {
-    let res = true;
-    $(`${selector} .required`).each(function () {
-      console.log($(this).val())
-      if ($(this).val() == "") {
-        res = false;
-        $(this).css('border', '2px solid red');
-        return true;
-      }
-      // $(this).css('border', '2px solid green');
-    })
-    return res;
-  }
+  // function check_form(selector) {
+  //   let res = true;
+  //   $(`${selector} .required`).each(function () {
+  //     console.log($(this).val())
+  //     if ($(this).val() == "") {
+  //       res = false;
+  //       $(this).css('border', '2px solid red');
+  //       return true;
+  //     }
+  //     // $(this).css('border', '2px solid green');
+  //   })
+  //   return res;
+  // }
 
 
   function check_obj_filters(obj, filters){ 

@@ -19,7 +19,8 @@
 }
 
 #background_login img{
-    width: 200px;
+    width: 180px;
+    padding: 20px;
 }
 
 .label{
