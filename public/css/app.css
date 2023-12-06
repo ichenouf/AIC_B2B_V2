@@ -22,8 +22,8 @@
 .header-admin-image {
   display: inline-block;
   vertical-align: middle;
-  height: 75px;
-  width: 75px;
+  height: 95px;
+  width: 95px;
   overflow: hidden;
   border-radius: 100%;
   box-shadow: 3px 3px 6px RGBA(0,0,0,0.08);
@@ -1150,15 +1150,25 @@ width: 25px;
 
 /* notification!!!!!!!!!!! */
 .popup_notification{
-    background-color: white;
-    position: fixed;
-    top: 0px;
-    height: 30VH;
-    width: 100vw;
-    text-align: center;
-    margin: auto;
-    display: flex;
-    place-content: center;
-    place-items: center;
-    z-index: 1000;
+  background-color: #180a01;
+  position: fixed;
+  flex-direction: column;
+  top: 0px;
+  height: 20VH;
+  width: 100vw;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  z-index: 1000;
+}
+.btn_notification{
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  color: #1a0b01;
+  font-weight: 500;
+  margin: 20px;
+  width: 80%;
 }
