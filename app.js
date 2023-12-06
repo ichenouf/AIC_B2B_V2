@@ -138,7 +138,6 @@ app.get([`/login-admin`,], async (req, res,) => {
 });
 
 app.get([`/admin`,], async (req, res,) => { 
-	console.log('khra', req.session.loggedin)
 	// console.log(req.session.loggedin,"corporate session")
 	if(req.session.loggedin==true){
 		res.sendFile(base_url+'/admin.html');
