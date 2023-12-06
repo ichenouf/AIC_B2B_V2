@@ -462,6 +462,7 @@ app.post(`/edit_user_disabled`, async (req, res,) => {
         res.send({"ok":false, "error":error});
     }
 });
+console.log('')
 app.post(`/update_notification_token`, async (req, res,) => {
     let {token, user_id} = req.body;
 	let result = {}
