@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Corporate</title>
+    <link rel="icon" style="width:50%;" type="image/png" href="./img/miniature.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../css/corporate.css"/>
+    <link rel="stylesheet" href="../css/general_style.css"/>
+    
+</head>
+<body>
+    <div id="corporate">
+        <div id="navbar" class="p_color">
+            <div><img src="./img/logo3.png"></div>
+            <div class="grid center gap20" style="margin-bottom: 20%;">
+                <div class="selected_nav_link nav_link_container grid center selected_nav_link" ><span class="material-symbols-outlined nav_link">house</span></div>
+            </div>
+            <div></div>
+        </div>
+        <div id="corporate_body" class="w100 h100" style="padding: 15px 25px ;" >
+            <div class="w100 h100 grid line_bottom" style="background-color: rgb(255, 255, 255);grid-template-columns: 1fr 1fr;">
+                <div class="w100 bold padding10 title_bg" >Espace corporate</div>
+                <div class="w100 grid" style="place-items: end ">
+                    <div class="h100 padding15 "><span class="material-symbols-outlined account_icon" style="font-size:35px ;">account_circle</span></div>
+                    <div id="account_float_menu" class="shadow cursor logout">Déconnexion</div>
+    
+                </div>
+            </div>
+
+            <div class="h100 w100">
+                <div id="home_page" class="page" data-id="hom_page">
+                    <div class="w100 h100 white tools_bar">
+                        <div class="searchBar_container w100">
+                            <span class="material-symbols-outlined">search </span>
+                            <input class="inputw100 search_bar" placeholder="Rechercher un collaborateur...">
+                        </div>
+                        <div id="create_user_btn" class="button color4 text_white small_text"> + Ajouter  </div>
+                        <div  id="tutorial_2" class="tutorial" data-id="2" data-target="#create_user_btn" >
+                            <div class="w100">Ce bouton permet d'ajouter un nouvel utilisateur</div>
+                            <div class="w100 text_right text_color3 padding15 tutorial_btn" data-id="2">suivant</div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="w100 h100 white">
+                        <div id="users_table" class="table h100 w100">
+                            <div class="table_header line_bottom">
+                                <div class="bold">Nom</div>
+                                <div class="bold">Prénom</div>
+                                <div class="bold">Téléphone</div>
+                                <div class="bold">Email</div>
+                                <div class="bold">Poste</div>
+                                <div></div>
+                            </div>
+                            <div id="users_table_body" class="table_body">
+                                <div class="table_item">
+                                    <div class="text_gray bold">chenouf</div>
+                                    <div class="text_gray bold">imad</div>
+                                    <div class="text_gray bold">0552748575</div>
+                                    <div class="text_gray bold">chenouf@gmail.com</div>
+                                    <div class="text_gray bold">05/07/2022</div>
+                                    <div class="text_gray bold edit_profil"><span class="material-symbols-outlined title_bg bold text_black " >more_vert</span>
+                                        <div class="contextual_menu shadow">
+                                            <div class="w100 padding10 line_bottom contextual_item">
+                                                <div><span class="material-symbols-outlined manage_user">edit</span></div>
+                                                <div class="w100 text">Editer</div>
+                                            </div>
+                                            <div class="w100 padding10 contextual_item">
+                                                <span class="material-symbols-outlined">delete_forever </span>
+                                                <div class="w100 text manage_user ">Supprimer</div>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+  <!--*********************************  OTHERS *******************************************************-->
+  <!-- ***************************************************************************************************** -->
+
+
+    <div id="side_menu">
+
+        <div class="header_side_menu line_bottom">
+            <div id="skip_btn" class="exit text_color3"><span class="material-symbols-outlined">arrow_back_ios</span></div>
+            <div class="title text_color3">Ajouter un collaborateur</div>
+        </div>
+
+        <div id="form_users" class="body_side_menu">
+          <div class="form_container">
+              <div class="input-container">
+                <div class="label">Nom : <span  style="color: rgb(224, 36, 36);">*</span></div>
+                <input class="content_editable required" type="text" data-id="last_name" contenteditable="true" value=""></input>
+              </div>
+              <div class="input-container">
+                <div class="label">Prénom : <span  style="color: rgb(224, 36, 36);">*</span></div>
+                <input class="content_editable required" type="text" data-id="first_name" contenteditable="true" value=""></input>
+              </div>
+              <div class="input-container">
+                <div class="label">N° téléphone : <span  style="color: rgb(224, 36, 36);">*</span></div>
+                <input class="content_editable required" type="number" data-id="phone" contenteditable="true" value=""></input>
+              </div>
+              <div class="input-container">
+                <div class="label">poste: <span  style="color: rgb(224, 36, 36);">*</span></div>
+                <input class="content_editable required" type="text" data-id="poste" contenteditable="true" value=""></input>
+              </div>
+              <div class="input-container">
+                <div class="label">Email : <span  style="color: rgb(224, 36, 36);">*</span></div>
+                <input class="content_editable required" type="text" data-id="Email" contenteditable="true" value=""></input>
+              </div>
+
+          </div>
+        </div>
+        <div class="footer_side_menu padding20 center">
+            <div class="buttons_container cursor">
+              <div id="create_user" class="btn text_white cursor text_center color4 padding10" >Valider</div>
+            </div>
+          </div> 
+
+    </div>
+
+
+    <div id="overlay"></div>
+
+
+
+    <div id="loading_page" >
+        <div>
+            <div class="loader">
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+            </div>
+        </div>
+        <!-- <div class="text_white grid center" style="font-size: 35px;"> ALGERIAN INVEST CONFERANCE B2B 2022</div> -->
+
+
+        
+    </div>
+
+
+
+
+
+    <div id="popup" class="success_notification shadow">
+        <!-- <div class="modal_notification_header bold">
+            <span class="material-symbols-outlined text_green ">task_alt</span>
+            <div class="message">Ajouté avec succes</div>
+            <span class="material-symbols-outlined">close</span>
+        </div>
+        <div id="body_message" class="w100 h100  text_left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero suscipit esse, cupiditate molestias commodi distinctio sint praesentium officiis itaque aliquam.
+        </div>
+        <div class="grid " style="grid-template-columns: 1fr 100px ;">
+            <div class="w100"></div>
+            <div id="popup_btn" class="button color4">OK</div>
+        </div> -->
+    </div>
+
+    <div id="tutorials">
+        <div id="tutorial_1" class="tutorial" data-id="1">
+            <div class="w100 h100 padding20" style="display: grid;grid-template-rows:1fr 80px;">
+                <div class="w100 h100">
+                    <div class="bold title_vbg">Bienvenue sur l'espace AIC B2B corporate.</div>
+                    <div class="title padding_top30">Vous pouvez dès à present créer et gérer les comptes de vos collaborateurs depuis cet espace dédié. Aprés la création d'un compte collaborateur,ce dernier recevera un email avec un nom d'utilisteur et un mot de passe généré lui permettant de se connecter et d'utiliser notre plateforme B2B dédiée à la prise de rendez-vous.</div>
+                    <div class="title padding_top10">Ce tutorial vous expliquera la procédure à suivre.</div>
+    
+                </div>
+                <div class="w100 text_right padding20"><div class="bold text_color3 pointer tutorial_btn" data-id="1">Suivant</div></div>
+
+            </div>
+            <div style="background-image: url('./img/willem-chan-Lk-ofOLeHVg-unsplash.jpg');background-size:cover;"></div>
+        </div>
+
+        <div  id="tutorial_3" class="tutorial" data-id="3" data-target="#side_menu" >
+            <div class="w100"> Tous les champs présents sur ce formulaire doivent être rempli avec exactitude</div>
+            <div class="w100 text_right text_color3 padding15 tutorial_btn" data-id="3">Suivant</div>
+        </div>
+        <div  id="tutorial_4" class="tutorial" data-id="4" data-target=".table_body" >
+            <div class="w100">les collaborateurs ajoutés s'affichent sur la liste ci dessous, vous pouvez par la suite les modifier ou les supprimer</div>
+            <div class="w100 text_right text_color3 padding15 tutorial_btn" data-id="4">suivant</div>
+        </div>
+        <div id="tutorial_5" class="tutorial" data-id="5" data-target="#help_request" >
+            <div class="w100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque veniam laboriosam tenetur nam voluptates dolore? </div>
+            <div class="w100 text_right text_color3 padding15 tutorial_btn" data-id="5">Terminer</div>
+        </div>
+
+
+    </div>
+
+
+    <!-- <div id="modal_help">
+
+    </div> -->
+
+
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="../js/general_function.js"></script>
+<script src="../js/corporate.js"></script>
+
+</html>

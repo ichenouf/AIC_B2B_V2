@@ -1,0 +1,166 @@
+
+
+
+/************************************  LOGIN PAGE   **************************************************************/
+/***********************************                          *************************************************************/
+
+
+
+
+.notification_container{
+    padding: 17% 27%;
+    background-color: rgb(243, 243, 243);
+    height: 100vh;
+    width: 100vw;
+    /* display: block; */
+    display: none;
+}
+.notification{
+    display: block;
+    background-color: white;
+    padding: 30px;
+   
+}
+
+
+#login_page{
+
+    /* padding: 50px; */
+    /* background-color: #442113; */
+    display: grid;
+    grid-template-columns: 1.5fr 2fr ;
+    width: 100vw;
+    height: 100vh;
+    /* display: none; */
+
+}
+#login_page .title{margin-bottom: 20px}
+
+#background_login{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    
+    background-image: url('../img/algeria-invest-conference.jpeg');
+    box-shadow: 2px 2px 10px rgba(87, 87, 87, 0.66);
+
+
+}
+#background_login img{
+    position: relative;
+    place-self: center;
+    width: 100px;
+    bottom: -92%;
+    left: 79%;
+    
+}
+#form_login{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: white;
+    text-align: left;
+    padding: 25px; 
+    display: grid;  
+    /* display: none; */
+    
+    /* grid-template-rows: 0.3fr 1fr; */
+}
+.form_login_container{
+    width: 100%;
+    /* display: none; */
+}
+
+#logo_img{
+    width: 20%;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    text-transform: uppercase;
+    color: #2c4964;
+}
+
+.input_container{padding:10px;color: rgb(90, 89, 89); }
+.title{padding-left: 9px}
+.input_container input {border-bottom: solid 2px rgb(148, 146, 146);color: gray;height: 45px;width: 100%; outline: none; border-top:none; border-left:none; border-right: none;}
+.input_container input:hover { 
+border-bottom-color: #1f1f3a;
+}
+
+.input_container select{    border-bottom: solid 2px rgb(148, 146, 146);
+    color: gray;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;}
+.button_container{display: grid;place-items: center;width: 100%;padding: 15px 0px}
+.btn-connexion{
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 35px;
+    margin-top: 30px;
+    border-radius: 8px;
+    transition: 0.5s;
+    color: #ffffff;
+    text-decoration: none;
+  }
+ .btn-connexion:hover {
+    background: #e6780a;
+    box-shadow:2px 2px 10px rgba(227, 110, 26, 0.52);
+ 
+  }
+
+.nav_link{
+    width: fit-content !important;
+   
+    padding: 10px;
+}  
+
+.nav_link_selected{
+    border-bottom: solid 4px rgb(129 76 44);
+    font-weight: bold;
+}
+
+
+
+
+.form_subscribe_container{
+    width: 100%;
+    display: none;
+}
+
+.input_container textarea{
+    outline: none;
+    border-bottom: solid 2px rgb(148, 146, 146);
+    width: 100%;
+    padding: 5px;
+    color: gray;
+}
+
+
+@media screen and (min-width:0px) and (max-width:700px){
+    #login_page{grid-template-columns: 1fr}
+    #background_login{display: none}
+    #logo_img{
+    width: 30% !important;
+    right: 27%;
+    }
+    #form_login{border-radius: 5px;}
+    #login_page{padding: 45px;}
+}
+
+.alert{color: rgba(255, 0, 0, 0.836); padding: 20px 15px;}
+
+

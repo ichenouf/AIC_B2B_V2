@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Admin</title>
+    <link rel="icon" style="width:50%;" type="image/png" href="./img/miniature.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../css/admin.css"/>
+    <link rel="stylesheet" href="../css/general_style.css"/>
+    
+</head>
+<body>
+    <div id="corporate">
+        <div id="navbar" >
+            <div><img src="./img/logo3.png"></div>
+            <div class="grid center gap20" style="margin-bottom: 20%;">
+                <div id="help_request" class="nav_link_container grid center" ><span class="material-symbols-outlined nav_link"  data-id="home_page">home</span></div>
+                <div class="selected_nav_link nav_link_container grid center selected_nav_link"><span class="material-symbols-outlined nav_link"  data-id="companies_page">apartment</span></div>
+                <div class="nav_link_container grid center"><span class="material-symbols-outlined nav_link" data-id="appointments_page">event_available</span></div>
+            </div>
+            <div></div>
+        </div>
+        <div id="corporate_body" class="w100 h100" style="padding: 15px 25px ;" >
+            <div class="w100 h100 grid line_bottom" style="background-color: rgb(255, 255, 255);grid-template-columns: 1fr 1fr;">
+                <div class="w100 bold padding10 title_bg" >Espace Administrateur</div>
+                <div class="w100 grid" style="place-items: end ">
+                    <div class="h100 padding15 "><span class="material-symbols-outlined account_icon" style="font-size:35px ;">account_circle</span></div>
+                    <div id="account_float_menu" class="shadow cursor logout">Déconnexion</div>
+    
+                </div>
+            </div>
+            <div class="h100 w100">
+
+                <div id="companies_page" class="page" data-id="companies_page">
+                    <div class="w100 h100 white tools_bar">
+                        <div class="searchBar_container w100">
+                            <span class="material-symbols-outlined">search </span>
+                            <input class="inputw100 search_bar" placeholder="Rechercher une entreprise...">
+                        </div>                        
+                    </div>
+                    <div class="w100 h100 white">
+                        <div id="companies_table" class="table h100 w100">
+                            <div class="table_header line_bottom">
+                                <div class="bold">Nom</div>
+                                <div class="bold">N° téléphone</div>
+                                <div class="bold">Email</div>
+                                <div class="bold">Secteur d'activité</div>
+                                <div class="bold">Utilisateurs autorisés </div>
+                                <div class="bold">Status</div>
+                                <div class="bold">Date</div>
+                                <div></div>
+                            </div>
+                            <div id="companies_table_body" class="table_body">
+                                <div class="table_item">
+                                    <div class="text_gray bold">Sarl runstart</div>
+                                    <div class="text_gray bold">000000</div>
+                                    <div class="text_gray bold">contact@runstartdz.com</div>
+                                    <div class="text_gray bold">Dev</div>
+                                    <div class="text_gray bold">2</div>
+                                    <div class="text_gray bold">Activé</div>
+                                    <div class="text_gray bold">12/03/2022</div>
+                                    <div class="text_gray bold edit_profil"><span class="material-symbols-outlined title_bg bold text_black " >more_vert</span>
+                                        <div class="contextual_menu shadow">
+                                            <div class="w100 padding10 line_bottom contextual_item">
+                                                <div><span class="material-symbols-outlined manage_user">edit</span></div>
+                                                <div class="w100 text">Editer</div>
+                                            </div>
+                                            <div class="w100 padding10 contextual_item">
+                                                <span class="material-symbols-outlined">delete_forever </span>
+                                                <div class="w100 text manage_user ">Supprimer</div>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="home_page" class="page" data-id="home_page">
+                    <div class="w100 grid colmn4 padding20">
+                        <div class="card">
+                            <div class="bold">Comptes corporate</div>
+                            <div id="corporate_count" class="bold title_vbg" style="font-size: 35px;">25</div>
+                        </div>
+                        <div class="card">
+                            <div class="bold">Utilisateurs</div>
+                            <div id="users_count" class="bold title_vbg" style="font-size: 35px;">10</div>
+                        </div>
+
+                        <div class="card">
+                            <div class="bold">Rendez-vous programmés</div>
+                            <div id="appointments_count" class="bold title_vbg" style="font-size: 35px;">30</div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="bold">Rendez-vous confirmés</div>
+                            <div id="confirmed_appointments_count" class="bold title_vbg" style="font-size: 35px;">30</div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="w100 h100">
+
+            
+                        <div class="w100 text_color4"> Comptes en attente de confirmation </div>
+                        <div class="w100">
+                            <div id="pending_companies_table" class="table h100 w100">
+                                <div class="table_header line_bottom center">
+                                    <div class="bold">Nom</div>
+                                    <div class="bold">Date</div>
+                                    <div></div>
+                                </div>
+                                <div id="pending_companies_table_body" class="table_body">
+
+                                </div>
+                            </div>
+    
+                        </div>
+
+                     
+
+
+                    </div>
+                </div>
+
+                <div id="appointments_page" class="page" data-id="appointments_page">
+                    <div class="w100 h100 white tools_bar">
+                        <div class="searchBar_container w100">
+                            <span class="material-symbols-outlined">search </span>
+                            <input class="inputw100 search_bar" placeholder="Rechercher un rendez-vous...">
+                        </div>                        
+                    </div>
+                    <div class="w100 h100 white">
+                        <div id="appointments_table" class="table h100 w100">
+                            <div class="table_header line_bottom">
+                                <div class="bold">id</div>
+                                <div class="bold">De</div>
+                                <div class="bold">avec</div>
+                                <div class="bold">Heure</div>
+                                <div class="bold">Date</div>
+                            </div>
+                            <div id="appointments_table_body" class="table_body">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+  <!--*********************************  OTHERS *******************************************************-->
+  <!-- ***************************************************************************************************** -->
+
+
+    <div id="side_menu">
+
+
+    </div>
+
+
+    <div id="overlay"></div>
+
+
+
+    <div id="loading_page" >
+        <div>
+            <div class="loader">
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+                <div class="loader-square"></div>
+            </div>
+        </div>
+        <!-- <div class="text_white grid center" style="font-size: 35px;"> ALGERIAN INVEST CONFERANCE B2B 2022</div> -->
+
+
+        
+    </div>
+
+
+
+
+
+    <div id="popup" class="success_notification shadow">
+        <!-- <div class="modal_notification_header bold">
+            <span class="material-symbols-outlined text_green ">task_alt</span>
+            <div class="message">Ajouté avec succes</div>
+            <span class="material-symbols-outlined">close</span>
+        </div>
+        <div id="body_message" class="w100 h100  text_left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium libero suscipit esse, cupiditate molestias commodi distinctio sint praesentium officiis itaque aliquam.
+        </div>
+        <div class="grid " style="grid-template-columns: 1fr 100px ;">
+            <div class="w100"></div>
+            <div id="popup_btn" class="button color4">OK</div>
+        </div> -->
+    </div>
+
+    <div id="tutorials">
+        <div id="tutorial_1" class="tutorial" data-id="1">
+            <div class="w100 h100 padding20" style="display: grid;grid-template-rows:1fr 80px;">
+                <div class="w100 h100">
+                    <div class="bold title_vbg">Bienvenue sur l'espace AIC B2B corporate.</div>
+                    <div class="title">Votre compte est maintenant activé</div>
+                    <div class="title padding_top30">Vous pouvez dés à present créer des comptes pour vos collaborateurs Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet nobis ipsum deserunt id possimus, voluptatibus temporibus labore officia ab perferendis, quis nihil odit veniam minima corporis non libero laborum.</div>
+                    <div class="title ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet nobis ipsum deserunt id possimus, voluptatibus temporibus labore officia ab perferendis, quis nihil odit veniam minima corporis non libero laborum.</div>
+    
+                </div>
+                <div class="w100 text_right padding20"><div class="bold text_color3 pointer tutorial_btn" data-id="1">Suivant</div></div>
+
+            </div>
+            <div style="background-image: url('./img/willem-chan-Lk-ofOLeHVg-unsplash.jpg');background-size:cover;"></div>
+        </div>
+
+        <div  id="tutorial_3" class="tutorial" data-id="3" data-target="#side_menu" >
+            <div class="w100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque veniam laboriosam tenetur nam voluptates dolore? </div>
+            <div class="w100 text_right text_color3 padding15 tutorial_btn" data-id="3">Suivant</div>
+        </div>
+        <div  id="tutorial_4" class="tutorial" data-id="4" data-target=".table_body" >
+            <div class="w100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque veniam laboriosam tenetur nam voluptates dolore? </div>
+            <div class="w100 text_right text_color3 padding15 tutorial_btn" data-id="4">suivant</div>
+        </div>
+        <div id="tutorial_5" class="tutorial" data-id="5" data-target="#help_request" >
+            <div class="w100">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque veniam laboriosam tenetur nam voluptates dolore? </div>
+            <div class="w100 text_right text_color3 padding15 tutorial_btn" data-id="5">Terminer</div>
+        </div>
+
+
+    </div>
+
+
+    <!-- <div id="modal_help">
+
+    </div> -->
+
+
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" ></script>
+<script src="../js/general_function.js"></script>
+<script src="../js/admin.js"></script>
+
+</html>

@@ -1,0 +1,1057 @@
+.circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    background-color: #ac542c;
+    display: grid;
+    place-items: center;
+    padding: 5px;
+    font-size: 25px;
+    color: white;
+}
+
+::-webkit-scrollbar{width: 0px!important}
+
+/************************************ GENERAL PAGE  **************************************************************/
+/***********************************                          *************************************************************/
+
+.user_avatar{display:inline-block; vertical-align:middle; height:40px; width:40px; overflow: hidden; border-radius:100%; box-shadow:3px 3px 6px RGBA(0,0,0,0.08); background: RGBA(0,0,0,0.2);}
+.user_avatar img{object-fit: cover; height:100%; width:100%;     background-color: white;}
+
+
+
+
+.page{
+    width: 100%;
+    height: 100%;
+
+
+
+}
+
+#main_app{
+    display: grid;
+    grid-template-rows: 90px 1fr 60px;
+    width: 100vw;
+    height: 100vh;
+    /* background: #f6f6f6 */
+}
+
+#header_app{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    padding: 8px 10px;
+}
+
+#header_app img{
+width: 25px;
+}
+
+#body_app{
+    background-color: rgb(253 253 253);
+    /* padding-top: 10px; */
+}
+
+#navbar{
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    place-items: center;
+    box-shadow:2px 2px 10px rgba(185, 185, 185, 0.331);
+    position: fixed;
+    bottom: 0;
+    z-index: 200;
+    height: 60px;
+}
+
+#navbar img{
+    width: 25px;
+}
+
+#desktop_navbar{
+  display: none;
+}
+
+#footer_page_desktop{
+  display: none;
+}
+
+@media (min-width:1025px) {
+  #desktop_navbar{
+    display: grid;
+    grid-template-columns: 0.5fr 0.2fr 1fr;
+    background-color: #FAE7E3;
+    padding: 10px 20px;
+
+  }
+
+  #header_app{
+    display: none;
+  }
+
+  #body_app{
+    /* padding: 90px 10% 20px 10%; */
+  }
+  #navbar{
+    display: none;
+  }
+  #footer_page_desktop{
+    display: block;
+    background-color: #FAE7E3;
+    min-height: 100px ;
+  }
+  .link_app{
+    cursor: pointer;
+  }
+  .selected_link_app{
+    border: none !important;
+    font-weight: 600;
+  }
+}
+
+/************************************       HOME PAGE          **************************************************************/
+/***********************************                          *************************************************************/
+
+/* #home_page{
+} */
+
+#home_page{
+  position: relative;
+  animation: fadec5 0.3s forwards ease-out;
+
+}
+#home_page_container{
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+#home_page_container .card{
+    width: 85%;
+    height:150px;
+    background-color: #ac542c;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    padding: 15px;
+    background-size: cover;
+    color: white;
+
+}
+
+.selected_link_app{
+    border-top: solid 2px #ac542c;
+}
+
+.appointments_box{
+    display: grid;
+    grid-template-rows: 50px 1fr;
+}
+
+.appointment_element{
+    width: 100%;
+    min-height: 100px ;
+    background-color: #f5f6ec;
+    border-radius: 10px;
+    padding: 27px 20px;
+    margin-top: 10px;
+}
+
+.appointment_element .user_avatar{
+    width: 45px;
+    height: 45px;
+
+}
+
+
+
+#confirmed_appointments_container{
+    overflow-y: scroll;
+    height: 50vh;
+
+}
+
+.selected_date_filter_btn{
+    color:  #d87448;
+    font-weight: 600;
+    
+}
+
+@media (min-width:1025px) {
+  #home_page{
+    padding: 5% 10%;
+  
+  }
+}
+
+/************************************ COMPANIES PAGE  **************************************************************/
+/***********************************                          *************************************************************/
+
+
+
+#companies_page{
+    background-color:  rgb(253 253 253);
+    padding: 0px 10px;
+    display: none;
+    position: relative;
+    animation: fadec 0.3s forwards ease-out;
+
+
+}
+
+
+.searchBar_container{
+    border-radius: 8px;
+    /* border: solid 2px rgb(228, 228, 228); */
+    padding: 10px 8px;
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    background: #00000045;
+
+}
+.searchBar_container input{
+    color: rgb(255, 255, 255);
+    outline: none;
+    background: #3a190b;
+    font-size: 15px;
+}
+
+.searchBar_container input::placeholder {
+    color: rgb(255, 255, 255);
+
+}
+
+.searchBar_container span{
+    color: rgb(200, 200, 200);
+}
+
+/* .category_btn{
+    width: 180px;
+    height: 62px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(87, 87, 87, 0.22);
+    padding: 10px;
+    background: linear-gradient(145deg, #f3f3f3, #fffdfd);
+    display:grid;
+    place-items: center;
+} */
+
+
+#companies_container{
+    background-color: white;
+    padding: 20px 0px;
+    height: 70vh;
+    overflow-y: scroll;
+
+}
+
+.company_element{
+    width: 100%;
+    padding: 10px 5px;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    margin: 5px 0px;
+    min-height: 80px;
+}
+
+@media (min-width:1025px) {
+  #companies_page{
+    padding: 2% 5%;
+  }
+  .company_element{
+    width: 100%;
+    padding: 10px 5px;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    margin: 5px 0px;
+    min-height: 80px;
+  }
+  .company_element:hover{
+    background-color: rgb(244, 244, 244);
+  }
+
+}
+
+
+/************************************ COMPANY PAGE  **************************************************************/
+/***********************************                          *************************************************************/
+
+
+#company_page{
+    display: none;
+    background-color:  rgb(253 253 253);
+    padding: 0px 10px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    animation: fadec 0.3s forwards ease-out;
+
+
+}
+#company_page_container{
+    display: grid;
+    grid-template-rows: 0.2fr 0.2fr 1fr;
+    height: 100%;
+    width: 100%;
+
+}
+
+.header_company_page{
+  background-color:#ac542c;
+  padding: 14px;border-radius: 10px;
+  color: white;
+  grid-template-columns: 25px 1fr;
+  place-items: start
+}
+
+#users_company_container{
+  padding: 20px 0px;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.user_company_element{
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    padding: 20px 10px;
+    gap:10px
+}
+
+@media (min-width:1025px) {
+  #company_page_container{
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    height: 100%;
+    width: 100%;
+
+  }
+  .header_company_page{
+    background-color:#ac542c;
+    padding: 10px 25px;
+    border-radius: 0px;
+    grid-template-columns: 50px 1fr;
+    place-items: center
+  }
+  #company_page{
+    padding: 0px;
+  }
+
+  #users_company_container{
+    padding: 20px 5%!important;
+    height: 60vh;
+    overflow-y: scroll;
+  }
+  .user_company_element:hover{
+    background-color: rgb(244, 244, 244);
+  }
+
+
+}
+
+/************************************ PROFIL SIDE MENU **************************************************************/
+/***********************************                          *************************************************************/
+
+#profil_side_menu{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: rgb(255, 255, 255);
+  z-index: 100;
+  display: grid;
+  grid-template-rows: 10% 1fr 10%;
+  animation: fadec 0.2s forwards ease-out;
+  display: none;
+
+}
+
+.profil_side_menu_element{
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  padding: 40px 15px;
+  border-bottom: solid 2px rgb(248, 248, 248);
+}
+
+
+/************************************ SIDE MENU APPOINTMENT **************************************************************/
+/***********************************                          *************************************************************/
+
+
+#side_menu_appointment{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(255, 255, 255);
+    z-index: 220;
+    display: grid;
+    grid-template-rows: 10% 1fr 10%;
+    animation: fadec 0.2s forwards ease-out;
+    display: none;
+
+}
+
+.header_side_menu{ display: grid; grid-template-columns: 10% 1fr 10%; place-items: center;padding: 15px 20px }
+.header_side_menu .title { font-size: 18px;font-weight:600; text-align: center;}
+.body_side_menu_appointment{
+   padding: 30px 20px;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+}
+
+.days_element_container{
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    padding: 25px 41px;
+}
+.day_btn{
+    width: 120px;
+    height: 98px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(87, 87, 87, 0.22);
+    padding: 10px;
+    background: linear-gradient(145deg, #f3f3f3, #fffdfd);
+    display:grid;
+    place-items: center;
+}
+
+.selected_day_btn{
+    background-color: #e8d0be;
+    /* background: linear-gradient(145deg, #a0580f, #b46b22); */
+    color: rgb(54, 54, 54);
+    border: solid 2px #ac542c;
+
+}
+
+
+#time_slots_container{
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    width: 100%;
+    overflow-y: hidden;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* min-height: 250px; */
+    max-height: 300px;
+    overflow-y: scroll;
+    place-content: baseline;
+
+
+}
+
+#side_menu_appointment .time_slot{
+    width: 100px;
+    height: 47px;
+    border-radius: 12px;
+    padding: 8px 5px;
+    color: gray;
+    border: solid 2px rgb(244, 244, 244);
+    display: grid;
+    place-items: center;
+    background-color: #f3f3f3;;
+    
+}
+
+.selected_time_slot{
+    background-color: white!important;
+    border: solid 2px #ac542c!important;
+}
+
+/* 
+.categories_carousel .card_carousel {
+    width: 130px;
+    height: 45px;
+    margin: 0px 3px;
+} */
+  
+  
+#request_appointment_btn{
+    width: 80%;
+    padding: 12px;
+    border-radius: 0px;
+    border-radius: 5px;
+    color: white;
+}
+
+
+#request_appointment_check_out{
+    width: 100vw;
+    height: 45vh;
+    position: fixed;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
+    bottom: 0;
+    right: 0px;
+    background-color: rgb(255, 255, 255);
+    /* z-index: 500; */
+    display: grid;
+    place-items: center;
+    animation: fadec2 0.3s forwards ease-in;
+    transition: 0.3s;
+    z-index: 700;
+    display: none;
+
+}
+
+#request_succeded{
+    display: none;
+}
+
+
+.m-fadeOut {
+   visibility:  none;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  /* #desktop_overlay{
+  background-color: rgb(0, 0, 0,0.6); height: 100%; display: block;width: 100%; position: fixed; top: 0;left: 0;z-index:200;display: none; 
+
+  } */
+
+  @media (min-width:1025px) {
+    #side_menu_appointment{
+      width: 35vw;
+      z-index: 250;
+    }
+
+  }
+
+
+/************************************       APPOINTMENTS PAGE          **************************************************************/
+/***********************************                          *************************************************************/
+
+#appointments_page{
+    display: none;
+    position: relative;
+    animation: fadec 0.3s forwards ease-out;
+
+
+}
+
+.switch_btn_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 8px;
+  border-radius: 27px;
+  background-color: rgb(235, 234, 234);
+  height:100%;
+  gap: 10px;
+}
+
+.switch_btn{
+  border-radius: 20px;
+  padding: 5px;
+ 
+}
+
+.selected_switch_btn{
+  background-color: #ac542c;
+  color: white;
+}
+.selected_date_filter_pending_btn{
+  color:  #d87448;
+  font-weight: 600;
+  
+}
+
+#pending_appointments_container{
+    overflow-y: scroll;
+    height: 50vh;
+
+}
+.pending_appointment_element{
+    width: 100%;
+    min-height: 100px ;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 27px 12px;
+    margin-top: 10px;
+}
+
+.selected_pending_appointment_element{
+    border: solid 2px #ac542c;
+}
+
+.pending_appointment_btn_container{
+    display: none;
+}
+
+.pending_appointment_btn{
+    width: 100%;
+    padding: 20px 5px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+}
+
+#confirm_btn{
+    background-color:#ac542c;
+    color: white;
+}
+
+#decline_btn{
+    background-color: rgb(229 226 226);
+}
+
+
+@media (min-width:1025px) {
+  #appointments_page{
+
+    padding: 10px 5%;
+
+  }
+}
+
+/************************************       SUCCESS ICON        **************************************************************/
+/***********************************                          *************************************************************/
+
+
+.SucessContainer .w3-modal-icon {
+    border-radius: 50%;
+    border: 4px solid gray;
+    box-sizing: content-box;
+    height: 80px;
+    padding: 0;
+    position: relative;
+    width: 80px;
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success, .SucessContainer .w3-modal-icon.f-modal-error {
+    border-color: #A5DC86;
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success:after, .SucessContainer .w3-modal-icon.w3-modal-success:before, .SucessContainer .w3-modal-icon.f-modal-error:after, .SucessContainer .w3-modal-icon.f-modal-error:before {
+    background: #fff;
+    content: '';
+    height: 120px;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    width: 60px;
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success:before, .SucessContainer .w3-modal-icon.f-modal-error:before {
+    border-radius: 120px 0 0 120px;
+    left: -33px;
+    top: -7px;
+    -webkit-transform-origin: 60px 60px;
+            transform-origin: 60px 60px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success:after, .SucessContainer .w3-modal-icon.f-modal-error:after {
+    border-radius: 0 120px 120px 0;
+    left: 30px;
+    top: -11px;
+    -webkit-transform-origin: 0 60px;
+            transform-origin: 0 60px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success .w3-modal-placeholder, .SucessContainer .w3-modal-icon.f-modal-error .w3-modal-placeholder {
+    border-radius: 50%;
+    border: 4px solid rgba(165, 220, 134, 0.2);
+    box-sizing: content-box;
+    height: 80px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 80px;
+    z-index: 2;
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success .w3-modal-fix, .SucessContainer .w3-modal-icon.f-modal-error .w3-modal-fix {
+    background-color: #fff;
+    height: 90px;
+    left: 28px;
+    position: absolute;
+    top: 8px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    width: 5px;
+    z-index: 1;
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success .w3-modal-line, .SucessContainer .w3-modal-icon.f-modal-error .w3-modal-line {
+    background-color: #A5DC86;
+    border-radius: 2px;
+    display: block;
+    height: 5px;
+    position: absolute;
+    z-index: 2;
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success .w3-modal-line.w3-modal-tip, .SucessContainer .w3-modal-icon.f-modal-error .w3-modal-line.w3-modal-tip {
+    left: 14px;
+    top: 46px;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    width: 25px;
+  }
+  .SucessContainer .w3-modal-icon.w3-modal-success .w3-modal-line.w3-modal-long, .SucessContainer .w3-modal-icon.f-modal-error .w3-modal-line.w3-modal-long {
+    right: 8px;
+    top: 38px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    width: 47px;
+  }
+  
+  
+  .SucessContainer .w3-modal-icon + .w3-modal-icon {
+    margin-top: 50px;
+  }
+  
+  .animateSuccessTip {
+    -webkit-animation: animateSuccessTip .75s;
+            animation: animateSuccessTip .75s;
+  }
+  
+  .animateSuccessLong {
+    -webkit-animation: animateSuccessLong .75s;
+            animation: animateSuccessLong .75s; 
+  }
+  
+  .w3-modal-icon.w3-modal-success.animate:after {
+    -webkit-animation: rotatePlaceholder 4.25s ease-in;
+            animation: rotatePlaceholder 4.25s ease-in;
+  }
+  
+  
+  
+  @-webkit-keyframes animateSuccessTip {
+    0%,54% {
+      width: 0;
+      left: 1px;
+      top: 19px;
+    }
+    70% {
+      width: 50px;
+      left: -8px;
+      top: 37px;
+    }
+    84% {
+      width: 17px;
+      left: 21px;
+      top: 48px;
+    }
+    100% {
+      width: 25px;
+      left: 14px;
+      top: 45px;
+    }
+  }
+  
+  @keyframes animateSuccessTip {
+    0%,54% {
+      width: 0;
+      left: 1px;
+      top: 19px;
+    }
+    70% {
+      width: 50px;
+      left: -8px;
+      top: 37px;
+    }
+    84% {
+      width: 17px;
+      left: 21px;
+      top: 48px;
+    }
+    100% {
+      width: 25px;
+      left: 14px;
+      top: 45px;
+    }
+  }
+  
+  @keyframes animateSuccessLong {
+    0%,65% {
+      width: 0;
+      right: 46px;
+      top: 54px;
+    }
+    84% {
+      width: 55px;
+      right: 0;
+      top: 35px;
+    }
+    100% {
+      width: 47px;
+      right: 8px;
+      top: 38px;
+    }
+  }
+  @keyframes rotatePlaceholder {
+    0%,5% {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+    }
+    100%,12% {
+      -webkit-transform: rotate(-405deg);
+              transform: rotate(-405deg);
+    }
+  }
+
+
+
+/************************************       LOADING ICON        **************************************************************/
+/***********************************                          *************************************************************/
+
+
+
+  	
+	.inner_rd {
+        border-radius:50%;
+        border:5px solid #fff;
+        position:relative
+      }
+      .inner_rd{
+          width:100px;
+          height:100px;
+          border-top:5px solid #b3b3b3;
+          border-bottom:5px solid #b3b3b3;
+          animation: inner_rd 2s linear infinite;
+      } 
+      
+      @keyframes inner_rd {
+        0%{}
+        100%{
+          transform:rotate(360deg)
+        }
+      } 
+
+
+
+/************************************       LOADING ICON SPINNER       **************************************************************/
+/***********************************                          *************************************************************/
+
+
+
+
+      .dot-spinner {
+        --uib-size: 2.8rem;
+        --uib-speed: .9s;
+        --uib-color: #183153;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: var(--uib-size);
+        width: var(--uib-size);
+      }
+      
+      .dot-spinner__dot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+        width: 100%;
+      }
+      
+      .dot-spinner__dot::before {
+        content: '';
+        height: 20%;
+        width: 20%;
+        border-radius: 50%;
+        background-color: var(--uib-color);
+        transform: scale(0);
+        opacity: 0.5;
+        animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+        box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+      }
+      
+      .dot-spinner__dot:nth-child(2) {
+        transform: rotate(45deg);
+      }
+      
+      .dot-spinner__dot:nth-child(2)::before {
+        animation-delay: calc(var(--uib-speed) * -0.875);
+      }
+      
+      .dot-spinner__dot:nth-child(3) {
+        transform: rotate(90deg);
+      }
+      
+      .dot-spinner__dot:nth-child(3)::before {
+        animation-delay: calc(var(--uib-speed) * -0.75);
+      }
+      
+      .dot-spinner__dot:nth-child(4) {
+        transform: rotate(135deg);
+      }
+      
+      .dot-spinner__dot:nth-child(4)::before {
+        animation-delay: calc(var(--uib-speed) * -0.625);
+      }
+      
+      .dot-spinner__dot:nth-child(5) {
+        transform: rotate(180deg);
+      }
+      
+      .dot-spinner__dot:nth-child(5)::before {
+        animation-delay: calc(var(--uib-speed) * -0.5);
+      }
+      
+      .dot-spinner__dot:nth-child(6) {
+        transform: rotate(225deg);
+      }
+      
+      .dot-spinner__dot:nth-child(6)::before {
+        animation-delay: calc(var(--uib-speed) * -0.375);
+      }
+      
+      .dot-spinner__dot:nth-child(7) {
+        transform: rotate(270deg);
+      }
+      
+      .dot-spinner__dot:nth-child(7)::before {
+        animation-delay: calc(var(--uib-speed) * -0.25);
+      }
+      
+      .dot-spinner__dot:nth-child(8) {
+        transform: rotate(315deg);
+      }
+      
+      .dot-spinner__dot:nth-child(8)::before {
+        animation-delay: calc(var(--uib-speed) * -0.125);
+      }
+      
+      @keyframes pulse0112 {
+        0%,
+        100% {
+          transform: scale(0);
+          opacity: 0.5;
+        }
+      
+        50% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      
+/************************************       FAIL ICON       **************************************************************/
+/***********************************                          *************************************************************/
+
+/* From uiverse.io by @mrhyddenn */
+.mover {
+  background: rgb(202 89 20 / 98%);
+  height: 10px;
+  width: 80px;
+  border-radius: 10px;
+  position: relative;
+  animation: mover5 2s ease-in-out infinite;
+}
+
+.mover::before,
+.mover::after {
+  content: '';
+  position: absolute;
+  height: 10px;
+  border-radius: 10px;
+  left: 20px;
+  animation: mover5 2s ease-in-out infinite;
+}
+
+.mover::before {
+  background: rgb(212, 3, 3);
+  top: 20px;
+  width: 50px;
+}
+
+.mover::after {
+  background: rgb(255, 116, 106);
+  top: -20px;
+  width: 60px;
+}
+
+@keyframes mover5 {
+  0% {
+    transform: translateX(30px) scale(1);
+  }
+
+  50% {
+    transform: translateX(-30px) scale(1.1);
+  }
+
+  100% {
+    transform: translateX(30px) scale(1);
+  }
+}
+
+
+
+
+
+
+.ph-item{
+  background-color: #eaeaea!important;
+  border: none;
+}
+
+
+#header_app .ph-item{
+  width: 100%;
+  height: 25px;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
+#wpa_popup_container{
+  position: fixed;
+  top:0;
+  right:0;
+  background-color: rgb(237, 0, 0);
+  width: 100vw;
+  height: 180px;
+  padding: 10px;
+  display: none;
+
+}
+
+
+
+
+#appointment_details_drawer{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: rgb(255, 255, 255);
+  z-index: 100;
+  display: grid;
+  grid-template-rows: 39% 1fr;
+  animation: fadec 0.2s forwards ease-out;
+  z-index: 300;
+  display: none;
+
+}
+
+#appointment_details_drawer .drawer_header{
+  width: 100%;
+  height: 100%;
+  background-color: #441f0e;
+  color:white;
+  padding: 20px;
+
+}
+#appointment_details_drawer .drawer_header .user_avatar{
+  width: 80px;
+  height: 80px;
+}
+
+
+@media (min-width:1025px) {
+  #appointment_details_drawer{
+    width: 35vw;
+  
+  
+  }
+  
+}

@@ -1,0 +1,1374 @@
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module 'express'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (/home/docpharm/algeriainvestconference-btob.com/app.js:1:17)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+/home/docpharm/algeriainvestconference-btob.com/app.js:598
+				  let log=` <br> Mail non envoyé à ${option.to}, date: ${Date.now()},id_mail: ${info.messageId}, error : ${error} <br>`
+				                                                                                     ^
+
+TypeError: Cannot read property 'messageId' of undefined
+    at transporter.sendMail (/home/docpharm/algeriainvestconference-btob.com/app.js:598:90)
+    at transporter.send.args (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/mailer/index.js:230:21)
+    at connection.send (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-transport/index.js:241:32)
+    at callback (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-connection/index.js:613:13)
+    at _setEnvelope (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-connection/index.js:623:24)
+    at SMTPConnection._setEnvelope (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-connection/index.js:1007:20)
+    at SMTPConnection.send (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-connection/index.js:621:14)
+    at sendMessage (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-transport/index.js:228:28)
+    at connection.login.err (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-transport/index.js:286:25)
+    at SMTPConnection._actionAUTHComplete (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/nodemailer/lib/smtp-connection/index.js:1556:9)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read ECONNRESET
+    at TCP.onStreamRead (internal/stream_base_commons.js:111:27)
+Emitted 'error' event at:
+    at Connection._handleProtocolError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:423:8)
+    at Protocol.emit (events.js:198:13)
+    at Protocol._delegateError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:398:10)
+    at Protocol.handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/protocol/Protocol.js:371:10)
+    at Connection._handleNetworkError (/home/docpharm/nodevenv/algeriainvestconference-btob.com/10/lib/node_modules/mysql/lib/Connection.js:418:18)
+    at Socket.emit (events.js:198:13)
+    at emitErrorNT (internal/streams/destroy.js:91:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)

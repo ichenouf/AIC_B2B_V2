@@ -1,0 +1,892 @@
+GV={ swipers:{},initialize_page:{}}
+
+GV.dates={
+    "2022-11-09":{day:"Mercredi",slots:["09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
+    "2022-11-10":{day:"Jeudi",slots:["08:00:00","09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
+}
+
+GV.user_disponibility=[]
+GV.deferredPrompt=null
+  
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!   READY   //////////////////////////
+//! ///////////////////////////////////////////////////////////
+
+$(document).ready(  async function () {
+    // navigate_to("home_page")
+
+    moment.locale('fr');
+    await get_session_id_cookies ()
+
+
+    await load_items ('appointment',{to_id:GV.session_id},  reload = true)
+    await load_items ('appointment',{from_id:GV.session_id},  reload = true)
+
+
+    await load_items ('companies',{},  reload = false)
+    await load_items ('users',{},  reload = false)
+
+    display_welcome_top_bar()
+
+    display_appointments({status:1},'#confirmed_appointments_container',"2022-11-09")
+
+
+    display_count_appointment({status:1},"#confirmed_appointments_count")
+    display_count_appointment({status:0},"#pending_appointments_count")
+
+  
+   
+    window.addEventListener('beforeinstallprompt', (event) => {
+        console.log('L\'événement beforeinstallprompt a été déclenché.');
+        // Empêcher l'affichage de l'invite automatique
+        event.preventDefault();
+        alert('L\'événement beforeinstallprompt a été déclenché.');
+        // Stocker l'événement pour l'utiliser plus tard
+        GV.deferredPrompt = event;
+      
+        // Afficher votre propre popup pour proposer l'ajout à l'écran d'accueil
+        // showAddToHomeScreenPopup();
+    });
+
+   
+});
+
+
+
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!  GENERAL  //////////////////////////
+//! ///////////////////////////////////////////////////////////
+
+
+onClick("#add_wpa_btn", function(){
+    alert("")
+    console.log(GV.deferredPrompt,"je suis deferredPrompt")
+       
+        if (GV.deferredPrompt) {
+            alert("je suis là")
+          // Affichez l'invite pour ajouter à l'écran d'accueil
+          GV.deferredPrompt.prompt();
+    
+          // Attendez la réponse de l'utilisateur à l'invite
+          GV.deferredPrompt.deferredPrompt.userChoice.then(function(choiceResult) {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('L\'utilisateur a accepté l\'ajout à l\'écran d\'accueil');
+            } else {
+              console.log('L\'utilisateur a refusé l\'ajout à l\'écran d\'accueil');
+            }
+    
+            // Réinitialisez deferredPrompt après avoir utilisé l'invite
+            GV.deferredPrompt = null;
+          });
+        }
+})
+
+
+
+
+
+function app_navigate_to(page_name){
+
+
+    $(".page, #bars_menu_container, #overlay").css('display','none')
+
+    $(`.page[data-id="${page_name}"]`).css('display','block')
+    if(!GV.initialize_page[page_name]) return;
+    GV.initialize_page[page_name]();
+    GV.page_name = page_name
+
+
+} 
+
+
+
+onClick(".link_app", function(){
+    if(!$(this).data('id')) return;
+    sendDataToFlutter('vibrate')
+    $('.link_app').removeClass('selected_link_app')
+    $(this).addClass('selected_link_app')
+    app_navigate_to($(this).data('id'));
+  })
+
+function display_welcome_top_bar(){
+    if(GV.session_id=="")return
+    let first_name = GV.users[GV.session_id].first_name
+    let last_name= GV.users[GV.session_id].last_name
+
+    let html=`<div>${last_name} ${first_name}</div>`
+    $('#welcome_top_bar').html("")
+    $('#welcome_top_bar').html(html)
+}  
+ 
+function display_appointments(filters,$selector,selected_date){
+    // let selected_date=$('.toggle_confirmed_date.active').data('id'); //Ex: 2021-11-07
+    let content=GV.dates[selected_date];
+    let html="";
+    let empty=0;
+    // console.log(content)
+
+    for(var time of content.slots){
+        let datetime=`${selected_date} ${time}`;
+        filters.start=datetime
+        empty+=get_html_appointment(filters)
+
+        html+=`
+        ${get_html_appointment(filters)}
+        `
+    }
+   
+    $($selector).html("")
+   console.log(empty,"je suis empty")
+    if(empty=="0"){
+        console.log("je suis là")
+        $($selector).html(`<div class="w100 grid center" style="padding:45px 0px;color:gray">Aucun element trouvé</div>`)
+    }else{
+        $($selector).html(html)
+
+    }
+
+
+}  
+
+function get_html_appointment(filters){
+
+    var html=""
+
+  
+    for( var element of Object.values(GV.appointment)){
+
+        if(!element)continue
+        if(!check_appointments_filters (element, filters))continue
+        let user_id=element.from_id == GV.session_id  ?  element.to_id : element.from_id 
+        let user=GV.users[user_id]
+        var  start_date=element.start
+        var formated_start_hour= moment(start_date).format('HH[H]mm');
+        let formated_start_date= moment(start_date).calendar();
+        if(filters.status==1){
+          
+            html+=`
+            <div class="appointment_element center" data-id="${element.id}">
+                <div class="w100"  style="display:grid;grid-template-columns:45px 1fr;gap:10px">
+                    <div class="user_avatar"><img src="./img/${user.picture}"></div>
+                    <div class="w100">
+                        <div class="bold">${element.from_id == GV.session_id ? GV.users[element.to_id].last_name : GV.users[element.from_id].last_name} ${element.from_id == GV.session_id ? GV.users[element.to_id].first_name : GV.users[element.from_id].first_name}</div>
+                        <div style="font-size:14px">${element.from_id == GV.session_id ? GV.users[element.to_id].poste : GV.users[element.from_id].poste } à ${element.from_company_id==GV.users[GV.session_id].id_company ? GV.companies[element.to_company_id].name : GV.companies[element.from_company_id].name}</div>
+                    </div>
+                </div>
+                <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
+                    <div class="w100" style="display:flex;place-item:center;gap:10px;color:#767676">
+                        <i class="fa-regular fa-calendar" style="place-self: center;"></i>
+                        <div>${formated_start_date}</div>
+                    </div>
+                    <div style="display:flex;place-item:center;gap:10px;color:#767676">
+                        <i class="fa-regular fa-clock" style="place-self: center;"></i>
+                        <div>${formated_start_hour} à ${addMinutesToTime(start_date, 30) }</div>
+                    </div>
+                   
+                </div>
+                
+            </div>
+    
+            `
+         
+        }else if(filters.status==0){
+            console.log(user,"je suis user")
+            html+=`
+            <div class="pending_appointment_element center" data-id="${element.id}">
+                <div class="w100"  style="display:grid;grid-template-columns:45px 1fr;gap:10px">
+                    <div class="user_avatar"><img src="./img/${user.picture}"></div>
+                    <div class="w100">
+                        <div class="bold">${user.first_name} ${user.last_name}</div>
+                        <div style="font-size:14px">${element.from_id == GV.session_id ? GV.users[element.to_id].poste : GV.users[element.from_id].poste } à ${element.from_company_id==GV.users[GV.session_id].id_company ? GV.companies[element.to_company_id].name : GV.companies[element.from_company_id].name}</div>
+                    </div>
+                </div>
+                <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
+                    <div class="w100" style="display:flex;place-item:center;gap:10px;color:#767676">
+                        <i class="fa-regular fa-calendar" style="place-self: center;"></i>
+                        <div>${formated_start_date}</div>
+                    </div>
+                    <div style="display:flex;place-item:center;gap:10px;color:#767676">
+                        <i class="fa-regular fa-clock" style="place-self: center;"></i>
+                        <div>${formated_start_hour} à ${addMinutesToTime(start_date, 30) }</div>
+                    </div>
+
+                </div>
+            
+
+            </div>
+
+            `
+            
+        }
+        // console.log(html.length)
+       
+    }
+    return html
+  
+
+}
+
+function display_appointment_details_drawer(id_appointment){
+    openDrawer()
+    let appointment=GV.appointment[id_appointment]
+    let user_id=appointment.from_id == GV.session_id  ?  appointment.to_id : appointment.from_id 
+    let user=GV.users[user_id]
+    let company_id=appointment.from_company_id == user.id_company  ?  appointment.to_company_id : appointment.from_company_id
+    let company=GV.companies[company_id]
+
+
+
+    var  start_date=appointment.start
+    var formated_start_hour= moment(start_date).format('HH[H]mm');
+    let formated_start_date= moment(start_date).calendar();
+    let buttons_html="" 
+   if(appointment.from_id != GV.session_id && appointment.status==0) buttons_html=`<div id="decline_btn"  class="cursor" style="border: solid 2px rgb(255, 255, 255);padding: 8px 25px;border-radius: 8px;" data-id="${appointment.id}">Décliner</div>
+    <div id="confirm_btn" class="cursor" style="background-color: #DF7241;padding: 8px 25px;border-radius: 8px;" data-id="${appointment.id}">Accepter</div>`
+    if(appointment.status!=0) buttons_html=`<a class="cursor" style="background-color: #DF7241;padding: 8px 25px;border-radius: 8px;" href="tel:${user.phone}">Appeler</a>`  
+
+    let html=`
+    <div class="drawer_header">
+        <div class="" style="grid-template-columns: 100px 1fr;height: fit-content;">
+            <div></div>
+            <span class="material-symbols-outlined exit" style="font-size: 35px">arrow_back_ios</span>
+        </div>
+        <div class="w100 h100" style="display:flex;place-items: center;place-self: center;flex-direction: column;gap: 10px;">
+            <div class="user_avatar"><img src="./img/${user.picture}"></div>
+            <div>
+                <div style="font-size: 21px;">${user.first_name} ${user.last_name}</div>
+                <div>${user.poste} à ${company.name}</div>
+            </div>
+            <div class="details_appointment_drawer_buttons" style="display:flex;gap:20px;">
+                ${buttons_html}
+            </div>
+        </div>
+        
+    </div>
+    <div class="drawer_body">
+        <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;place-items: center;">
+            <div class="w100" style="display:flex;place-content:center;gap:10px;color:#767676">
+                <i class="fa-regular fa-calendar" style="place-self: center;"></i>
+                <div>${formated_start_date}</div>
+            </div>
+            <div style="display:flex;place-content:center;gap:10px;color:#767676">
+                <i class="fa-regular fa-clock" style="place-self: center;"></i>
+                <div>${formated_start_hour} à ${addMinutesToTime(start_date, 30) }</div>
+            </div>
+        
+        </div>
+        <div class="w100" style="padding:20px">
+            <div>Message</div>
+            <div style="width: 100%;min-height: 110px;padding: 15px;border-radius: 8px;background-color: rgb(246, 246, 246);"></div>
+        </div>
+    </div>
+
+    `
+    $("#appointment_details_drawer").html()
+    $("#appointment_details_drawer").html(html)
+}
+
+
+function check_appointments_filters (appointment,filters){
+    // console.log(appointment.status !=filters.status,"merde")
+    // console.log(filters,appointment.status,appointment.status !=filters.status)
+    var formated_appointment_start= moment(appointment.start).format('YYYY-MM-DD HH:mm:ss'); 
+    // console.log(formated_appointment_start)
+      if(!filters) filters={};
+
+      if(filters.from  && appointment.from_id !=filters.from) return false;
+      if(filters.to && appointment.to_id!=filters.to) return false;
+      if(filters.status !=undefined && appointment.status !=filters.status) return false;
+      if(filters.start && formated_appointment_start!=filters.start) return false;
+      if(filters.day && appointment.day !=filters.day ) return false;
+
+      return true;  
+    }
+      
+  
+
+function find_information_from_obj(obj,information){
+    if(!obj)return
+    // var new_obj=obj[id]
+    var find= obj[information]
+    console.log(find)
+    return find
+
+}
+
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!  HOME PAGE  //////////////////////////
+//! ///////////////////////////////////////////////////////////
+GV.initialize_page.home_page= async function(){
+
+    await load_items ('appointment',{to_id:GV.session_id},  reload = true)
+    await load_items ('appointment',{from_id:GV.session_id},  reload = true)
+
+
+    await load_items ('companies',{},  reload = false)
+    await load_items ('users',{},  reload = false)
+
+
+    let date=$('#home_page').find(".selected_date_filter_btn").data("id")
+    // display_count_appointment()
+    display_count_appointment({status:1},"#confirmed_appointments_count")
+    display_count_appointment({status:0},"#pending_appointments_count")
+    display_appointments({status:1},'#confirmed_appointments_container',date)
+
+}
+
+onClick(".date_filter_btn",function(){
+    sendDataToFlutter('vibrate')
+
+    $('.date_filter_btn').removeClass('selected_date_filter_btn')
+    $(this).addClass('selected_date_filter_btn')
+
+    display_appointments({status:$(this).data("status")},$(this).data("target"),$(this).data('id'))
+})
+
+
+
+function display_count_appointment(filters,$selector){
+
+    var i=0
+    for( var element of Object.values(GV.appointment)){
+        if(!check_appointments_filters (element, filters))continue
+        i=i+1
+       
+    }
+    console.log(i,"get count")
+    $(`${$selector}`).html("")
+    $(`${$selector}`).html(i)
+}
+
+
+onClick('.appointment_element', function(){
+    if(!$(this).data("id"))return
+    display_appointment_details_drawer($(this).data("id"))
+
+});
+
+onClick('.exit', function(){
+
+    closeDrawer()
+
+});
+
+
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!  COMPANIES PAGE  //////////////////////////
+//! ///////////////////////////////////////////////////////////
+GV.initialize_page.companies_page=function(){
+    display_companies({})
+
+
+}
+
+$(document).on("keyup",".search_bar", function() {
+    var key = $(this).val().toLowerCase();
+    display_companies({key})
+  });
+  
+
+function display_companies(filters){
+    let html=""
+    for(var element of Object.values(GV.companies)){
+        var company_name=element.name
+        if(!check_company_filter(filters,element))continue
+        html+=`
+        <div class="company_element cursor"  data-id="${element.id}">
+            <div class="circle">${company_name.charAt(0).toUpperCase()}</div>
+            <div class="w100">
+                <div class="bold text_color1">${element.name}</div>
+                <div class="text text_color4">${element.secteur}</div>
+                <div class="text text_color4">${element.country}</div>
+            </div>
+        </div>
+        `
+        $('#companies_container').html("") 
+
+       $('#companies_container').html(html) 
+    }
+
+    
+}
+
+function check_company_filter(filters,company){
+
+    if(filters.key && !company.name.toLowerCase().includes(filters.key)) return false;
+    return true
+
+}
+
+onClick(".company_element", function(){
+    sendDataToFlutter('vibrate')
+    display_company($(this).data("id"))
+    app_navigate_to("company_page");
+
+})
+
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!  COMPANY PAGE  //////////////////////////
+//! ///////////////////////////////////////////////////////////
+GV.initialize_page.company_page=function(){
+
+   
+}
+
+onClick(".back", function(){
+    sendDataToFlutter('vibrate')
+    app_navigate_to("companies_page");
+
+})
+
+function display_company(id){
+    let company=GV.companies[id]
+    $('#company_page_container').html("")
+    let html=`
+    <div class="w100 grid header_company_page ">
+        <div class="w100 back" style="padding: 25px 0px;"><span class="material-symbols-outlined " style="font-size: 35px">arrow_back_ios</span></div>
+        <div class="padding20">
+            <div class="title_bg">${company.name}</div>
+            <div>${company.secteur}</div>
+        </div>
+    </div>
+    <div class="w100 padding10 bold" style="color:gray">A propos de l'entreprise:</div>
+    <div class="w100" style="background-color:#f5f5f5;padding:15px;border-radius:8px;margin:10px 0px;color:${company.description==null?"#989898":"gray"}" >${company.description!=null?company.description:"Cette  entreprise n'a pas ajouté de présentation"}</div>
+    <div class="w100 padding10 bold" style="color:gray">Collaborateurs:</div>
+    <div id="users_company_container" class="w100 h100" style="padding: 20px 10px;background-color:#f5f5f5;height:fit-content">
+       ${get_html_company_users(company.id)} 
+    </div>
+
+    `
+    $('#company_page_container').html(html)
+
+}
+
+function get_html_company_users(id_company){
+        let  html=''
+        for(element of Object.values(GV.users)){
+            if(element.id_company!= id_company)continue 
+            html+=`
+            <div class="user_company_element w100 cursor" style="background-color:white;margin-bottom:10px" data-id="${element.id}">
+                <div class="user_avatar"><img src="./img/${element.picture}"></div>
+                <div class="w100">
+                    <div>${element.last_name} ${element.first_name}</div>
+                    <div class="text_color3">${element.poste}</div>
+                </div>
+                <div><span class="material-symbols-outlined">new_label</span></div>
+            </div>
+            `
+
+        }
+        if(html.length==0){
+            html=`<div class="grid text_gray padding20">${GV.companies[id_company].name} n'a pas de collaborateurs diponibles le moment !</div>`
+        }
+        return html
+}
+
+
+
+
+onClick(".user_company_element",  function(){
+    sendDataToFlutter('vibrate')
+    display_side_menu_appointment($(this).data("id"))
+    $('#side_menu_appointment').css('display','grid')
+
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+   
+
+      }else{
+
+        $("#overlay").css("display","grid")
+    }
+
+    get_user_disponibility("2022-11-09",$(this).data("id"))
+
+})
+  
+
+onClick('#overlay, .exit', function(){
+    sendDataToFlutter('vibrate')
+    var target= $(this).data('id')
+    console.log(target)
+    $('#overlay').css('display', 'none')
+    $(`${target}`).css('display', 'none')
+    
+    
+
+});
+
+
+
+
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!  PICKUP APPOINTMENT   //////////////////////////
+//! ///////////////////////////////////////////////////////////
+
+
+
+ function display_side_menu_appointment(user_id){
+    $('#side_menu_appointment').html("")
+    let user=GV.users[user_id]
+
+    let html=`
+    <div class="header_side_menu line_bottom">
+        <div id="skip_btn" class="exit text_color3" data-id="#side_menu_appointment"><span class="material-symbols-outlined">arrow_back_ios</span></div>
+        <div class="title text_color3">${user.last_name} ${user.first_name}</div>
+        <div class="title text_color3"></div>
+    </div>
+    <div class="body_side_menu_appointment">
+        <div class="w100">
+            <div class="" style="font-size: 21px;">Sélectionnez une date </div>
+            <div class="w100 days_element_container">
+                <div class="day_btn selected_day_btn" data-id="2022-11-09" data-user="${user_id}">Mercredi <br> 09/11</div>
+                <div class="day_btn" data-id="2022-11-10" data-user="${user_id}">Jeudi <br> 10/11</div>
+            </div>
+        </div>
+        <div class="w100 h100 ">
+            <div class="padding10" style="font-size: 21px;">Sélectionnez un créneau horaire</div>
+            <div id="time_slots_container" class="w100 h100">
+ 
+            </div>
+
+        </div>
+    </div>
+    <div class="w100 grid center line_top">
+        <div id="request_appointment_btn" class="button p_color" data-id="${user_id}" >Valider</div>
+    </div>
+
+    `
+    $('#side_menu_appointment').html(html)
+}
+
+
+
+async function get_user_disponibility(selected_date,user_id){
+
+    await get_user_unavailability(user_id)
+
+    $('#time_slots_container').html("")
+
+    let content=GV.dates[selected_date];
+    let html=""
+   
+    for(var time of content.slots){
+        let datetime=`${selected_date} ${time}`; // check each datetime ex: 2022-05-30 10:00.00
+        let displayed_time=moment(datetime).format('HH:mm ')
+        if(!check_user_disponibility(datetime,selected_date))continue
+        html+=`<div class="time_slot" data-id="${datetime}">${displayed_time}</div>`
+    }
+    $('#time_slots_container').html(html)
+}
+
+
+function check_user_disponibility(datetime,selected_date){
+    if(GV.unavailability.length==0)return true
+    let time_now = moment().format('HH:mm');
+    let time=moment(datetime).format('HH:mm');
+    let today=moment().format('YYYY-MM-DD')
+    for(let i in GV.unavailability){
+        console.log(GV.unavailability[i], datetime,i)
+        if( GV.unavailability[i]==datetime)return false 
+        if(time_now > time && selected_date == today )return false
+
+      
+    }
+    return true
+      
+}
+
+async function  get_user_unavailability(user_id){
+    GV.unavailability=""
+    try{
+        let data = await ajax('/get_unavailability',{user_id,current_user:GV.session_id});  
+        GV.unavailability=data.unavailability;
+       }catch(e){
+           $('.loading-container').append('<div class="loading-error">Une erreur s\'est produite</div>');
+          //  setTimeout(function(){ init_page(name); },2000);
+       }
+
+}
+
+onClick('.day_btn', async function(){
+    sendDataToFlutter('vibrate')
+    $('.day_btn').removeClass('selected_day_btn')
+    $(this).addClass('selected_day_btn')
+
+    await get_user_disponibility($(this).data("id"),$(this).data("user"))
+
+
+});
+
+onClick('.time_slot', function(){
+    sendDataToFlutter('vibrate')
+    $('.time_slot').removeClass('selected_time_slot')
+    $(this).addClass('selected_time_slot')
+});
+
+
+onClick('#request_appointment_btn', async function(){
+    sendDataToFlutter('vibrate')
+   console.log(GV.session_id)
+    let myObj={
+        to_id:$(this).data('id'),
+        from_id:GV.session_id,
+        start:$('#time_slots_container').find('div.selected_time_slot').data("id"),
+        to_company_id:GV.users[$(this).data('id')].id_company,
+        from_company_id:GV.users[GV.session_id].id_company,
+    }
+
+    console.log(myObj)
+
+      
+    await add("appointment","",GV.appointment,myObj)
+
+
+
+
+    
+    
+
+
+});
+
+
+
+
+  //! /////////////////////////////////////////////////////////// 
+//! //////////////////!  APPOINTMENTS PAGE  //////////////////////////
+//! ///////////////////////////////////////////////////////////
+
+
+GV.initialize_page.appointments_page= async function(){
+    await load_items ('appointment',{to_id:GV.session_id},  reload = true)
+    await load_items ('appointment',{from_id:GV.session_id},  reload = true)
+
+
+    await load_items ('companies',{},  reload = false)
+    await load_items ('users',{},  reload = false)
+
+
+    let date=$('#appointments_page').find(".selected_date_filter_pending_btn").data("id")
+    display_appointments({status:"0",to:GV.session_id},'#pending_appointments_container',date)
+
+}
+
+
+
+onClick(".switch_btn",function(){
+    sendDataToFlutter('vibrate')
+    $('.switch_btn').removeClass("selected_switch_btn")
+    $(this).addClass("selected_switch_btn")
+    let filtred_by=$(this).data("id")
+    let date=$('#appointments_page').find(".selected_date_filter_pending_btn").data("id")
+
+    if(filtred_by=="to_user"){
+
+        display_appointments({status:"0",to:GV.session_id},'#pending_appointments_container',date)
+
+    }else{
+
+        display_appointments({status:"0",from:GV.session_id},'#pending_appointments_container',date)
+
+    }
+
+
+
+});
+
+
+
+
+async function update_appointments_status(appointment,obj){
+    try{
+        alert("je suis update")
+        let user_id=appointment.from_id == GV.session_id  ?  appointment.to_id : appointment.from_id 
+        let data = await ajax('/update_appointments_status',{user_id,current_user:GV.session_id,appointment,obj}); 
+        console.log(data,"je suis data")
+        if(data.ok==true){
+            
+            display_app_notification("1")
+        }
+      
+       }catch(e){
+           $('.loading-container').append('<div class="loading-error">Une erreur s\'est produite</div>');
+           display_app_notification("2",`<div class=""><div>Un problème est survenu !</div><div class="text_color4" style="font-size:15px!important">veuillez relancer l'application</div><div>`)
+
+          //  setTimeout(function(){ init_page(name); },2000);
+        }
+
+}
+
+onClick("#confirm_btn",async function(){
+    // sendDataToFlutter('vibrate')
+
+    
+    var obj={ status:1}
+   await update_appointments_status(GV.appointment[$(this).data("id")],obj)
+
+   await load_items ('appointment',{to_id:GV.session_id},  reload = true)
+   await load_items ('appointment',{from_id:GV.session_id},  reload = true)
+   $("#appointment_details_drawer").css("display","none")
+   let date=$('#appointments_page').find(".selected_date_filter_pending_btn").data("id")
+   
+    display_appointments({status:"0",to:GV.session_id},'#pending_appointments_container',date)
+
+
+});
+
+onClick("#decline_btn",async function(){
+    sendDataToFlutter('vibrate')
+
+    var obj={status:2}
+    await update($(this).data('id'), "appointment", "" ,GV.appointment,obj)
+    let date=$('#appointments_page').find(".selected_date_filter_pending_btn").data("id")
+    $("#appointment_details_drawer").css("display","none")
+
+    display_appointments({status:"0",to:GV.session_id},'#pending_appointments_container',date)
+
+});
+
+
+onClick('.pending_appointment_element', function(){
+    if(!$(this).data("id"))return
+    // sendDataToFlutter('vibrate')
+    
+    // $('.pending_appointment_element').removeClass('selected_pending_appointment_element')
+    // $(this).addClass('selected_pending_appointment_element')
+    // if($(this).data("id")==GV.session_id)return
+    // $('.pending_appointment_element').find('.pending_appointment_btn_container').css('display','none')
+    // $(this).find('.pending_appointment_btn_container').css('display','grid')
+    display_appointment_details_drawer($(this).data("id"))
+
+});
+
+
+
+onClick(".date_filter_pending_btn",function(){
+    sendDataToFlutter('vibrate')
+
+    $('.date_filter_pending_btn').removeClass('selected_date_filter_pending_btn')
+    $(this).addClass('selected_date_filter_pending_btn')
+    let filtred_by=$('#appointments_page').find(".selected_switch_btn").data("id")
+    if(filtred_by=="to_user"){
+        display_appointments({status:"0",to:GV.session_id},$(this).data("target"),$(this).data('id'))
+
+    }else{
+        display_appointments({status:"0",from:GV.session_id},$(this).data("target"),$(this).data('id'))
+
+    }
+
+})
+
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////!  USER SIDE MENU   //////////////////////////
+//! ///////////////////////////////////////////////////////////
+
+
+onClick(".profil_side_menu_btn",function(){
+    sendDataToFlutter('vibrate')
+    $("#profil_side_menu").css("display","grid")
+
+});
+
+onClick(".close_profil_side_menu_btn",function(){
+    sendDataToFlutter('vibrate')
+    $("#profil_side_menu").css("display","none")
+
+});
+
+onClick("#logout_btn, .logout_btn",async function(){
+    sendDataToFlutter('vibrate')
+ 
+   var options = {
+    type: "POST",
+    url: `/logOut`,
+    cache: false,
+  };
+  var received_data = await $.ajax(options);
+  if(received_data.success){
+    $.cookie("session_id",null, { path: '/app' });
+
+    window.location.href='/login-user'
+  }
+  
+});
+
+onClick("#privacy_btn",async function(){
+    sendDataToFlutter('vibrate')
+});
+
+
+
+
+
+
+
+// $('.pending_appointment_element').focus(function(){
+//     alert()
+// })
+
+
+
+
+
+        // Check if user has seen the message already
+// const hasSeenInstallPopup = localStorage.getItem("hasSeenInstallPopup");
+
+// // Detects if device is on iOS 
+// const isIos = () => {
+//   const userAgent = window.navigator.userAgent.toLowerCase();
+//   return /iphone|ipad|ipod/.test( userAgent );
+// }
+
+// // Detects if device is in standalone mode
+// const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+// // Checks if should display install popup notification:
+// if (!hasSeenInstallPopup && isIos() && !isInStandaloneMode()) {
+//   showInstallMessage();
+//   localStorage.setItem("hasSeenInstallPopup", true);
+// }
+
+
+
+// let products={
+//     "1":{id:"1",name:"robinet",category:"bricollage"},
+//     "2":{id:"2",name:"robinet",category:"bricollage"},
+//     "3":{id:"3",name:"robinet",category:"bricollage"},
+// }
+
+// let  selectedProducts=[]
+
+// onClick(".mon-boutton",function(){
+//     var product_id=$(this).data("id") // recuperer l'id du poduit depuis le data id du boutton
+//     selectedProducts.push(product_id) // ajouter le produits au tableau (base de donnée)
+
+//     display_cart()// appeler la fonction de display du cart  
+//     display_products_cart() // appeler la fonction de display des produits selectionnés dans le cart 
+
+
+// })
+
+
+// function display_products_cart(){
+//     let html=""
+//     $("#mon-container").html("")
+
+//     // je  loop sur mon tableau des produits selectionnés 
+//     for(let id of selectedProducts){
+//         var product=products[id]// je récupére mon produits depuis ma base en fonction de l'id des produits selectionnés, ex selectedProducts=[1,3];  products[1] ==> résultat     "1":{id:"1",name:"robinet",category:"bricollage"},
+//         var product_name=product.name
+//         html+=`
+
+//         `
+//     }
+
+//     $("#mon-container").html(html)
+// }

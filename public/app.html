@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>AIC B2B</title>
+    <link rel="icon" style="width:50%;" type="image/png" href="./img/miniature.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/PullToRefresh/0.1.1/ptr.css"/>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
+    </head>
+   
+
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/general_style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+
+
+</head>
+<body >
+    <div id="main_app">
+        <div id="desktop_navbar" class="shadow">
+            <div class="w100"><img src="./img/logo2.png" style="width: 180px;"></div>
+            <div></div>
+            <div class="grid colmn4 padding10 center">
+                <div class="link_app" data-id="home_page">Mes rendez-vous</div>
+                <div class="link_app" data-id="companies_page">Prendre rendez-vous</div>
+                <div class="link_app" data-id="appointments_page">Rendez-vous en attente </div>
+                <div class="logout_btn">Déconnexion</div>
+            </div>
+        </div>
+
+        <div id="header_app" class="w100">
+            <div class="bold padding10">
+                <div class="title_small bold"><img src="./img/logo1.png" style="width: 80px;"></div>
+            </div>
+            <div class="w100 grid center profil_side_menu_btn"><span class="material-symbols-outlined">menu</span>
+            </div>
+        </div>
+
+
+
+        <div id="body_app"class="w100 h100">
+            <div id="companies_page" class="page" data-id="companies_page">
+                <div class="w100" style="background-color: #4d2411;min-height: 28vh;padding: 25px 18px;display: flex;justify-content: space-between;flex-direction: column;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;">
+                    <div class="w100" style="color:white;font-size: 19px;font-weight: 400;">Organisez des rendez-vous avec les acteurs clés de l'investissement.</div>
+                    <div class="searchBar_container w100">
+                        <span class="material-symbols-outlined">search </span>
+                        <input class="inputw100 search_bar" placeholder="Rechercher une entreprise...">
+                        <span class="material-symbols-outlined" style="color:gray">tune</span>
+                    </div>
+    
+                </div>
+                <div id="companies_container" class="w100">
+                    <div class="company_element ph-item">
+           
+                    </div>
+                    <div class="company_element ph-item">
+                        <!-- <div class="circle">D</div>
+                        <div class="w100">
+                            <div class="bold text_color1">Sarl socad</div>
+                            <div class="text text_color4">Automobile</div>
+                        </div> -->
+                    </div>
+                    <div class="company_element ph-item">
+                        <!-- <div class="circle">D</div>
+                        <div class="w100">
+                            <div class="bold text_color1">Sarl socad</div>
+                            <div class="text text_color4">Automobile</div>
+                        </div> -->
+                    </div>
+                    <div class="company_element ph-item">
+                        <!-- <div class="circle">D</div>
+                        <div class="w100">
+                            <div class="bold text_color1">Sarl socad</div>
+                            <div class="text text_color4">Automobile</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="company_page" class="page" data-id="company_page">
+                <div id="company_page_container">
+                    <div class="w100 grid " style="background-color: #ac542c;padding: 14px;border-radius: 10px;color: white;grid-template-columns: 25px 1fr;place-items: start;">
+                        <div class="w100 back" style="padding: 25px 0px;" ><span class="material-symbols-outlined " style="font-size: 35px">arrow_back_ios</span></div>
+                        <div class="padding20">
+                            <div class="title_bg">Sarl socad</div>
+                            <div>Automobile</div>
+                        </div>
+                    </div>
+                    <div id="users_company_container" class="w100 h100" style="padding: 20px 0px;">
+                        <div class="user_company_element w100">
+                            <div class="w100">
+                                <div>Chenouf imad</div>
+                                <div class="text_color3">PDG</div>
+                            </div>
+                            <div><span class="material-symbols-outlined">new_label</span></div>
+                        </div>
+                        <div class="user_company_element w100">
+                            <div class="w100">
+                                <div>Chenouf imad</div>
+                                <div class="text_color3">PDG</div>
+                            </div>
+                            <div><span class="material-symbols-outlined">new_label</span></div>
+                        </div>
+                        <div class="user_company_element w100">
+                            <div class="w100">
+                                <div>Chenouf imad</div>
+                                <div class="text_color3">PDG</div>
+                            </div>
+                            <div><span class="material-symbols-outlined">new_label</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="home_page" class="page" data-id="home_page">
+                <div id="home_page_container">
+                    <!-- <div class="grid center" style="grid-template-columns: 1fr 1fr;">
+                        <div class="card">
+                            <div class="bold">Rendez-vous confirmés</div>
+                            <div id="confirmed_appointments_count" class="bold title_vbg" style="font-size: 35px;"></div>
+                        </div>
+                        <div class="card">
+                            <div class="bold">Rendez-vous non confirmés</div>
+                            <div id="pending_appointments_count" class="bold title_vbg" style="font-size: 35px;"></div>
+                        </div>
+                
+                    </div> -->
+                    <div class="w100" style="padding:20px 25px">
+                        <div class="w100" style="font-size: 30px;">Bonjour,<span id="welcome_top_bar" class="text_color4 w100"><div class="ph-item"></div></span> </div>
+                       
+                        <div class="w100">Bienvenu sur votre espace AIC B2B.</div>
+
+                    </div>
+                    <div class="w100" style="padding:20px 25px">
+                        <div class="w100 bold">Mon prochain rendez-vous</div>
+                        <div class="w100">
+                            <div class="appointment_element center" data-id="6">
+                                <div class="w100" style="display:grid;grid-template-columns:45px 1fr;gap:10px">
+                                    <div class="user_avatar"><img src="./img/default-user.jpg"></div>
+                                    <div class="w100">
+                                        <div class="bold">chenouf imad</div>
+                                        <div style="font-size:14px">PDG à sarl runstart</div>
+                                    </div>
+                                </div>
+                                <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
+                                    <div class="w100" style="display:flex;place-items:center;gap:10px;color:#767676">
+                                        <i class="fa-regular fa-calendar" style="place-self: center;"></i>
+                                        <div>11/09/2022</div>
+                                    </div>
+                                    <div style="display:flex;place-items:center;gap:10px;color:#767676">
+                                        <i class="fa-regular fa-clock" style="place-self: center;"></i>
+                                        <div>16H30 à 17H00</div>
+                                    </div>
+                                   
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div id="confirmed_appointments_box" class="w100 h100 appointments_box padding20">
+                        <div class="w100 grid" style="grid-template-columns: 1fr 200px;">
+                            <div class="bold">Liste des Rendez-vous confirmés</div>
+                            <div class="grid center" style="grid-template-columns: 1fr 1fr;">
+                                <div class="date_filter_btn selected_date_filter_btn cursor" data-id="2022-11-09" data-status="1" data-target="#confirmed_appointments_container">Mercredi</div>
+                                <div class="date_filter_btn cursor" data-id="2022-11-10" data-status="1" data-target="#confirmed_appointments_container">Jeudi</div>
+                            </div>
+                        </div>
+                        <div id="confirmed_appointments_container" class="w100 ">
+                            <div class="appointment_element center ph-item">
+                                <!-- <div class="w100">
+                                    <div>Sarl socad</div>
+                                    <div class="bold">Chenouf Imad</div>
+                                    <div>PDG</div>
+                                </div>
+                                <div class="w10 bold">10:00</div> -->
+                            </div>
+                            <div class="appointment_element center ph-item">
+                                <!-- <div class="w100">
+                                    <div>Sarl socad</div>
+                                    <div class="bold">Chenouf Imad</div>
+                                    <div>PDG</div>
+                                </div>
+                                <div class="w10 bold">10:00</div> -->
+                            </div>
+                            <div class="appointment_element center ph-item">
+                                <!-- <div class="w100">
+                                    <div>Sarl socad</div>
+                                    <div class="bold">Chenouf Imad</div>
+                                    <div>PDG</div>
+                                </div>
+                                <div class="w10 bold">10:00</div> -->
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="appointments_page" class="page" data-id="appointments_page">
+                <div id="" class="w100 h100 appointments_box padding20"  style="grid-template-rows: 50px 60px 50px 1fr;">
+                    <div class="bold">Demandes en attentes :</div>
+
+                    <div class="w100 switch_btn_container">
+                        <div class="w100 grid center switch_btn selected_switch_btn" data-id="to_user">Reçus</div>
+                        <div class="w100 grid center switch_btn" data-id="from_user">Envoyés</div>
+                    </div>
+
+                    <div class="w100 grid" style="grid-template-columns: 1fr 200px;">
+                        <div class="w100"></div>
+                        <div class="grid center" style="grid-template-columns: 1fr 1fr;">
+                            <div class="date_filter_pending_btn selected_date_filter_pending_btn cursor" data-id="2022-11-09" data-status="0" data-target="#pending_appointments_container" >Mercredi</div>
+                            <div class="date_filter_pending_btn cursor" data-id="2022-11-10" data-status="0" data-target="#pending_appointments_container">Jeudi</div>
+                        </div>
+                    </div>
+                    <div id="pending_appointments_container" class="w100 ">
+                        <div class="pending_appointment_element center ">
+                            <div class="w100">
+                                <div class="bold">10:00</div>
+                                <div>Sarl socad</div>
+                                <div class="bold">Chenouf Imad</div>
+                                <div>PDG</div>
+                            </div>
+                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
+                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
+                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
+                            </div>
+                        </div>
+                        <div class="pending_appointment_element center ">
+                            <div class="w100">
+                                <div class="bold">10:00</div>
+                                <div>Sarl socad</div>
+                                <div class="bold">Chenouf Imad</div>
+                                <div>PDG</div>
+                            </div>
+                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
+                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
+                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
+                            </div>
+                        </div>
+                        <div class="pending_appointment_element center ">
+                            <div class="w100">
+                                <div class="bold">10:00</div>
+                                <div>Sarl socad</div>
+                                <div class="bold">Chenouf Imad</div>
+                                <div>PDG</div>
+                            </div>
+                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
+                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
+                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
+                            </div>
+                        </div>
+                        <div class="pending_appointment_element center ">
+                            <div class="w100">
+                                <div class="bold">10:00</div>
+                                <div>Sarl socad</div>
+                                <div class="bold">Chenouf Imad</div>
+                                <div>PDG</div>
+                            </div>
+                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
+                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
+                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div id="navbar" class="w100">
+            <div class="w100 grid center link_app h100" data-id="companies_page"><img src="./img/app/business-and-trade.png"></div>
+            <div class="w100 grid center link_app h100 selected_link_app" data-id="home_page"><img src="./img/app/accueil.png"></div>
+            <div class="w100 grid center link_app h100" data-id="appointments_page"><img src="./img/app/appointment.png"></div>
+
+        </div>
+
+        <div id="footer_page_desktop" class="w100"></div>
+
+        <div id="side_menu_appointment">
+        </div>
+
+        <div  id="request_appointment_check_out" class="padding20">
+            
+            <div id="request_being_processed" class="w100 h100" style="padding-top: 8%;">
+                <div class="grid center padding20 title_vbg">
+                    <div class="dot-spinner">
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                        <div class="dot-spinner__dot"></div>
+                    </div>
+                            
+                </div>
+                <div  class="text_center" style="font-size: 25px;">Demande de rendez-vous en cours d'envoi...</div>
+            </div>
+            <div id="request_succeded" class="w100 h100" style="padding-top: 8%;">
+                <div class="grid center padding20 title_vbg">
+                    <div class="SucessContainer">
+                        <div class="w3-modal-icon w3-modal-success animate">
+                            <span class="w3-modal-line w3-modal-tip animateSuccessTip"></span>
+                            <span class="w3-modal-line w3-modal-long animateSuccessLong"></span>
+                            <div class="w3-modal-placeholder"></div>
+                            <div class="w3-modal-fix"></div>
+                        </div>
+                    </div>
+                      
+                </div>
+                <div  class="text_center message_checkout" style="font-size: 25px;">Demande de rendez-vous envoyé avec success...</div>
+            </div>
+
+            <div id="request_failed" class="w100 h100" style="padding-top: 8%;">
+                <div class="grid center padding20 title_vbg">
+                    <div class="mover"></div>
+                      
+                </div>
+                <div  class="text_center message_checkout" style="font-size: 25px;margin-top: 55px;">ERROR !</div>
+            </div>
+            
+        </div>
+
+    </div>
+    
+    <div id="overlay"></div>
+    <div id="desktop_overlay"></div>
+
+    <div id="profil_side_menu">
+        <div class="w100 grid colmn3  padding20">
+            <div class="close_profil_side_menu_btn" ><span class="material-symbols-outlined" style="font-size: 30px;">menu_open</span></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="w100 padding20">
+            <div id="privacy_btn" class="profil_side_menu_element" target="_blank" href="/files/privacy.pdf"> 
+                <div><span class="material-symbols-outlined" style="color:#ac542c;">library_books</span></div>
+                <div>Politique de confidentialité</div>
+            </div>
+            <div id="logout_btn" class="profil_side_menu_element">
+                <div><span class="material-symbols-outlined" style="color:#ac542c;">logout</span></div>
+                <div>Déconnexion</div>
+            </div>
+        </div>
+        <div class="w100 grid center padding20" style="background-color: rgb(247, 246, 246);">
+            <div class="text_color4 text_center" style="font-size: 15px;">AIC B2B V1.1 </br> Powered by Runstart</div>
+        </div>
+    </div>
+
+    <div id="wpa_popup_container" class="grid center">
+        <div id="add_wpa_btn" class="w100">Ajouter</div>
+    </div>
+
+    <div id="appointment_details_drawer"  class="drawer">
+        <div class="drawer_header">
+            <div class="" style="grid-template-columns: 100px 1fr;height: fit-content;">
+                <div></div>
+                <span  class="material-symbols-outlined exit" style="font-size: 35px">arrow_back_ios</span>
+            </div>
+            <div class="w100 h100" style="display:flex;place-items: center;place-self: center;flex-direction: column;gap: 10px;">
+                <div class="user_avatar"><img src="./img/default-user.jpg"></div>
+                <div>
+                    <div style="font-size: 21px;">Chenouf imad</div>
+                    <div>PDG chez runstart</div>
+                </div>
+                <div class="drawer_buttons" style="display:flex;gap:20px;">
+                    <div class="cursor" style="border: solid 2px rgb(255, 255, 255);padding: 8px 25px;border-radius: 8px;">Décliner</div>
+                    <div class="cursor" style="background-color: #DF7241;padding: 8px 25px;border-radius: 8px;">Accepter</div>
+
+                </div>
+            </div>
+            
+        </div>
+        <div class="drawer_body">
+            <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;place-items: center;">
+                <div class="w100" style="display:flex;place-content:center;gap:10px;color:#767676">
+                    <i class="fa-regular fa-calendar" style="place-self: center;"></i>
+                    <div>Aujourd'hui</div>
+                </div>
+                <div style="display:flex;place-content:center;gap:10px;color:#767676">
+                    <i class="fa-regular fa-clock" style="place-self: center;"></i>
+                    <div>16H30 à 17H00</div>
+                </div>
+               
+            </div>
+            <div class="w100" style="padding:20px">
+                <div>Message</div>
+                <div style="width: 100%;min-height: 110px;padding: 15px;border-radius: 8px;background-color: rgb(246, 246, 246);"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker enregistré avec succès:', registration);
+        })
+        .catch((error) => {
+          console.error('Erreur lors de l\'enregistrement du Service Worker:', error);
+        });
+    }
+</script>
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" ></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pulltorefreshjs/0.1.22/index.umd.js"></script>
+<script src="/js/general_function.js"></script>
+<script src="/js/index.js"></script>
+
+</html>
