@@ -44,6 +44,10 @@
             <div class="bold padding10">
                 <div class="title_small bold"><img src="./img/logo1.png" style="width: 80px;"></div>
             </div>
+            <div id="notifications_btn" class="grid center" style="position: relative;">
+                <div class="cursor badge-notification jump" style="display : none; position: absolute; height: 12px; width: 12px; left: 10px; background-color: #F44336; border-radius: 50px;"></div>
+                <i class="fa-regular fa-bell" style="color: #5c5c5c;font-size: 20px;"></i>
+            </div>
             <div class="w100 grid center profil_side_menu_btn"><span class="material-symbols-outlined">menu</span>
             </div>
         </div>
@@ -52,12 +56,12 @@
 
         <div id="body_app"class="w100 h100">
             <div id="companies_page" class="page" data-id="companies_page">
-                <div class="w100" style="background-color: #4d2411;min-height: 28vh;padding: 25px 18px;display: flex;justify-content: space-between;flex-direction: column;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;">
+                <div class="w100" style="background-color: #4d2411;min-height: 28vh;padding: 25px 18px;display: flex;justify-content: space-between;flex-direction: column;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;max-width: 100%;">
                     <div class="w100" style="color:white;font-size: 19px;font-weight: 400;">Organisez des rendez-vous avec les acteurs clés de l'investissement.</div>
                     <div class="searchBar_container w100">
                         <span class="material-symbols-outlined">search </span>
                         <input class="inputw100 search_bar" placeholder="Rechercher une entreprise...">
-                        <span class="material-symbols-outlined" style="color:gray">tune</span>
+                       
                     </div>
     
                 </div>
@@ -145,26 +149,11 @@
                     </div>
                     <div class="w100" style="padding:20px 25px">
                         <div class="w100 bold">Mon prochain rendez-vous</div>
-                        <div class="w100">
-                            <div class="appointment_element center" data-id="6">
-                                <div class="w100" style="display:grid;grid-template-columns:45px 1fr;gap:10px">
-                                    <div class="user_avatar"><img src="./img/default-user.jpg"></div>
-                                    <div class="w100">
-                                        <div class="bold">chenouf imad</div>
-                                        <div style="font-size:14px">PDG à sarl runstart</div>
-                                    </div>
-                                </div>
-                                <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
-                                    <div class="w100" style="display:flex;place-items:center;gap:10px;color:#767676">
-                                        <i class="fa-regular fa-calendar" style="place-self: center;"></i>
-                                        <div>11/09/2022</div>
-                                    </div>
-                                    <div style="display:flex;place-items:center;gap:10px;color:#767676">
-                                        <i class="fa-regular fa-clock" style="place-self: center;"></i>
-                                        <div>16H30 à 17H00</div>
-                                    </div>
+                        <div id="nextClosestAppointment" class="w100">
+                            <div class="appointment_element center ph-item " >
+                                
                                    
-                                </div>
+                               
                                 
                             </div>
                         </div>
@@ -173,8 +162,8 @@
                         <div class="w100 grid" style="grid-template-columns: 1fr 200px;">
                             <div class="bold">Liste des Rendez-vous confirmés</div>
                             <div class="grid center" style="grid-template-columns: 1fr 1fr;">
-                                <div class="date_filter_btn selected_date_filter_btn cursor" data-id="2022-11-09" data-status="1" data-target="#confirmed_appointments_container">Mercredi</div>
-                                <div class="date_filter_btn cursor" data-id="2022-11-10" data-status="1" data-target="#confirmed_appointments_container">Jeudi</div>
+                                <div class="date_filter_btn selected_date_filter_btn cursor" data-id="2023-12-18" data-status="1" data-target="#confirmed_appointments_container">Lundi</div>
+                                <div class="date_filter_btn cursor" data-id="2023-12-19" data-status="1" data-target="#confirmed_appointments_container">Mardi</div>
                             </div>
                         </div>
                         <div id="confirmed_appointments_container" class="w100 ">
@@ -222,58 +211,22 @@
                     <div class="w100 grid" style="grid-template-columns: 1fr 200px;">
                         <div class="w100"></div>
                         <div class="grid center" style="grid-template-columns: 1fr 1fr;">
-                            <div class="date_filter_pending_btn selected_date_filter_pending_btn cursor" data-id="2022-11-09" data-status="0" data-target="#pending_appointments_container" >Mercredi</div>
-                            <div class="date_filter_pending_btn cursor" data-id="2022-11-10" data-status="0" data-target="#pending_appointments_container">Jeudi</div>
+                            <div class="date_filter_pending_btn selected_date_filter_pending_btn cursor" data-id="2023-12-18" data-status="0" data-target="#pending_appointments_container" >Lundi</div>
+                            <div class="date_filter_pending_btn cursor" data-id="2023-12-19" data-status="0" data-target="#pending_appointments_container">Mardi</div>
                         </div>
                     </div>
                     <div id="pending_appointments_container" class="w100 ">
-                        <div class="pending_appointment_element center ">
-                            <div class="w100">
-                                <div class="bold">10:00</div>
-                                <div>Sarl socad</div>
-                                <div class="bold">Chenouf Imad</div>
-                                <div>PDG</div>
-                            </div>
-                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
-                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
-                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
-                            </div>
+                        <div class="pending_appointment_element center ph-item">
+                            
                         </div>
-                        <div class="pending_appointment_element center ">
-                            <div class="w100">
-                                <div class="bold">10:00</div>
-                                <div>Sarl socad</div>
-                                <div class="bold">Chenouf Imad</div>
-                                <div>PDG</div>
-                            </div>
-                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
-                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
-                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
-                            </div>
+                        <div class="pending_appointment_element center ph-item">
+                            
                         </div>
-                        <div class="pending_appointment_element center ">
-                            <div class="w100">
-                                <div class="bold">10:00</div>
-                                <div>Sarl socad</div>
-                                <div class="bold">Chenouf Imad</div>
-                                <div>PDG</div>
-                            </div>
-                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
-                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
-                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
-                            </div>
+                        <div class="pending_appointment_element center ph-item">
+                            
                         </div>
-                        <div class="pending_appointment_element center ">
-                            <div class="w100">
-                                <div class="bold">10:00</div>
-                                <div>Sarl socad</div>
-                                <div class="bold">Chenouf Imad</div>
-                                <div>PDG</div>
-                            </div>
-                            <div class="w10 center h100 gap5 pending_appointment_btn_container">
-                                <div id="confirm_btn" class="pending_appointment_btn">Accepter</div>
-                                <div id="decline_btn" class="pending_appointment_btn">Décliner</div>
-                            </div>
+                        <div class="pending_appointment_element center ph-item">
+                            
                         </div>
                     </div>
                 </div>
