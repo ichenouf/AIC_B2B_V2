@@ -138,10 +138,7 @@ app.get([`/login-admin`,], async (req, res,) => {
 });
 
 app.get([`/admin`,], async (req, res,) => { 
-
-		
-
-
+	console.log('khra', req.session.loggedin)
 	// console.log(req.session.loggedin,"corporate session")
 	if(req.session.loggedin==true){
 		res.sendFile(base_url+'/admin.html');
@@ -451,6 +448,21 @@ app.post(`/update_to_database`, async (req, res,) => {
         res.send({"ok":false, "error":error});
     }
 });
+app.post(`/edit_user_disabled`, async (req, res,) => {
+    let {id} = req.body;
+	let result = {}
+    try {
+		console.log(req.body, id)
+
+        await db.update('users',{is_deleted : 1 }, {id_company : id} );
+         result['users'] = await db.select('*', 'users', {is_deleted : 0 }, "indexed");
+
+		res.send({"reponses":result, "id":id,"ok":true})
+
+    } catch (error) {
+        res.send({"ok":false, "error":error});
+    }
+});
 
 
 app.post(`/delete_from_database`, async (req, res,) => {
@@ -652,76 +664,35 @@ async function mailCompteCorporate(email){
 // });
 
 
-// app.post('/auth', async (req, res) => {
-	
-// 	try{
-// 	  var {username, password, type}=req.body;
-//       if(type == "admin"){
-// 		console.log(username)
-// 		var user = await db.select("*","admin",  {name: username});
-// 		console.log(user);
-		
-		
-			
-// 				if ( user[0].password == password) {	
-// 					req.session.username = username;
-// 					req.session.id = user[0].id;
-// 					req.session.loggedin = true;
-// 					res.cookie("session_id",user[0].id)
-
-// 					console.log('ok')
-// 					res.send({"ok":true})			   
-// 				} 
-// 	  }if(type == "companies"){
-// 		console.log(username)
-// 		var user = await db.select("*","companies",  {email: username});
-// 		console.log(user);
-// 		console.log(user[0].password);
-		
-// 			const validPass = await bcrypt.compare(password, user[0].password);
-// 				if (validPass == true) {	
-// 					req.session.username = username
-// 					req.session.loggedin = true;
-// 					res.cookie("session_id",user[0].id,{
-// 						path: '/corporate',
-						
-// 					})
-
-// 					res.send({"ok":true})			   
-// 				} 
-// 	  }else if(type == "users"){
-// 		console.log(username)
-// 		var user = await db.select("*","users",  {phone: username});
-// 		console.log(user);
-// 		console.log(user[0].password);
-		
-// 			const validPass = await bcrypt.compare(password, user[0].password);
-// 				if (validPass == true) {	
-// 					req.session.username = username
-// 					req.session.loggedin = true;
-// 					req.session.type="user"
-// 					res.cookie("session_id",user[0].id,{
-// 						path: '/app',
-						
-// 					})
-
-// 					res.send({"ok":true})			   
-// 				} 
-// 	  }
-	  
-//    }
-//    catch(e) {
-// 	   console.log(e)
-// 	   res.send({"error":"Indentifiants invalides"});
-//    }
-// });
-
 
 app.post('/auth', async (req, res) => {
     
     try{
       var {email, password, type}=req.body;
-        var user = await db.select("*","users",  {email: email,});
+	  if(type == "admin"){
+		var user = await db.select("*","admin",  {email: email,});
+        if(user.length != 0){
+          const validPass = await bcrypt.compare(password, user[0].password);
+          if (validPass == true) {    
+			console.log(user[0].id,"je suis le user id")
+              req.session.email = email;
+              req.session.id = user[0].id;
+              req.session.loggedin = true;
+              req.session.CurrentUser = user[0]
+			  res.cookie("session_id",user[0].id,{
+										path: '/app',
+										
+									})
+              res.send({ok:'ok', route : 'app'})             
+          }else{
+            res.send('mistak in password')  
+          }
+        }else{
+          
+            res.send('/');
+        }
+	  }else if(type == "users"){
+		var user = await db.select("*","users",  {email: email,});
         console.log(user);
         if(user.length != 0){
           const validPass = await bcrypt.compare(password, user[0].password);
@@ -743,6 +714,8 @@ app.post('/auth', async (req, res) => {
           
             res.send('/');
         }
+	  }
+       
    }
    catch(e) {
        console.log(e)

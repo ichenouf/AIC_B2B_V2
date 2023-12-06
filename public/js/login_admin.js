@@ -42,10 +42,10 @@ onClick('#login',function() {
 
 async function login(){
    
-    var username= $("#username").val()
+    var email= $("#username").val()
     var password= $("#password").val()
     var type= "admin"
-    var data={username,password,type}
+    var data={email,password,type}
     var option = {
         type: "POST",
         url: `/auth`,
@@ -55,12 +55,25 @@ async function login(){
       console.log(data)
     var receved_data = await $.ajax(option);
 
-    if(receved_data.ok){
-      window.location.href =`/admin`
-    }else{
-        $(".message").html(receved_data.error)
+    if(receved_data.ok=='ok'){
 
-    }
+        window.location.href = `/admin`
+  
+      }if(receved_data=='mistak in password'){
+        $('.massage').html(" ")
+        error="Le mot de passe que vous avez inséré est incorrect.";
+        html = `<div class="alert">${error}</div>`
+        $('.massage').html(html)
+  
+      }if(receved_data=='/'){
+          $('.massage').html(" ")
+          error="Ce nom d'utilisateur n'éxiste pas ou le compte a été désactivé.";
+          html = `<div class="alert">${error}</div>`
+          $('.massage').html(html)
+          
+      }else{
+        
+      }
     console.log(data)
     
 } 

@@ -125,6 +125,20 @@
     grid-template-rows:  50px 90px 1fr ;
     gap:5px
 }
+.company_card {
+    width: 242px;
+    height: 216px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 11px 0px rgb(61 61 61 / 25%);
+    cursor: pointer;
+    position: relative;
+    /* opacity: 0; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
 
 #account_float_menu{
     position: relative;
@@ -138,7 +152,22 @@
     display: none;
     
 }
-
+.header-admin-image {
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 100%;
+    box-shadow: 3px 3px 6px RGBA(0,0,0,0.08);
+    background: RGBA(0,0,0,0.2);
+}
+.header-admin-image img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
 #account_float_menu:hover{
     color: rgb(180, 109, 22);
     /* background-color: var(--main-bg-color1);; */

@@ -10,6 +10,31 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="../css/admin.css"/>
     <link rel="stylesheet" href="../css/general_style.css"/>
+    <link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
     
 </head>
 <body>
@@ -42,40 +67,10 @@
                         </div>                        
                     </div>
                     <div class="w100 h100 white">
-                        <div id="companies_table" class="table h100 w100">
-                            <div class="table_header line_bottom">
-                                <div class="bold">Nom</div>
-                                <div class="bold">N° téléphone</div>
-                                <div class="bold">Email</div>
-                                <div class="bold">Secteur d'activité</div>
-                                <div class="bold">Utilisateurs autorisés </div>
-                                <div class="bold">Status</div>
-                                <div class="bold">Date</div>
-                                <div></div>
-                            </div>
-                            <div id="companies_table_body" class="table_body">
-                                <div class="table_item">
-                                    <div class="text_gray bold">Sarl runstart</div>
-                                    <div class="text_gray bold">000000</div>
-                                    <div class="text_gray bold">contact@runstartdz.com</div>
-                                    <div class="text_gray bold">Dev</div>
-                                    <div class="text_gray bold">2</div>
-                                    <div class="text_gray bold">Activé</div>
-                                    <div class="text_gray bold">12/03/2022</div>
-                                    <div class="text_gray bold edit_profil"><span class="material-symbols-outlined title_bg bold text_black " >more_vert</span>
-                                        <div class="contextual_menu shadow">
-                                            <div class="w100 padding10 line_bottom contextual_item">
-                                                <div><span class="material-symbols-outlined manage_user">edit</span></div>
-                                                <div class="w100 text">Editer</div>
-                                            </div>
-                                            <div class="w100 padding10 contextual_item">
-                                                <span class="material-symbols-outlined">delete_forever </span>
-                                                <div class="w100 text manage_user ">Supprimer</div>
-                                            </div>
-                                          
-                                        </div>
-                                    </div>
-                                </div>
+                        <div id="companies_table" class=" h100 w100">
+                           
+                            <div id="companies_table_body" class="d-flex margin_top20 " style=" flex-wrap: wrap; gap: 20px;flex: 1;overflow-y: auto; max-height: 80vh;padding:20px;">
+                             
                             </div>
                         </div>
                     </div>
@@ -250,7 +245,7 @@
 
 
 
-
+    <div id="delete_item"> <input value='1' data-id='is_deleted' ></div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" ></script>

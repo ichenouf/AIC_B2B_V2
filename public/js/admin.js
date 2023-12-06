@@ -194,32 +194,12 @@ function check_appointments_filters (appointment,filters){
       
 
 
-  //! /////////////////////////////////////////////////////////// 
+//! /////////////////////////////////////////////////////////// 
 //! //////////////////!  COMPANIES PAGE //////////////////////////
 //! ///////////////////////////////////////////////////////////
 GV.initialize_page.companies_page= async function(){
-
     displayCompanies()
 }
-
-
-onClick('.logout', async function(){
-  
-
-  var options = {
-    type: "POST",
-    url: `/logOut`,
-    cache: false,
-  };
-  var received_data = await $.ajax(options);
-  if(received_data.success){
-    window.location.href='/login-admin'
-  }
-  
-});
-
-
-
 
 onClick('.edit_profil', function(){
 
@@ -238,21 +218,21 @@ onClick('.update_item',  function(){
 
 onClick('.delete_item', async function(){
   console.log($(this).data('id'))
-  await delete_item($(this).data('id'), "users",GV.users)
+  await update($(this).data('id'), "companies", "#delete_item" ,GV.companies)
+  displayCompanies()
+  var data = await ajax("/edit_user_disabled", { id: $(this).data('id') });
+  if(data.ok){
+    index_items(data.reponses)
+  }
+})
+onClick('.delete_user', async function(){
+  console.log($(this).data('id'))
+  await update($(this).data('id'), "users", "#delete_item" ,GV.users)
   displayCompanies()
 
 })
 
-   
-// onClick('#create_user', async function(){
-//   if(!check_form('.form_container'))retrun;
-//   await add("users", "#form_users",GV.users) 
-//   displayPopup(' Collaborateur ajouté avec success ! ','Un mot de passe a  été généré et envoyé par email à votre collaborateur<br>ce dernier pourra se connecter à son espace B2B','success')
-
-//   displayUsers() 
   
-// })
-
    
 onClick('#update_companies', async function(){
   if(!check_form('#form_companies'))return;
@@ -262,7 +242,52 @@ onClick('#update_companies', async function(){
   displayCompanies()
   
 })
+onClick('.show_company_users', async function(){
+  $('#overlay, #side_menu').css('display', 'grid')
+  let html = `
+  <div class="header_side_menu line_bottom">
+      <div id="skip_btn" class="exit text_color3"><span class="material-symbols-outlined">arrow_back_ios</span></div>
+      <div class="title">Liste des utilisateurs</div>
+    </div>
+    <div class="body_side_menu">
+      <div id="users_liste" class="form_container">
+          ${displayUsersListe($(this).data('id'))}
+      </div>        
+      <div id="error"></div>
+    </div>
+    <div class="footer_side_menu padding20 center">
+      <div class="buttons_container cursor">
+        <div class="btn text_white  cursor text_center color4  padding10 exit" data-id="">Fermer</div>
+      </div>
+    </div>
+  `
+  $('#side_menu').html(html)
+  if($('#users_liste .card_user').length == 0){
+    $('#users_liste').html('<div class="" style="margin: 25% auto ; text-align : center ; font-weight:500">Aucun utilisateur ajouté</div>')
+  }
+})
 
+
+function displayUsersListe (id) {
+
+  let html = ''
+  for(let element of Object.values(GV.users)){
+    if(element.id_company != id )continue
+    html += `
+      <div class="relative card_user" style="margin : 5px;padding: 10px; width: 100%; border: solid 1px #d8d8d8;border-radius: 10px; background: ${element.is_deleted == 1 ? '#80808021' : ''}"> 
+
+        ${element.is_deleted == 0 ? `<i class="fa-regular fa-trash-can delete_user" style=" ; position: absolute; right: 10px" data-id="${element.id}"></i>` : ""}          
+        
+        <div class="bold" style="font-size: 18px"><span style="padding-right: 10px"> <div class="header-admin-image" > <img src="/img/uploads/${element.picture ? element.picture : 'default-user.jpg'}"></div></span>${element.first_name} ${element.last_name}</div>
+        <span style="padding-right: 10px; color: #d87448"><i class="fa-solid fa-phone"></i></span>${element.phone}<br>
+        <span style="padding-right: 10px; color: #d87448"><i class="fa-regular fa-envelope"></i></span>${element.email}<br>
+        <span style="padding-right: 10px; color: #d87448"><i class="fa-regular fa-address-card"></i></span>${element.poste}
+      </div>
+    `
+  }
+
+  return html 
+}
 
 function display_company_side_menu(id,object){
   
@@ -272,7 +297,6 @@ function display_company_side_menu(id,object){
     {data_id : 'email', selector : 'input', type : 'email', label : "email :", id: '',},   
     {data_id : 'phone', selector : 'input', type : 'number', label : "N° téléphone : ", id: '',},   
     {data_id : 'secteur', selector : 'input', type : 'text', label : "secteur d'activité :", id: '',},   
-    {data_id : 'user_limit', selector : 'input', type : 'number', label : "Utilisateurs autorisés :", id: ''},   
 
   ]
   displaySide(arr, side,id,object)
@@ -281,48 +305,36 @@ function display_company_side_menu(id,object){
   
 }
 
-// function display_user_side_menu(){
-//   var side = {id : "form_users", title_add: "Ajouter un collaborateur" , title_update: "Modifier collaborteur",  btn_add: "create_user" , btn_update: "update_user" }
-//   var arr = [
-//     {data_id : 'last_name', selector : 'input', type : 'text', label : "Nom : ", id : ''}
-//     ,{data_id : 'first_name', selector : 'input', type : 'text', label : "Prénom :", id: ''},   
-//     {data_id : 'phone', selector : 'input', type : 'number', label : "N° téléphone : ", id: '',},   
-//     {data_id : 'poste', selector : 'input', type : 'text', label : "poste :", id: '',},   
-//     {data_id : 'email', selector : 'input', type : 'email', label : "email :", id: '',},   
-//   ]
-//   displaySide(arr, side,)
-  
-// }
 
 function displayCompanies(){
   let html=""
   $('#companies_table_body').html("")
-
   for(let element of Object.values(GV.companies)){
-    let formated_date=moment(element.date).format('YYYY-MM-DD'); 
+    let formated_date=moment(element.date).calendar(); 
     html+=`
-    <div class="table_item">
-    <div class="text_gray bold">${element.name}</div>
-    <div class="text_gray bold">${element.phone}</div>
-    <div class="text_gray bold">${element.email}</div>
-    <div class="text_gray bold">${element.secteur}</div>
-    <div class="text_gray bold">${element.user_limit}</div>
-    <div class="text_gray bold">${element.status==0?"Désactivé":"Activé"}</div>
-    <div class="text_gray bold">${formated_date}</div>
-    <div class="text_gray bold edit_profil"><span class="material-symbols-outlined title_bg bold text_black cursor" >more_vert</span>
-        <div class="contextual_menu shadow">
-            <div class="w100 padding10 cursor line_bottom contextual_item update_item" data-id="${element.id}">
-                <div><span class="material-symbols-outlined manage_user">edit</span></div>
-                <div class="w100 text">Editer</div>
-            </div>
-            <div class="w100 padding10 contextual_item cursor delete_item" data-id="${element.id}">
-                <span class="material-symbols-outlined">delete_forever </span>
-                <div class="w100 text manage_user ">Supprimer</div>
-            </div>
-          
+    <div class="company_card" style="background-color: ${element.is_deleted==1?"#8080801f !important":""}">
+        <div>
+          <div class="bold" style="font-size: 18px;">${element.name}</div>
+          ${element.is_deleted==1?"<div style='color: #E91E63; font-size: 10px'> Désactivée </div>":""}
+        </div>
+        <div style="padding: 0px 10px;">
+            <div style="font-size: 14px;color: #b1b1b1;">${element.secteur}</div>
+            <div style="font-size: 14px" >${element.email}</div>
+            <div style="font-size: 14px" >${element.phone}</div>
+            <div style="font-size: 14px;color: #b1b1b1;padding-top:10px">${formated_date}</div>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+              ${element.is_deleted==1?  "" :
+                ` 
+                <div class="d-flex gap10"> 
+                  <i class="fa-regular fa-trash-can delete_item" style="color:#ad491e" data-id="${element.id}"></i>                
+                  <i class="fa-regular fa-pen-to-square update_item" style="color:#ad491e" data-id="${element.id}"></i>
+                </div>
+                <i class="fa-solid fa-sliders show_company_users" style="color:#ad491e" data-id="${element.id}"></i>
+                `} 
+             
         </div>
     </div>
-</div>
     `
     $('#companies_table_body').html(html)
   }
@@ -363,58 +375,16 @@ function displayAppointments(){
 
 
 
-
-
-  //! /////////////////////////////////////////////////////////// 
-//! //////////////////!  TUTORIAL   //////////////////////////
-//! ///////////////////////////////////////////////////////////
-var count_tutorials=0
-
-// var tutorials=[]
-onClick(".tutorial_btn", function(){
-    
-    var displayed_tuto=$(this).data('id')
-    displayTutorial(displayed_tuto)
-
-
+onClick('.logout', async function(){
+  var options = {
+    type: "POST",
+    url: `/logOut`,
+    cache: false,
+  };
+  var received_data = await $.ajax(options);
+  if(received_data.success){
+    window.location.href='/login-admin'
+  }
+  
 });
-
-
-async function displayTutorial(displayed_tuto){
-    // if(tutorial==1)return
-
-    count_tutorials=displayed_tuto
-
-
-    var next_tuto=parseInt(count_tutorials+1)
-
-    let  old_target= $(`.tutorial[data-id="${displayed_tuto}"]`).data('target')
-    $(`${old_target}`).removeClass("tutorial_focus")
-    $(`${old_target}`).removeClass("tutorial_focus_display")
-
-    $('.tutorial').css('display','none')
-    if(count_tutorials==5){
-
-        $('#tutorials').css('display','none')
-      await update(GV.session_id, "companies", "" ,GV.companies)
-        displayUsers()
-        return
-    }
-    $(`.tutorial[data-id="${next_tuto}"]`).css('display','grid')
-    
-    if($(`.tutorial[data-id="${next_tuto}"]`).data('target')){
-        let target=$(`.tutorial[data-id="${next_tuto}"]`).data('target')
-        $(`${target}`).addClass("tutorial_focus")
-        if( $(`${target}`).css('display').toLowerCase() == 'none') {
-             $(`${target}`).addClass("tutorial_focus_display")
-        }
-
-        //     $(`${target}`).css('z-index','500')
-
-        // }
-    }
-
-    
-
-}
 
