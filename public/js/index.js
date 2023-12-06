@@ -1,3 +1,8 @@
+
+// importScripts('https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js');
+// importScripts('https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js');
+
+// import { messaging } from "./firebase.js";  
 GV={ swipers:{},initialize_page:{}}
 
 GV.dates={
@@ -7,6 +12,23 @@ GV.dates={
 
 GV.user_disponibility=[]
 GV.deferredPrompt=null
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAZuVXDC6TLWoQYnMhZ1uO_U-5LoTB_Dbo",
+    authDomain: "aicbtob.firebaseapp.com",
+    projectId: "aicbtob",
+    storageBucket: "aicbtob.appspot.com",
+    messagingSenderId: "148632971252",
+    appId: "1:148632971252:web:8424d908ec9e33a234bba1"
+};
+  
+const vapidKey = {
+    publicKey: "BMr90_YT6VnmyuE_LhhJm2Reu3Up160x9a8bZVE-EynHuXX1WRmLu3xKPd6hYcVtRmMHsqMAWYJ6nFmX_W7wCfQ",
+}
+  
+
+
   
 //! /////////////////////////////////////////////////////////// 
 //! //////////////////!   READY   //////////////////////////
@@ -49,11 +71,66 @@ $(document).ready(  async function () {
         // showAddToHomeScreenPopup();
     });
 
-   
+
+
+
+
 });
 
+const app = firebase.initializeApp(firebaseConfig);
+const messaging = app.messaging()
 
 
+
+
+
+
+onClick("#notifications_btn", async function(){
+    notifyMe()
+})
+
+async function get_user_token(){
+    messaging.getToken({ vapidKey: vapidKey.publicKey })
+    .then( async (currentToken)  => {
+      if (currentToken) {
+        let data = await ajax('/update_notification_token',{user_id:GV.session_id,token:currentToken}); 
+        console.log('Token:', currentToken);
+        if(data.ok){
+            console.log(`token updated ${currentToken}`)
+        }
+        // Envoyez ce token au backend pour l'enregistrement
+      } else {
+        console.log('Permission denied.');
+      }
+    })
+    .catch((error) => {
+      console.error('Erreur lors de la demande de permission:', error);
+    });
+}
+
+function notifyMe() {
+    if (!("Notification" in window)) {
+      // Check if the browser supports notifications
+      alert("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+      // Check whether notification permissions have already been granted;
+      // if so, create a notification
+    //   const notification = new Notification("Hi there!");
+      // …
+    } else if (Notification.permission !== "denied") {
+      // We need to ask the user for permission
+      Notification.requestPermission().then((permission) => {
+        // If the user accepts, let's create a notification
+        if (permission === "granted") {
+        //   const notification = new Notification("Hi there!");
+          // …
+        }
+      });
+    }
+  
+    // At last, if the user has denied notifications, and you
+    // want to be respectful there is no need to bother them anymore.
+  }
 
 //! /////////////////////////////////////////////////////////// 
 //! //////////////////!  GENERAL  //////////////////////////
@@ -61,7 +138,7 @@ $(document).ready(  async function () {
 
 
 onClick("#add_wpa_btn", function(){
-    alert("")
+ 
     console.log(GV.deferredPrompt,"je suis deferredPrompt")
        
         if (GV.deferredPrompt) {
@@ -1027,6 +1104,23 @@ onClick("#privacy_btn",async function(){
 
 
 
+
+//! /////////////////////////////////////////////////////////// 
+//! //////////////////! PUSH NOTIFICATIONS  //////////////////////////
+//! ///////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+// messaging.onMessage((payload) => {
+//     console.log("Message received:", payload);
+//     // Gérez l'affichage de la notification côté client
+//     // (Utilisez le service worker si nécessaire)
+//   });
+  
 
 // $('.pending_appointment_element').focus(function(){
 //     alert()
