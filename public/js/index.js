@@ -1,8 +1,8 @@
 GV={ swipers:{},initialize_page:{}}
 
 GV.dates={
-    "2022-11-09":{day:"Mercredi",slots:["09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
-    "2022-11-10":{day:"Jeudi",slots:["08:00:00","09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
+    "2023-12-18":{day:"Lundi",slots:["09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
+    "2023-12-19":{day:"Mardi",slots:["08:00:00","09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
 }
 
 GV.user_disponibility=[]
@@ -28,11 +28,12 @@ $(document).ready(  async function () {
 
     display_welcome_top_bar()
 
-    display_appointments({status:1},'#confirmed_appointments_container',"2022-11-09")
+    display_appointments({status:1},'#confirmed_appointments_container',"2023-12-18")
+    displayNearestAppointment()
 
 
-    display_count_appointment({status:1},"#confirmed_appointments_count")
-    display_count_appointment({status:0},"#pending_appointments_count")
+    // display_count_appointment({status:1},"#confirmed_appointments_count")
+    // display_count_appointment({status:0},"#pending_appointments_count")
 
   
    
@@ -137,7 +138,7 @@ function display_appointments(filters,$selector,selected_date){
     }
    
     $($selector).html("")
-   console.log(empty,"je suis empty")
+  
     if(empty=="0"){
         console.log("je suis là")
         $($selector).html(`<div class="w100 grid center" style="padding:45px 0px;color:gray">Aucun element trouvé</div>`)
@@ -174,7 +175,7 @@ function get_html_appointment(filters){
                         <div style="font-size:14px">${element.from_id == GV.session_id ? GV.users[element.to_id].poste : GV.users[element.from_id].poste } à ${element.from_company_id==GV.users[GV.session_id].id_company ? GV.companies[element.to_company_id].name : GV.companies[element.from_company_id].name}</div>
                     </div>
                 </div>
-                <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
+                <div class="w100" style="background-color:#87878733;padding:7px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
                     <div class="w100" style="display:flex;place-item:center;gap:10px;color:#767676">
                         <i class="fa-regular fa-calendar" style="place-self: center;"></i>
                         <div>${formated_start_date}</div>
@@ -201,7 +202,7 @@ function get_html_appointment(filters){
                         <div style="font-size:14px">${element.from_id == GV.session_id ? GV.users[element.to_id].poste : GV.users[element.from_id].poste } à ${element.from_company_id==GV.users[GV.session_id].id_company ? GV.companies[element.to_company_id].name : GV.companies[element.from_company_id].name}</div>
                     </div>
                 </div>
-                <div class="w100" style="background-color:#87878733;padding:15px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
+                <div class="w100" style="background-color:#87878733;padding:7px;display:grid;grid-template-columns:1fr 1fr;margin-top:15px;border-radius:10px">
                     <div class="w100" style="display:flex;place-item:center;gap:10px;color:#767676">
                         <i class="fa-regular fa-calendar" style="place-self: center;"></i>
                         <div>${formated_start_date}</div>
@@ -327,12 +328,12 @@ GV.initialize_page.home_page= async function(){
     await load_items ('companies',{},  reload = false)
     await load_items ('users',{},  reload = false)
 
-
     let date=$('#home_page').find(".selected_date_filter_btn").data("id")
     // display_count_appointment()
     display_count_appointment({status:1},"#confirmed_appointments_count")
     display_count_appointment({status:0},"#pending_appointments_count")
     display_appointments({status:1},'#confirmed_appointments_container',date)
+    displayNearestAppointment()
 
 }
 
@@ -363,6 +364,7 @@ function display_count_appointment(filters,$selector){
 
 onClick('.appointment_element', function(){
     if(!$(this).data("id"))return
+    if($(this).hasClass("ph-item"))return
     display_appointment_details_drawer($(this).data("id"))
 
 });
@@ -372,6 +374,53 @@ onClick('.exit', function(){
     closeDrawer()
 
 });
+
+function displayNearestAppointment(){
+
+   let html=""
+   let next_appointment= getNextClosestAppointment()
+   console.log("je suis le prochain rendez-vous",next_appointment) 
+   if(next_appointment){
+        var formated_next_appointment_start= moment(next_appointment.start).format('YYYY-MM-DD HH:mm:ss'); 
+        let filters={status:1,start:formated_next_appointment_start}
+    
+        html=`${ get_html_appointment(filters)
+        }`
+ 
+   }else{
+    html=`<div class="w100 grid center" style="padding:45px 0px;color:gray">Aucun element trouvé</div`
+   }
+   $("#nextClosestAppointment").html()
+   $("#nextClosestAppointment").html(html)
+
+}
+
+
+function getNextClosestAppointment() {
+    // Obtenez la date et l'heure actuelles
+    var now = moment();
+    console.log("now", now);
+
+    // Initialisez une variable pour stocker le rendez-vous le plus proche
+    var closestAppointment = null;
+
+    // Parcourez tous les rendez-vous dans l'objet JSON
+    Object.values(GV.appointment).forEach(function(appointment) {
+        var appointmentDate = moment(appointment.start);
+        console.log("appointment date", appointmentDate);
+
+        // Assurez-vous que le rendez-vous est à venir (la date et l'heure sont postérieures à maintenant)
+        if (appointmentDate.isAfter(now)) {
+            // Si c'est le premier rendez-vous ou s'il est plus proche que celui actuellement stocké, mettez à jour closestAppointment
+            if (!closestAppointment || appointmentDate.isBefore(moment(closestAppointment.start))) {
+                closestAppointment = appointment;
+            }
+        }
+    });
+
+    return closestAppointment;
+}
+
 
 
 
@@ -503,7 +552,7 @@ onClick(".user_company_element",  function(){
         $("#overlay").css("display","grid")
     }
 
-    get_user_disponibility("2022-11-09",$(this).data("id"))
+    get_user_disponibility("2023-12-18",$(this).data("id"))
 
 })
   
@@ -543,8 +592,8 @@ onClick('#overlay, .exit', function(){
         <div class="w100">
             <div class="" style="font-size: 21px;">Sélectionnez une date </div>
             <div class="w100 days_element_container">
-                <div class="day_btn selected_day_btn" data-id="2022-11-09" data-user="${user_id}">Mercredi <br> 09/11</div>
-                <div class="day_btn" data-id="2022-11-10" data-user="${user_id}">Jeudi <br> 10/11</div>
+                <div class="day_btn selected_day_btn" data-id="2023-12-18" data-user="${user_id}">Lundi <br> 18/12</div>
+                <div class="day_btn" data-id="2023-12-19" data-user="${user_id}">Mardi <br> 19/12</div>
             </div>
         </div>
         <div class="w100 h100 ">
@@ -754,13 +803,8 @@ onClick("#decline_btn",async function(){
 
 onClick('.pending_appointment_element', function(){
     if(!$(this).data("id"))return
-    // sendDataToFlutter('vibrate')
+    if($(this).hasClass("ph-item"))return
     
-    // $('.pending_appointment_element').removeClass('selected_pending_appointment_element')
-    // $(this).addClass('selected_pending_appointment_element')
-    // if($(this).data("id")==GV.session_id)return
-    // $('.pending_appointment_element').find('.pending_appointment_btn_container').css('display','none')
-    // $(this).find('.pending_appointment_btn_container').css('display','grid')
     display_appointment_details_drawer($(this).data("id"))
 
 });

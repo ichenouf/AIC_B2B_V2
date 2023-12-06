@@ -855,3 +855,37 @@ function closeDrawer(){
     }
   });
 }
+
+
+
+async function updateButtonStatus($button, status,default_text){
+  if(status === 'loading'){
+
+    $button.prop('disabled', true);
+    $button.html(`<span class="button-text">Chargement</span>
+    <span class="loading-animation"></span>`).css('cursor', 'not-allowed !important');
+
+  }else if(status === 'success'){
+
+    setTimeout(function() {
+      $button.prop('disabled', false);
+      $button.html(`${default_text}`).css('background-color', 'var(--clr-primary)').css('cursor', 'pointer !important').css('background-image', 'var(--clr-primary)!important');
+      },  500);
+      $button.prop('disabled', true);
+      $button.html(`<span class="button-text">succès</span>`).css('background-image', 'linear-gradient(98.69deg,#4caf50a3 -32.8%,#4CAF50 153.9%)').css('cursor', 'not-allowed !important');
+      
+  }else if(status === 'failed'){
+
+    $button.prop('disabled', false);
+    $button.html('Problème').css('cursor', 'pointer !important');
+
+  }else if(status === 'default'){
+    
+    $button.prop('disabled', false);
+    $button.html(`${default_text}`).css('cursor', 'pointer !important').css('background-image', 'var(--clr-primary)!important').css('background-color', 'var(--clr-primary)!important');
+    
+
+  }else{
+
+  }
+}

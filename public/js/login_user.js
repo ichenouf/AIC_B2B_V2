@@ -21,33 +21,17 @@ $(document).ready(  async function () {
 
 onClick('#login',function() {
     if(!check_form('.form_login_container'))return  
+    updateButtonStatus($("#login"), "loading")
     login()
+});
+
+onClick('#register', async function() {
+  updateButtonStatus($("#register"), "loading")
+  register()
 });
 
 
 
-// async function login(){
-   
-//     var username= $("#email").val()
-//     var password= $("#password").val()
-//     var type= "users"
-//     var data={username,password,type}
-//     var option = {
-//         type: "POST",
-//         url: `/auth`,
-//         cache: false,
-//         data: data,
-//       };
-//       console.log(data)
-//     var receved_data = await $.ajax(option);
-//     console.log(receved_data)
-//     if( receved_data && receved_data.ok){
-//         // alert()
-//       window.location.href =`/app`
-//     }
-//     console.log(data)
-    
-// } 
 
 async function login(){
    
@@ -65,7 +49,7 @@ async function login(){
   var receved_data = await $.ajax(option);
   console.log(receved_data)
   if(receved_data.ok=='ok'){
-
+    updateButtonStatus($("#login"), "success","Connexion")
     window.location.href = `/app`
 
   }if(receved_data=='mistak in password'){
@@ -81,7 +65,7 @@ async function login(){
       $('.massage').html(html)
       
   }else{
-    
+    updateButtonStatus($("#login"), "default","Connexion")
   }
   console.log(data)
   
@@ -89,7 +73,8 @@ async function login(){
 
 
 
-onClick('#register', async function() {
+
+async function register(){
   if(!check_form('.form_subscription_container'))return  
   
     let user_data={
@@ -110,13 +95,27 @@ onClick('#register', async function() {
 
   let res = await ajax('/register',{user_data,company_data}); 
   if(res.success){
+    updateButtonStatus($("#register"), "succeess")
     //TODO: Display popup
     $(".form_subscription_container").css("display","none")
     $(".form_login_container").css("display","block")
 
+  }else{
+    updateButtonStatus($("#register"), "failed")
   }
 
-  
+}
+
+
+onClick('#go_to_register',function() {
+  $(".form_subscription_container").css("display","block")
+  $(".form_login_container").css("display","none")
+
 });
 
+onClick('#go_to_login',function() {
+  $(".form_subscription_container").css("display","none")
+  $(".form_login_container").css("display","block")
 
+
+});

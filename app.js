@@ -721,7 +721,12 @@ app.post('/auth', async (req, res) => {
     
     try{
       var {email, password, type}=req.body;
+	  if(type="users"){
         var user = await db.select("*","users",  {email: email,});
+
+	  }else if (type="admin"){
+		
+	  }
         console.log(user);
         if(user.length != 0){
           const validPass = await bcrypt.compare(password, user[0].password);
