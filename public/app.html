@@ -361,6 +361,7 @@
             </div>
         </div>
     </div>
+    
 </body>
 <script>
     if ('serviceWorker' in navigator) {
@@ -372,14 +373,29 @@
           console.error('Erreur lors de l\'enregistrement du Service Worker:', error);
         });
     }
+
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  .then((registration) => {
+    console.log('Service Worker enregistré avec succès:', registration);
+  })
+  .catch((error) => {
+    console.error('Erreur d\'enregistrement du Service Worker:', error);
+  });
+
+
 </script>
-  
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" ></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pulltorefreshjs/0.1.22/index.umd.js"></script>
+
+<!-- Inclure Firebase en tant que script global -->
+<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js"></script>
+<!-- <script type="module" src="/js/firebase.js"></script> -->
 <script src="/js/general_function.js"></script>
 <script src="/js/index.js"></script>
 

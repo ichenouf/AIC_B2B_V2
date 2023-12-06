@@ -14,6 +14,10 @@ const base_url = path.join(__dirname,'public/');
 const moment = require('moment'); 
 const cookieParser = require('cookie-parser')
 
+const firebase = require("firebase-admin");
+const serviceAccount = require("./serviceAccountKey.json");
+
+
 let app = express();
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: true}));
@@ -50,6 +54,12 @@ const upload = multer({storage});
 
 
 require('dotenv').config()
+
+
+
+firebase.initializeApp({
+	credential: firebase.credential.cert(serviceAccount),
+  });
 
 //! ///////////////////////////////////////////////////////////
 //! //////////////////!   ROUTERS   //////////////////////////
