@@ -26,6 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
 
 
+
 </head>
 <body >
     <div id="main_app">
@@ -386,10 +387,27 @@
         <div id="authorize_notifications" class="btn_notification">Autoriser</div>
     </div>
 
- 
+    <div class="notifications_drawer" style="z-index: 1000;">
+        <div class="header_notifications_drawer">
+          <div class="exit"><i class="fas fa-chevron-left"></i></div>
+          <div class="title" style="padding: 0px 20px;font-size: 18px;">Notifications</div>
+        </div>
+        <div id="notifications_container" style="overflow-y: scroll;">
+          <div class="w100 notification unread" >
+            <div class="grid center notification_icon_container" style="background-color: rgb(230, 150, 2);">
+              <i class="fa-regular fa-file" style="color:white"></i>
+            </div>
+            <div class="w100" style="padding:5px 10px;font-size: 15px;">
+              <div>Nouveau document ajouté</div>
+              <div style="font-size: 12px;color: rgb(162, 162, 162);"> il y a 20mn</div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
     
 </body>
-<script>
+<!-- <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
         .then((registration) => {
@@ -409,20 +427,22 @@
   });
 
 
-</script>
+</script> -->
 
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" ></script>
+<script src="https://agmstore.com/asset/bower_components/moment/locale/fr.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pulltorefreshjs/0.1.22/index.umd.js"></script>
+
+<script src="/js/socket.io.js"></script>
 
 <!-- Inclure Firebase en tant que script global -->
 <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js"></script>
 <!-- <script type="module" src="/js/firebase.js"></script> -->
-<script src="/js/general_function.js"></script>
+<script src="./js/general_function.js"></script>
+
 <script src="/js/index.js"></script>
 
 </html>

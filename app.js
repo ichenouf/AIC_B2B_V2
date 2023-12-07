@@ -14,6 +14,7 @@ const base_url = path.join(__dirname,'public/');
 const moment = require('moment'); 
 const cookieParser = require('cookie-parser')
 
+const http = require('http');
 const firebase = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 
@@ -50,16 +51,31 @@ const storage = multer.diskStorage({
 });
   
 const upload = multer({storage});
-  
-
-
-require('dotenv').config()
+  require('dotenv').config()
 
 
 
 firebase.initializeApp({
 	credential: firebase.credential.cert(serviceAccount),
   });
+
+// SOCKET.IO
+
+const httpServer = http.createServer(app)
+const io = require('socket.io')(httpServer);
+
+let clients = {users: {},}
+const update_rooms = (socket, data) => { clients[data.room][data.id] = socket.id; console.log({clients});}
+
+io.on('connection', function(socket){
+	console.log("je suis connection socket")
+  socket.on('join', (data) => {
+    console.log('joined', data)
+    update_rooms(socket, data);
+    socket.join(data.room);
+  });
+});
+
 
 //! ///////////////////////////////////////////////////////////
 //! //////////////////!   ROUTERS   //////////////////////////
@@ -383,10 +399,23 @@ app.post(`/add_to_database`, async (req, res,) => {
 
 		if(table_name=="appointment"){
 			try {
+				obj['content']='Nouvelle Demande de rendez-vous'
+				obj['icon']='fa-regular fa-bell'
+				obj['color']='#E91E63'
+
 				let from_user=await db.select('*', "users", {id:obj.from_id}, "row");
 				let user_to_notify=await db.select('*', "users", {id:obj.to_id}, "row");
-				let user_token=user_to_notify.token
-				await send_push_notification(user_token,"Nouvelle demande de rendez-vous.",`Vous avez reçu une nouvelle demande de rendez-vous de la part de ${from_user.first_name} ${from_user.last_name}`)
+				
+				let notification_id= await db.insert("notifications", obj);
+				let notification = await db.select('*', "notifications", {id: notification_id}, "indexed");
+				
+				// for(let element of Object.values(user_to_notify)){    
+					console.log(clients.users)
+					io.to(clients.users[user_to_notify.id]).emit('addAppoitment', {result,notification, id, notification_id});
+					console.log(clients.users[user_to_notify.id])
+					//   }
+				// let user_token=user_to_notify.token
+				// await send_push_notification(user_token,"Nouvelle demande de rendez-vous.",`Vous avez reçu une nouvelle demande de rendez-vous de la part de ${from_user.first_name} ${from_user.last_name}`)
 				
 
 			} catch (error) {
@@ -414,8 +443,67 @@ app.post(`/add_to_database`, async (req, res,) => {
     }
 });
 
+app.post('/loadNotifications', async (req, res,) => {
+	let result = {};
+	let {id}= req.body
+	try{
 
+	var is_read = await db.select('*', 'is_read', {id_user_to: id}, "indexed");
+		// var is_read = await db.select('*', 'is_read', {id_user: req.session.CurrentUser.id ,id_group :req.session.CurrentUser.id_group}, "indexed");
+	var notification= await db.select('*', 'notifications', {to_id :id}, "indexed");
+  
+	for (let key in is_read) {
+	  if (is_read.hasOwnProperty(key)) {
+		  let id_notification = is_read[key].id_notification;
+			if (id_notification && notification.hasOwnProperty(id_notification)) {
+				delete notification[id_notification];
+			}
+		}
+	}
+	result['notifications'] = notification
+	res.send({"reponses": result , "success":true });
 
+	}catch(e) {
+		console.log(e)
+		res.send('/');
+	}
+	
+  
+  });
+
+  app.post(`/readNotification`, async (req, res,) => {
+	let {id, id_user_from,id_user_to } = req.body;  
+	try {
+	  console.log(req.body)
+			 let obj = {}
+			 let result = {}
+			obj['id_notification'] = id  
+			obj['id_user_from'] = id_user_from  
+			obj['id_user_to'] = id_user_to  
+			
+			console.log(obj)
+			var id_read= await db.insert('is_read', obj);
+			var is_read = await db.select('*', 'is_read', {id_user_to: id_user_to}, "indexed");
+			var notification = await db.select('*', 'notifications', {to_id :id_user_to}, "indexed");
+			
+			for (let key in is_read) {
+			  if (is_read.hasOwnProperty(key)) {
+				  let id_notification = is_read[key].id_notification;
+		  
+				  if (id_notification && notification.hasOwnProperty(id_notification)) {
+					  delete notification[id_notification];
+				  }
+			  }
+		  }
+		  result['notifications'] = notification
+			console.log(result)
+			res.send({"reponses":result, "id":id,"ok":true})
+	
+	  } catch (error) {
+		console.log(error)      
+		res.send({"ok":false, "error":error});
+	}
+  });
 app.post('/send_session_name', async (req, res,) => {
 
 	res.send( {"userid": req.session.id });
@@ -854,4 +942,4 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 80;
 }
-app.listen(port, () => console.log("running on ", port));
+httpServer.listen(port, () => console.log("running on ", port));

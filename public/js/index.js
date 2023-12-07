@@ -36,7 +36,7 @@ $(document).ready(  async function () {
    
     moment.locale('fr');
     await get_session_id_cookies ()
-
+    check_socket()
 
     await load_items ('appointment',{to_id:GV.session_id},  reload = true)
     await load_items ('appointment',{from_id:GV.session_id},  reload = true)
@@ -45,14 +45,24 @@ $(document).ready(  async function () {
     await load_items ('companies',{is_deleted: 0},  reload = false)
     await load_items ('users',{is_deleted: 0},  reload = false)
 
+    let data = await ajax('/loadNotifications',{id:GV.session_id}); 
+    console.log(data)
+    if(data.success){   
+        index_items(data.reponses)
+    }
+
+    
+
+    initialBadgeNotification()
+
     display_welcome_top_bar()
 
     display_appointments({status:1},'#confirmed_appointments_container',"2023-12-18")
     displayNearestAppointment()
-    navigate_to("home_page")
+    app_navigate_to("home_page")
 
-    // display_count_appointment({status:1},"#confirmed_appointments_count")
-    // display_count_appointment({status:0},"#pending_appointments_count")
+    display_count_appointment({status:1},"#confirmed_appointments_count")
+    display_count_appointment({status:0},"#pending_appointments_count")
 
   
    
@@ -80,9 +90,125 @@ $(document).ready(  async function () {
 
 });
 
+//************* */ notification *********
+
+function check_socket(){
+    if(typeof io !== 'undefined' && GV.users ){
+       console.log('premiere etape')
+        GV.socket = io();
+        console.log(GV.socket)
+        GV.socket.on('connect', () => {
+            
+        console.log('test')
+        GV.socket.emit('join', {room:'users', id:GV.session_id});
+        console.log(GV.users[GV.session_id])
+
+        if(GV.users[GV.session_id]){
+          GV.socket.emit('join', {room:'users'});
+        }
+    });
+        GV.socket.on('addAppoitment', (data) => { 
+
+        if(data.error){
+                console.log(data.error);
+                return;
+            }   
+            let appoitment = data.result[data.id]  
+            GV.appointment[appoitment.id]=appoitment       
+            GV.notifications[data.notification_id]=Object.values(data.notification)[0]
+            playSound('./img/Notification.mp3');    
+            // notifyMe()
+            diplayBadgeNotification()
+            
+        });
+    }else{
+    setTimeout(check_socket, 500);
+    }
+}
 
 
 
+function diplayBadgeNotification(){
+    $('.badge-notification').css('display', 'block')
+}
+function playSound(url) { const audio = new Audio(url); audio.play(); }
+
+
+function initialBadgeNotification(){
+    if(Object.values(GV.notifications).length == 0 ){
+        $('.badge-notification').css('display', 'none')
+       }else{        
+        $('.badge-notification').css('display', 'block')
+    }
+}
+function displaySideNotification(){
+ 
+    $('#notifications_container').html('')
+    for(let element of Object.values(GV.notifications)){
+        if(!element)continue
+        let html = `
+        <div class="w100 notification notification_unread close_notification" data-id="${element.id}"  data-from="${element.from_id}">
+            <div class="grid center notification_icon_container" style="background-color: ${element.color};">
+            <i class="${element.icon}" style="color:white"></i>
+            </div>
+            <div class="w100" style="padding:5px 10px;font-size: 15px;">
+            <div>${element.content} ${GV.users[element.to_id] ? `de la part de Mr/Mme ${GV.users[element.from_id].first_name} ${GV.users[element.from_id].last_name}` : ""}  ${GV.companies[element.from_company_id] ? `de l'entreprise ${GV.companies[element.from_company_id].name}` : ""} </div>
+            <div style="font-size: 12px;color: rgb(162, 162, 162);"> ${moment(element.created_date).calendar()}</div>
+            </div>
+        </div>
+        `
+        $('#notifications_container').prepend(html)
+    }
+    if($('#notifications_container .notification').length == 0){
+        $('#notifications_container').html('<div style="text-align: center; color: gray; margin: 35% auto; ">Aucune Notification')
+    }
+    
+    
+}
+
+onClick("#notifications_btn", async function () {
+ 
+    if($(".notifications_drawer").hasClass("opened")){
+        $(".notifications_drawer").removeClass("opened")
+        $("#overlay").css("display","none")
+    }else{
+        $("#overlay").css("display","block")
+        $(".notifications_drawer").addClass("opened")  
+        let data = await ajax('/loadNotifications',{id:GV.session_id}); 
+        if(data.success){        
+            index_items(data.reponses)
+        
+        }
+        displaySideNotification()
+    }
+  
+});
+  
+onClick("#overlay, .exit", function(){
+    $(".notifications_drawer").removeClass("opened")
+    $("#overlay").css("display","none")    
+})
+onClick(".notification_unread", async function () {
+    $(".notifications_drawer").removeClass("opened")
+    $("#overlay").css("display","none")
+    let id = $(this).data('id')
+    let from = $(this).data('from')
+ 
+    GV.notifications ={}
+    let data = await ajax('/readNotification',{id:id, id_user_from: from, id_user_to: GV.session_id}); 
+    console.log(data)
+    if(data.ok){   
+        index_items(data.reponses)
+    }
+    // await load_items('current', '/readNotification' ,id)
+    initialBadgeNotification ()
+    app_navigate_to('appointments_page')
+ 
+ });
+
+
+
+// --------------------------------------------------------------------------------
 
 function showAddToHomeScreenPopup() {
     // Afficher votre propre popup
@@ -512,7 +638,7 @@ function getNextClosestAppointment() {
     // Parcourez tous les rendez-vous dans l'objet JSON
     Object.values(GV.appointment).forEach(function(appointment) {
         var appointmentDate = moment(appointment.start);
-        console.log("appointment date", appointmentDate);
+        // console.log("appointment date", appointmentDate);
 
         // Assurez-vous que le rendez-vous est à venir (la date et l'heure sont postérieures à maintenant)
         if (appointmentDate.isAfter(now)) {

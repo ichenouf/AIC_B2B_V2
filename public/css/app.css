@@ -1176,3 +1176,73 @@ width: 25px;
   margin: 20px;
   width: 80%;
 }
+
+/************************************ Notification PAGE  **************************************************************/
+/***********************************                          *************************************************************/
+
+.notifications_drawer{
+  /* z-index: 500!important; */
+  width: 100vw;
+  height: 100vh;
+  background-color:rgb(248, 248, 248);
+  position: fixed;
+  right: 0px;
+  top:0px;
+  padding: 20px 0px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  grid-template-rows: 10% 1fr;
+  display: none;
+  
+
+
+}
+.header_notifications_drawer{display: grid; grid-template-columns: 30px 1fr 30px; place-items: center; border-bottom: 1px solid rgb(237, 237, 237);}
+
+
+.opened{
+  display: grid;
+}
+.notification{
+  display: grid;
+  width: 100%;
+  padding: 15px 10px;
+  grid-template-columns: 35px 1fr;
+  place-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+
+.unread{
+  background-color: rgb(224 237 247);
+}
+
+.notification_icon_container{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+}
+.notification_icon_container i{
+  font-size: 15px;
+}
+
+
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  
+  40% {
+    transform: translateY(-20px);
+  }
+  
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.jump {
+  animation: jumpAnimation 2s 3;
+  /* 2s est la durée totale de l'animation, et 3 est le nombre de répétitions */
+}
