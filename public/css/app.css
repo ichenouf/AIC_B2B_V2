@@ -93,7 +93,7 @@
     display: grid;
     grid-template-rows: 90px 1fr 60px;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     /* background: #f6f6f6 */
 }
 
@@ -341,7 +341,7 @@ width: 25px;
 #company_page{
     display: none;
     background-color:  rgb(253 253 253);
-    padding: 0px 10px;
+    padding: 0px 10px 80px 10px;
     height: 100%;
     width: 100%;
     position: relative;
@@ -473,14 +473,14 @@ width: 25px;
 
 #side_menu_appointment{
     width: 100vw;
-    height: 99dvh;
+    height: 100dvh;
     position: fixed;
     top: 0px;
     right: 0px;
     background-color: rgb(255, 255, 255);
     z-index: 220;
     display: grid;
-    grid-template-rows: 10% 1fr 10%;
+    grid-template-rows: 10% 1fr 16%;
     animation: fadec 0.2s forwards ease-out;
     z-index: 800;
     display: none;
@@ -490,16 +490,15 @@ width: 25px;
 .header_side_menu{ display: grid; grid-template-columns: 10% 1fr 10%; place-items: center;padding: 15px 20px }
 .header_side_menu .title { font-size: 18px;font-weight:600; text-align: center;}
 .body_side_menu_appointment{
-   padding: 30px 20px;
-    display: grid;
-    grid-template-rows: 0.5fr 1fr;
+   padding: 20px 20px;
+
 }
 
 .days_element_container{
     display: grid;
     grid-template-columns: auto auto;
     place-items: center;
-    padding: 25px 41px;
+    padding: 15px 40px;
 }
 .day_btn{
     width: 120px;
@@ -531,7 +530,7 @@ width: 25px;
     gap: 8px;
     grid-template-columns: 1fr 1fr 1fr;
     /* min-height: 250px; */
-    max-height: 300px;
+    max-height: 250px;
     overflow-y: scroll;
     place-content: baseline;
 
@@ -565,8 +564,8 @@ width: 25px;
   
   
 #request_appointment_btn{
-    width: 80%;
-    padding: 12px;
+    min-width: 80%;
+    padding: 19px 12px;
     border-radius: 0px;
     border-radius: 5px;
     color: white;
@@ -587,7 +586,7 @@ width: 25px;
     place-items: center;
     animation: fadec2 0.3s forwards ease-in;
     transition: 0.3s;
-    z-index: 700;
+    z-index: 1000;
     display: none;
 
 }
@@ -1104,9 +1103,27 @@ width: 25px;
     height: 40vh;
     width: 83vw;
     border-radius: 10px;
-    z-index: 300;
+    z-index: 1000;
     text-align: center;
     display: none;
+}
+
+#wpa_popup_container_ios{
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    height: 44vh;
+    width: 95vw;
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    display: none;
+   
 }
 
 
@@ -1123,7 +1140,7 @@ width: 25px;
   display: grid;
   grid-template-rows: 39% 1fr;
   animation: fadec 0.2s forwards ease-out;
-  z-index: 300;
+  z-index: 960;
   display: none;
 
 }

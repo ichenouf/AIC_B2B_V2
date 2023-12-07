@@ -338,6 +338,15 @@
             <div id="" class="w100" style="font-size: 15px; color: rgb(147, 147, 147); padding-top: 15px;">Plutard</div>
         </div>
     </div>
+    <div id="wpa_popup_container_ios" class="center" >
+        <div class="exit_wpa_popup" style="position:relative;right: -48%;"><i class="fa-regular fa-circle-xmark" style="font-size: 25px;"></i></div>
+         <img style=" border-radius: 10px;height: 70px;" src="./img/miniature.png">
+        <div style="font-size: 15px;">Installez cette application sur votre écran d'accueil pour un accès rapide et facile</div>
+        <div class="w100" style="padding: 10px;color:gray;text-align: left;">
+            <div  class="w100" style="padding: 5px 0px;"><span style="font-weight: 500;color: black;">1.</span>  Cliquer sur <span><img src="./img/apple-share.png" style="width: 30px;"></span> de votre navigateur</div>
+            <div class="w100" style="padding: 5px 0px;"><span style="font-weight: 500;color: black;">2.</span>  Cliquer sur ajouter à l'écran d'acceuil.</div>
+        </div>
+    </div>
 
     <div id="appointment_details_drawer"  class="drawer">
         <div class="drawer_header">
@@ -384,7 +393,7 @@
     <div class="popup_notification" style="display: none;">
         <div style="font-size: 18px;color:#ffffff8c;">
             Veuillez autoriser les notifications push.</div>
-        <div id="authorize_notifications" class="btn_notification">Autoriser</div>
+        <div id="authorize_notifications" class="btn_notification">OK</div>
     </div>
 
     <div class="notifications_drawer" style="z-index: 1000;">
@@ -418,13 +427,20 @@
         });
     }
 
-    navigator.serviceWorker.register('/firebase-messaging-sw.js')
-  .then((registration) => {
-    console.log('FIREBASE Service Worker enregistré avec succès:', registration);
-  })
-  .catch((error) => {
-    console.error('Erreur d\'enregistrement du Service Worker FIREBASE:', error);
-  });
+    let isIOS_global_scope=  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    let isWpa_global_scope=window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true
+    console.log(isIOS_global_scope,"is ios")
+    console.log(isWpa_global_scope,"is wpa")
+    if(!isIOS_global_scope && !isWpa_global_scope){
+        navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then((registration) => {
+            console.log('FIREBASE Service Worker enregistré avec succès:', registration);
+        })
+        .catch((error) => {
+            console.error('Erreur d\'enregistrement du Service Worker FIREBASE:', error);
+        });
+
+    }
 
 
 </script> -->
