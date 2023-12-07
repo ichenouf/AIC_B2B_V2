@@ -413,6 +413,22 @@ app.post(`/add_to_database`, async (req, res,) => {
         res.send({"ok":false, "error":error});
     }
 });
+app.post(`/send_appointment_request`, async (req, res,) => {
+
+    let {obj} = req.body;	
+	let result={}
+	try {
+		var id= await db.insert("appointment", obj);
+		 result["appointment"] = await db.select('*', "appointment", {id: id}, "indexed");
+
+		res.send({"reponses":result, "id":id,"ok":true})
+	
+	} catch (error) {
+		res.send({"ok":false, "error":error});
+	}
+
+
+});
 
 
 

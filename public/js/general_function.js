@@ -437,6 +437,9 @@ async function load_items (name,where,  reload = false){
         let id=data.id
         storage[id]=data.reponses[id]
         GV.id_memeberStorage = id
+        if(table_name=="appointment"){
+          updateButtonStatus($("#request_appointment_btn"), "success","Demander un rendez-vous")
+        }
 
 
       }else if(window.location.pathname=="/login-corporate"){
@@ -891,7 +894,7 @@ async function updateButtonStatus($button, status,default_text){
       $button.html(`${default_text}`).css('background-color', 'var(--clr-primary)').css('cursor', 'pointer !important').css('background-image', 'var(--clr-primary)!important');
       },  500);
       $button.prop('disabled', true);
-      $button.html(`<span class="button-text">succès</span>`).css('background-image', 'linear-gradient(98.69deg,#4caf50a3 -32.8%,#4CAF50 153.9%)').css('cursor', 'not-allowed !important');
+      $button.html(`<span class="button-text">succès</span>`).css('background-image', 'var(--clr-primary)').css('cursor', 'not-allowed !important');
       
   }else if(status === 'failed'){
 
@@ -908,3 +911,5 @@ async function updateButtonStatus($button, status,default_text){
 
   }
 }
+
+  

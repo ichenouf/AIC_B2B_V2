@@ -33,7 +33,6 @@ const vapidKey = {
 
 $(document).ready(  async function () {
 
-   
     moment.locale('fr');
     await get_session_id_cookies ()
 
@@ -49,39 +48,66 @@ $(document).ready(  async function () {
 
     display_appointments({status:1},'#confirmed_appointments_container',"2023-12-18")
     displayNearestAppointment()
-    navigate_to("home_page")
+   
+    
+    app_navigate_to("home_page");
+    
+ 
 
     // display_count_appointment({status:1},"#confirmed_appointments_count")
     // display_count_appointment({status:0},"#pending_appointments_count")
 
-  
+    
+
+    await notifyMe()
+
+
+    check_if_wpa()
+ 
+
    
-    window.addEventListener('beforeinstallprompt', (event) => {
-        alert(" beforeinstallprompt a été déclenché")
-        console.log('L\'événement beforeinstallprompt a été déclenché.');
-        // Empêcher l'affichage de l'invite automatique
-        event.preventDefault();
-       
-        // Stocker l'événement pour l'utiliser plus tard
-        GV.deferredPrompt = event;
-      
-        // Afficher votre propre popup pour proposer l'ajout à l'écran d'accueil
-        showAddToHomeScreenPopup();
-    });
-
-     app = firebase.initializeApp(firebaseConfig);
-   
-    messaging = app.messaging()
-
-    display_push_authorisation_popup()
-//    await get_user_token()
-
-
 
 });
 
 
 
+function check_if_wpa(){
+   
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+        // La PWA est déjà installée
+       
+        console.log('La PWA est déjà installée.');
+    } else {
+        // La PWA n'est pas encore installée
+        if(!isIOS()){
+            window.addEventListener('beforeinstallprompt', (event) => {
+                alert(" beforeinstallprompt a été déclenché")
+                console.log('L\'événement beforeinstallprompt a été déclenché.');
+                // Empêcher l'affichage de l'invite automatique
+                event.preventDefault();
+               
+                // Stocker l'événement pour l'utiliser plus tard
+                GV.deferredPrompt = event;
+              
+                // Afficher votre propre popup pour proposer l'ajout à l'écran d'accueil
+                showAddToHomeScreenPopup();
+            });
+    
+        }else{
+          
+            $("#overlay").css("display","block")
+            $("#wpa_popup_container_ios").css("display","grid")
+        }
+    
+       
+        console.log('La PWA n\'est pas encore installée.');
+    }
+}
+
+function isIOS() {
+    // Check if the user agent indicates iOS
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
 
 
 function showAddToHomeScreenPopup() {
@@ -93,7 +119,7 @@ function showAddToHomeScreenPopup() {
     // Ajouter un gestionnaire d'événements pour le bouton "Ajouter"
     const addButton = $('#add_wpa_btn');
     addButton.addEventListener('click', () => {
-        alert("")
+        alert("clicked")
         // L'utilisateur a choisi d'installer l'application
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
@@ -143,9 +169,13 @@ async function get_user_token(){
 async function notifyMe() {
     if (!("Notification" in window)) {
       // Check if the browser supports notifications
-      alert("This browser does not support mobile notification");
+    //   alert("This browser does not support mobile notification");
+      console.log("This browser does not support mobile notification")
     } else if (Notification.permission === "granted") {
-        alert(Notification.permission)
+        app = firebase.initializeApp(firebaseConfig);
+        messaging = app.messaging()
+
+       console.log(Notification.permission)
         await get_user_token()
       // Check whether notification permissions have already been granted;
       // if so, create a notification
@@ -153,9 +183,13 @@ async function notifyMe() {
       // …
     } else if (Notification.permission !== "denied") {
       // We need to ask the user for permission
+      $(".popup_notification, #overlay").css("display","grid")
+
       Notification.requestPermission().then(async (permission) => {
         // If the user accepts, let's create a notification
         if (permission === "granted") {
+            app = firebase.initializeApp(firebaseConfig);
+            messaging = app.messaging()
            await get_user_token()
         //   const notification = new Notification("Hi there!");
           // …
@@ -169,17 +203,16 @@ async function notifyMe() {
 
   onClick("#authorize_notifications", async function(){
     $(".popup_notification").css("display","none")
-    notifyMe()
+   
 
-})
+    })
 
-  async function display_push_authorisation_popup(){
-    if(Notification.permission === "granted"){
-        await get_user_token()
-    }else if(Notification.permission !== "denied" && Notification.permission !== "granted"){
-        $(".popup_notification, #overlay").css("display","grid")
-    }
-  }
+  onClick(".exit_wpa_popup", async function(){
+    $("#overlay").css("display","none")
+    $("#wpa_popup_container_ios").css("display","none")
+   
+    })
+
 
 
 //! /////////////////////////////////////////////////////////// 
@@ -360,8 +393,8 @@ function display_appointment_details_drawer(id_appointment){
         <div class="w100 h100" style="display:flex;place-items: center;place-self: center;flex-direction: column;gap: 10px;">
             <div class="user_avatar"><img src="./img/uploads/${user.picture}"></div>
             <div>
-                <div style="font-size: 21px;">${user.first_name} ${user.last_name}</div>
-                <div>${user.poste} à ${company.name}</div>
+                <div style="font-size: 21px;text-align:center">${user.first_name} ${user.last_name}</div>
+                <div style="text-align:center">${user.poste} à ${company.name}</div>
             </div>
             <div class="details_appointment_drawer_buttons" style="display:flex;gap:20px;">
                 ${buttons_html}
@@ -852,22 +885,23 @@ onClick('#overlay, .exit', function(){
     </div>
     <div class="body_side_menu_appointment">
         <div class="w100">
-            <div class="" style="font-size: 21px;">Sélectionnez une date </div>
+            <div class="" style="font-size: 19px;">Sélectionnez une date </div>
             <div class="w100 days_element_container">
                 <div class="day_btn selected_day_btn" data-id="2023-12-18" data-user="${user_id}">Lundi <br> 18/12</div>
                 <div class="day_btn" data-id="2023-12-19" data-user="${user_id}">Mardi <br> 19/12</div>
             </div>
         </div>
         <div class="w100 h100 ">
-            <div class="padding10" style="font-size: 21px;">Sélectionnez un créneau horaire</div>
-            <div id="time_slots_container" class="w100 h100">
+            <div class="padding10" style="font-size: 19px;">Créneaux horaires disponibles</div>
+            <div id="time_slots_container" class="w100">
  
             </div>
 
         </div>
     </div>
     <div class="w100 grid center line_top">
-        <div id="request_appointment_btn" class="button p_color" data-id="${user_id}" >Valider</div>
+        <div class="error_side_menu" style="color:red;padding:5px 10px;text-align:center"></div>
+        <div id="request_appointment_btn" class="button p_color" data-id="${user_id}" >Demander un rendez-vous</div>
     </div>
 
     `
@@ -942,33 +976,51 @@ onClick('.time_slot', function(){
 
 onClick('#request_appointment_btn', async function(){
    console.log(GV.session_id)
-
-    let myObj={
-        to_id:$(this).data('id'),
-        from_id:GV.session_id,
-        start:$('#time_slots_container').find('div.selected_time_slot').data("id"),
-        to_company_id:GV.users[$(this).data('id')].id_company,
-        from_company_id:GV.users[GV.session_id].id_company,
+   $(".error_side_menu").html("")
+  
+    if(!GV.session_id)return 
+ 
+    if($('#time_slots_container').find('div.selected_time_slot').length ==0){
+        $(".error_side_menu").html(`Erreur: Veuillez selectionner un créneau horaire.`)
+        
+    }else{
+        updateButtonStatus($("#request_appointment_btn"), "loading","Demander un rendez-vous")
+        display_app_notification("0")
+        let myObj={
+            to_id:$(this).data('id'),
+            from_id:GV.session_id,
+            start:$('#time_slots_container').find('div.selected_time_slot').data("id"),
+            to_company_id:GV.users[$(this).data('id')].id_company,
+            from_company_id:GV.users[GV.session_id].id_company,
+        }
+    
+        console.log(myObj)
+    
+        var data = await ajax('/send_appointment_request', {obj:myObj});
+        if(data.ok){
+            updateButtonStatus($("#request_appointment_btn"), "success","Demander un rendez-vous")
+            display_app_notification("1")
+            index_items(data.reponses)
+    
+        }else{
+            display_app_notification("2","Erreur lors de l'envoie de la demande")
+        }
+        // await add("appointment","",GV.appointment,myObj)
+    
+    
+    
     }
-
-    console.log(myObj)
-
-   
-
-      
-    await add("appointment","",GV.appointment,myObj)
+       
 
 
-
-
-    
-    
 
 
 });
 
 
+function check_selected_time_slot(){
 
+}
 
   //! /////////////////////////////////////////////////////////// 
 //! //////////////////!  APPOINTMENTS PAGE  //////////////////////////
@@ -1023,6 +1075,7 @@ async function update_appointments_status(appointment,obj){
         if(data.ok==true){
             
             display_app_notification("1")
+            return {ok:"ok"}
         }
       
        }catch(e){
@@ -1036,10 +1089,11 @@ async function update_appointments_status(appointment,obj){
 
 onClick("#confirm_btn",async function(){
     // sendDataToFlutter('vibrate')
-    
+    updateButtonStatus($("#confirm_btn"), "loading","Accepter")
     var obj={ status:1}
   let res= await update_appointments_status(GV.appointment[$(this).data("id")],obj)
    if(res.ok){
+        updateButtonStatus($("#confirm_btn"), "success","Accepter")
         closeDrawer()
         await load_items ('appointment',{to_id:GV.session_id},  reload = true)
         await load_items ('appointment',{from_id:GV.session_id},  reload = true)
@@ -1057,7 +1111,7 @@ onClick("#confirm_btn",async function(){
 });
 
 onClick("#decline_btn",async function(){
-    sendDataToFlutter('vibrate')
+    
 
     var obj={status:2}
     await update($(this).data('id'), "appointment", "" ,GV.appointment,obj)
