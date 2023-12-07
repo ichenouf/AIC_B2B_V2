@@ -473,7 +473,7 @@ width: 25px;
 
 #side_menu_appointment{
     width: 100vw;
-    height: 100vh;
+    height: 99dvh;
     position: fixed;
     top: 0px;
     right: 0px;
@@ -482,6 +482,7 @@ width: 25px;
     display: grid;
     grid-template-rows: 10% 1fr 10%;
     animation: fadec 0.2s forwards ease-out;
+    z-index: 800;
     display: none;
 
 }
@@ -688,9 +689,6 @@ width: 25px;
     color: white;
 }
 
-#decline_btn{
-    background-color: rgb(229 226 226);
-}
 
 
 @media (min-width:1025px) {
@@ -1096,14 +1094,19 @@ width: 25px;
 
 #wpa_popup_container{
   position: fixed;
-  top:0;
-  right:0;
-  background-color: rgb(237, 0, 0);
-  width: 100vw;
-  height: 180px;
-  padding: 10px;
-  display: none;
-
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    height: 40vh;
+    width: 83vw;
+    border-radius: 10px;
+    z-index: 300;
+    text-align: center;
+    display: none;
 }
 
 

@@ -328,8 +328,14 @@
         </div>
     </div>
 
-    <div id="wpa_popup_container" class="grid center">
-        <div id="add_wpa_btn" class="w100">Ajouter</div>
+    <div id="wpa_popup_container" class="grid center" >
+         <img style=" border-radius: 10px;height: 70px;" src="./img/miniature.png">
+        <div style="font-size: 20px;margin-bottom: auto;">Voulez-vous installer l'application AIC ? </div>
+        <div class="">
+            <div id="add_wpa_btn" class="w100" style="padding: 10px 40px; background-color: #d87448; border-radius: 5px; color: white;">Installer</div>
+
+            <div id="" class="w100" style="font-size: 15px; color: rgb(147, 147, 147); padding-top: 15px;">Plutard</div>
+        </div>
     </div>
 
     <div id="appointment_details_drawer"  class="drawer">
@@ -374,10 +380,13 @@
     
     <div id="side_menu">
     </div>
-    <div class="popup_notification">
-        <div style="font-size: 18px;color:#ffffff8c;">Veuillez accepter les notificaions</div>
-        <div class="btn_notification">Accepeter</div>
+    <div class="popup_notification" style="display: none;">
+        <div style="font-size: 18px;color:#ffffff8c;">
+            Veuillez autoriser les notifications push.</div>
+        <div id="authorize_notifications" class="btn_notification">Autoriser</div>
     </div>
+
+ 
     
 </body>
 <script>

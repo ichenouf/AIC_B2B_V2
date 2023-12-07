@@ -3,7 +3,7 @@
 GV={ swipers:{},initialize_page:{}}
 
 GV.dates={
-    "2023-12-18":{day:"Lundi",slots:["09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
+    "2023-12-18":{day:"Lundi",slots:["10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
     "2023-12-19":{day:"Mardi",slots:["08:00:00","09:00:00","09:30:00","10:00:00","10:30:00","11:00:00","11:30:00","12:00:00","12:30:00","13:00:00","13:30:00","14:00:00","14:30:00","15:00:00","15:30:00","16:00:00","16:30:00","17:00:00"]},
 }
 
@@ -32,7 +32,7 @@ const vapidKey = {
 //! ///////////////////////////////////////////////////////////
 
 $(document).ready(  async function () {
-    // navigate_to("home_page")
+
    
     moment.locale('fr');
     await get_session_id_cookies ()
@@ -49,7 +49,7 @@ $(document).ready(  async function () {
 
     display_appointments({status:1},'#confirmed_appointments_container',"2023-12-18")
     displayNearestAppointment()
-
+    navigate_to("home_page")
 
     // display_count_appointment({status:1},"#confirmed_appointments_count")
     // display_count_appointment({status:0},"#pending_appointments_count")
@@ -57,17 +57,23 @@ $(document).ready(  async function () {
   
    
     window.addEventListener('beforeinstallprompt', (event) => {
+        alert(" beforeinstallprompt a été déclenché")
         console.log('L\'événement beforeinstallprompt a été déclenché.');
         // Empêcher l'affichage de l'invite automatique
         event.preventDefault();
-        alert('L\'événement beforeinstallprompt a été déclenché.');
+       
         // Stocker l'événement pour l'utiliser plus tard
         GV.deferredPrompt = event;
       
         // Afficher votre propre popup pour proposer l'ajout à l'écran d'accueil
-        // showAddToHomeScreenPopup();
+        showAddToHomeScreenPopup();
     });
 
+     app = firebase.initializeApp(firebaseConfig);
+   
+    messaging = app.messaging()
+
+    display_push_authorisation_popup()
 //    await get_user_token()
 
 
@@ -75,21 +81,43 @@ $(document).ready(  async function () {
 });
 
 
-    const app = firebase.initializeApp(firebaseConfig);
-    const messaging = app.messaging()
 
 
 
+function showAddToHomeScreenPopup() {
+    // Afficher votre propre popup
+    const popupContainer = document.getElementById('wpa_popup_container');
+    popupContainer.style.display = 'block';
+    $("#overlay").css("display","block")
+
+    // Ajouter un gestionnaire d'événements pour le bouton "Ajouter"
+    const addButton = $('#add_wpa_btn');
+    addButton.addEventListener('click', () => {
+        alert("")
+        // L'utilisateur a choisi d'installer l'application
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              
+                $("#overlay").css("display","none")
+                console.log('L\'utilisateur a accepté l\'installation de l\'application.');
+            } else {
+                // $("#wpa_popup_container").css("display","none")
+                $("#overlay").css("display","none")
+
+                console.log('L\'utilisateur a refusé l\'installation de l\'application.');
+            }
+            deferredPrompt = null;
+            // Masquer le popup après la décision de l'utilisateur
+            popupContainer.style.display = 'none';
+        });
+    });
+
+    // Vous pouvez ajouter d'autres actions pour gérer le bouton "Annuler" ou des interactions similaires
+}
 
 
 
-
-
-onClick("#notifications_btn", async function(){
-   
-    notifyMe()
-
-})
 
 async function get_user_token(){
   
@@ -99,7 +127,7 @@ async function get_user_token(){
         let data = await ajax('/update_notification_token',{user_id:GV.session_id,token:currentToken}); 
         console.log('Token:', currentToken);
         if(data.ok){
-            alert(`token updated ${currentToken}`)
+            
             console.log(`token updated ${currentToken}`)
         }
         // Envoyez ce token au backend pour l'enregistrement
@@ -139,6 +167,19 @@ async function notifyMe() {
     // want to be respectful there is no need to bother them anymore.
   }
 
+  onClick("#authorize_notifications", async function(){
+    $(".popup_notification").css("display","none")
+    notifyMe()
+
+})
+
+  async function display_push_authorisation_popup(){
+    if(Notification.permission === "granted"){
+        await get_user_token()
+    }else if(Notification.permission !== "denied" && Notification.permission !== "granted"){
+        $(".popup_notification, #overlay").css("display","grid")
+    }
+  }
 
 
 //! /////////////////////////////////////////////////////////// 
@@ -146,28 +187,6 @@ async function notifyMe() {
 //! ///////////////////////////////////////////////////////////
 
 
-onClick("#add_wpa_btn", function(){
- 
-    console.log(GV.deferredPrompt,"je suis deferredPrompt")
-       
-        if (GV.deferredPrompt) {
-            alert("je suis là")
-          // Affichez l'invite pour ajouter à l'écran d'accueil
-          GV.deferredPrompt.prompt();
-    
-          // Attendez la réponse de l'utilisateur à l'invite
-          GV.deferredPrompt.deferredPrompt.userChoice.then(function(choiceResult) {
-            if (choiceResult.outcome === 'accepted') {
-              console.log('L\'utilisateur a accepté l\'ajout à l\'écran d\'accueil');
-            } else {
-              console.log('L\'utilisateur a refusé l\'ajout à l\'écran d\'accueil');
-            }
-    
-            // Réinitialisez deferredPrompt après avoir utilisé l'invite
-            GV.deferredPrompt = null;
-          });
-        }
-})
 
 
 
@@ -255,7 +274,7 @@ function get_html_appointment(filters){
             html+=`
             <div class="appointment_element center" data-id="${element.id}">
                 <div class="w100"  style="display:grid;grid-template-columns:45px 1fr;gap:10px">
-                    <div class="user_avatar"><img src="./img/${user.picture}"></div>
+                    <div class="user_avatar"><img src="./img/uploads/${user.picture}"></div>
                     <div class="w100">
                         <div class="bold">${element.from_id == GV.session_id ? GV.users[element.to_id].last_name : GV.users[element.from_id].last_name} ${element.from_id == GV.session_id ? GV.users[element.to_id].first_name : GV.users[element.from_id].first_name}</div>
                         <div style="font-size:14px">${element.from_id == GV.session_id ? GV.users[element.to_id].poste : GV.users[element.from_id].poste } à ${element.from_company_id==GV.users[GV.session_id].id_company ? GV.companies[element.to_company_id].name : GV.companies[element.from_company_id].name}</div>
@@ -282,7 +301,7 @@ function get_html_appointment(filters){
             html+=`
             <div class="pending_appointment_element center" data-id="${element.id}">
                 <div class="w100"  style="display:grid;grid-template-columns:45px 1fr;gap:10px">
-                    <div class="user_avatar"><img src="./img/${user.picture}"></div>
+                    <div class="user_avatar"><img src="./img/uploads/${user.picture}"></div>
                     <div class="w100">
                         <div class="bold">${user.first_name} ${user.last_name}</div>
                         <div style="font-size:14px">${element.from_id == GV.session_id ? GV.users[element.to_id].poste : GV.users[element.from_id].poste } à ${element.from_company_id==GV.users[GV.session_id].id_company ? GV.companies[element.to_company_id].name : GV.companies[element.from_company_id].name}</div>
@@ -339,7 +358,7 @@ function display_appointment_details_drawer(id_appointment){
             <span class="material-symbols-outlined exit" style="font-size: 35px">arrow_back_ios</span>
         </div>
         <div class="w100 h100" style="display:flex;place-items: center;place-self: center;flex-direction: column;gap: 10px;">
-            <div class="user_avatar"><img src="./img/${user.picture}"></div>
+            <div class="user_avatar"><img src="./img/uploads/${user.picture}"></div>
             <div>
                 <div style="font-size: 21px;">${user.first_name} ${user.last_name}</div>
                 <div>${user.poste} à ${company.name}</div>
@@ -631,7 +650,7 @@ function displaySideProfil (){
        
 }
 function displaySideCompany (){
-        var side = {id : "form_company", title_add: "Ajouter" , title_update: "Modifier votre Entrepriss",  btn_update: "update_company" }
+        var side = {id : "form_company", title_add: "Ajouter" , title_update: "Modifier votre Entreprise",  btn_update: "update_company" }
         var arr = [
           {data_id : 'name', selector : 'input', type : 'text', label : "Entreprise : ", id : ''},
           {data_id : 'country', selector : 'input', type : 'text', label : "Pays : ", id : ''},
@@ -680,7 +699,7 @@ function displayDetailProfil(){
         </div>
         <div class="list_header show-detail ">
             
-            <div class="d-flex" style="font-size: 18px; font-weight: 500; color: #252525;"> Les Informations de mon enreprise
+            <div class="d-flex" style="font-size: 18px; font-weight: 500; color: #252525;"> Les Informations de mon entreprise
                 <div id="length_done" style="padding-left: 10px; color: rgb(89, 71, 61);"> </div> 
             </div>
             <div class="icon_add ">                    
@@ -763,7 +782,7 @@ function get_html_company_users(id_company){
             if(element.id_company!= id_company)continue 
             html+=`
             <div class="user_company_element w100 cursor" style="background-color:white;margin-bottom:10px" data-id="${element.id}">
-                <div class="user_avatar"><img src="./img/${element.picture}"></div>
+                <div class="user_avatar"><img src="./img/uploads/${element.picture}"></div>
                 <div class="w100">
                     <div>${element.last_name} ${element.first_name}</div>
                     <div class="text_color3">${element.poste}</div>
@@ -934,7 +953,7 @@ onClick('#request_appointment_btn', async function(){
 
     console.log(myObj)
 
-    alert(myObj.to_id)
+   
 
       
     await add("appointment","",GV.appointment,myObj)
@@ -1017,17 +1036,22 @@ async function update_appointments_status(appointment,obj){
 
 onClick("#confirm_btn",async function(){
     // sendDataToFlutter('vibrate')
-
     
     var obj={ status:1}
-   await update_appointments_status(GV.appointment[$(this).data("id")],obj)
-
-   await load_items ('appointment',{to_id:GV.session_id},  reload = true)
-   await load_items ('appointment',{from_id:GV.session_id},  reload = true)
-   $("#appointment_details_drawer").css("display","none")
-   let date=$('#appointments_page').find(".selected_date_filter_pending_btn").data("id")
-   
-    display_appointments({status:"0",to:GV.session_id},'#pending_appointments_container',date)
+  let res= await update_appointments_status(GV.appointment[$(this).data("id")],obj)
+   if(res.ok){
+        closeDrawer()
+        await load_items ('appointment',{to_id:GV.session_id},  reload = true)
+        await load_items ('appointment',{from_id:GV.session_id},  reload = true)
+        $("#appointment_details_drawer").css("display","none")
+        let date=$('#appointments_page').find(".selected_date_filter_pending_btn").data("id")
+        
+        display_appointments({status:"0",to:GV.session_id},'#pending_appointments_container',date)
+    
+ 
+   }else{
+    console.log("error updating appointment")
+   }
 
 
 });

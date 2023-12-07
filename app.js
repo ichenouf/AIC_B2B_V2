@@ -320,8 +320,12 @@ Afin de vous y connecter veuillez vous rendre sur www.algeriainvestconference-bt
 			}
 
 			try {
-			
-				// await mailAppointment("confirmation",user_id)
+				
+				let from_user=await db.select('*', "users", {id:current_user}, "row");
+				let user_to_notify=await db.select('*', "users", {id:user_id}, "row");
+				let user_token=user_to_notify.token
+				await send_push_notification(user_token,"Demande de rendez-vous acceptée",`Votre demande de rendez-vous avec ${from_user.first_name} ${from_user.last_name} a été acceptée.`)
+
 				res.send({"ok":true});
 			} catch (error) {
 				res.send({"ok":false});
@@ -379,8 +383,11 @@ app.post(`/add_to_database`, async (req, res,) => {
 
 		if(table_name=="appointment"){
 			try {
+				let from_user=await db.select('*', "users", {id:obj.from_id}, "row");
+				let user_to_notify=await db.select('*', "users", {id:obj.to_id}, "row");
+				let user_token=user_to_notify.token
+				await send_push_notification(user_token,"Nouvelle demande de rendez-vous.",`Vous avez reçu une nouvelle demande de rendez-vous de la part de ${from_user.first_name} ${from_user.last_name}`)
 				
-				// await mailAppointment("nouveau",obj.to_id)
 
 			} catch (error) {
 				console.log(error)
@@ -819,8 +826,28 @@ app.post(`/logOut`, async (req, res,) => {
 
 });
 
+//! ///////////////////////////////////////////////////////////
+//! //////////////////!   FIREBASE NOTIFICATIONS  //////////////////////////
+//! ///////////////////////////////////////////////////////////
 
 
+	function send_push_notification(user_token,title,body){
+		const message = {
+			notification: {
+			  title: title,
+			  body: body,
+			},
+			token: user_token, // Le token récupéré côté frontend
+		  };
+		  
+		  firebase.messaging().send(message)
+			.then((response) => {
+			  console.log("Successfully sent message:", response);
+			})
+			.catch((error) => {
+			  console.error("Error sending message:", error);
+			});
+	}
 
 
 let port = process.env.PORT;
